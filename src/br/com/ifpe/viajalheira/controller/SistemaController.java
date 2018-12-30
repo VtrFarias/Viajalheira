@@ -10,4 +10,8 @@ public class SistemaController {
 		System.out.println("Executando a l�gica com Spring MVC.");
 		return "olaViajalheira";
 	}
+	@RequestMapping("endereco")
+	public String cadastroEndereco() {
+	return "cadastroendereco";
+	}
 }
