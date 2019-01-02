@@ -26,7 +26,7 @@ public class UsuarioController {
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		Usuario user = new Usuario();
-		user.setEndereco(endereco.getId());
+		user.setEndereco(String.valueOf(endereco.getId()));
 		
 		return cadastroUsuario(user);
 	}
