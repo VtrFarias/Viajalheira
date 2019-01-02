@@ -6,67 +6,67 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
- 
 
 /*@author Maria Beatriz Germano 
  * 
- *Classe responsável pelas ações referentes ao CRUD de Endereço 
- */
-public class EnderecoDao {
+ * Classe responsável pelas ações referentes ao CRUD de usuário
+ * */
+public class UsuarioDao {
 
 
 	private static final String PERSISTENCE_UNIT = "viajalheira";
 
-	public void salvar(Endereco endereco) {
+	public void salvar(Usuario usuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.persist(endereco);
+		manager.persist(usuario);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
 	}
 
-	public List<Endereco> listar() {
+	public List<Usuario> listar() {
 
-		return listar(null);
+		return listar("");
 	}
 
-	public List<Endereco> listar(Endereco endereco) {
+	public List<Usuario> listar(String nome) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
-		String rua = endereco != null ? endereco.getRua() : "";
-		if (rua != null && !rua.equals("")) {
-			query = manager.createQuery("FROM Endereco WHERE rua LIKE :paramRua ORDER BY rua");
-			query.setParameter("paramRua", "%" + rua + "%");
+		
+		if (nome != null && !nome.equals("")) {
+			query = manager.createQuery("FROM Usuario WHERE nome LIKE :paramNome ORDER BY id");
+			query.setParameter("paramNome", "%" + nome + "%");
 		} else {
-			query = manager.createQuery("FROM Endereco ORDER BY id");
+			query = manager.createQuery("FROM Usuario ORDER BY id");
 		}
-		List<Endereco> lista = query.getResultList();
+		List<Usuario> lista = query.getResultList();
 		manager.close();
 		factory.close();
 		return lista;
 	}
 
-	public Endereco buscarPorId(int id) {
-		Endereco obj = null;
+	public Usuario buscarPorId(int id) {
+		Usuario obj = null;
 		EntityManagerFactory factory =
 		Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		obj = manager.find(Endereco.class, id);
+		obj = manager.find(Usuario.class, id);
 		manager.close();
 		factory.close();
 		return obj;
 		}
 	
-	public void alterar(Endereco endereco) {
+	public void alterar(Usuario usuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.merge(endereco);
+		manager.merge(usuario);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
 		}
+	
 }
