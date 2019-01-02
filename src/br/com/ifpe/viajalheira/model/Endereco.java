@@ -1,4 +1,4 @@
-package br.com.ifpe.viajalheira.controller;
+package br.com.ifpe.viajalheira.model;
 
 import java.util.Date;
 
