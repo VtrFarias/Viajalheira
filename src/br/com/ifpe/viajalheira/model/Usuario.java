@@ -15,7 +15,7 @@ public class Usuario {
 	//verificar
 	
 	@Column(name = "id_endereco")
-	private int endereco;
+	private String endereco;
 	@Column
 	private String nome;
 	@Column(name = "cpf_cnpj")
@@ -43,11 +43,11 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public int getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(int endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 
