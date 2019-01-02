@@ -17,7 +17,17 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  <property name="prefix" value="/WEB-INF/view/" />
  <property name="suffix" value=".jsp" />
  
-
-
  </bean>
+ 
+ <bean id="conversionService"
+class="org.springframework.context.support.ConversionServiceFactoryBean">
+<property name="converters">
+<list>
+<bean class="br.com.ifpe.viajalheira.converters.EnderecoConverter" />
+</list>
+</property>
+</bean>
+
+
+<mvc:annotation-driven conversion-service="conversionService" />
 </beans>
