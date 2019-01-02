@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+//@author Maria Beatriz Germano
 @Entity
 @Table(name = "usuario")
 public class Usuario {
