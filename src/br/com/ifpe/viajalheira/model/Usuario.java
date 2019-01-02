@@ -4,6 +4,11 @@ import java.security.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 //@author Maria Beatriz Germano
@@ -11,26 +16,26 @@ import javax.persistence.Table;
 @Table(name = "usuario")
 public class Usuario {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	//verificar
+		
+	@OneToOne
+	@JoinColumn(name="endereco_id")
+	private Endereco endereco;
 	
-	@Column(name = "id_endereco")
-	private String endereco;
-	@Column
 	private String nome;
-	@Column(name = "cpf_cnpj")
+	
 	private String cpfCnpj;
-	@Column
+	
 	private String email;
-	@Column
+
 	private String senha;
-	@Column
+	
 	private String sexo;
-	@Column(name = "descricao_perfil")
+	
 	private String descricaoPerfil;
 	
-	//private adm;
-	@Column(name = "data_alteracao")
 	private Timestamp dataAlteracao;
 	
 	
@@ -43,11 +48,13 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getEndereco() {
+	
+
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 

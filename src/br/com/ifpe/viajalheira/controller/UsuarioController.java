@@ -21,14 +21,13 @@ public class UsuarioController {
 		return "usuario/novoCadastro";
 	}
 	@RequestMapping("/usuario/save")
-	public String cadastroEndereco(Endereco endereco) {
+	public String cadastroEndereco(Endereco endereco, Usuario usuario) {
 		
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
-		Usuario user = new Usuario();
-		user.setEndereco(String.valueOf(endereco.getId()));
-		
-		return cadastroUsuario(user);
+		usuario.setEndereco(endereco);
+
+		return cadastroUsuario(usuario);
 	}
 	
 	public String cadastroUsuario(Usuario usuario) {

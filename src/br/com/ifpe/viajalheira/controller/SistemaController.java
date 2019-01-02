@@ -5,13 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SistemaController {
-	@RequestMapping("olaMundoSpring")
+	@RequestMapping("ola")
 	public String olaMundo() {
 		System.out.println("Executando a l�gica com Spring MVC.");
-		return "olaViajalheira";
+		return "ola";
 	}
-	@RequestMapping("endereco")
-	public String cadastroEndereco() {
-	return "cadastroendereco";
-	}
+
 }
