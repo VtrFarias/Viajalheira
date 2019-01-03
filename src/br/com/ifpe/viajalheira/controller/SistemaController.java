@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SistemaController {
 	@RequestMapping("ola")
 	public String olaMundo() {
-		System.out.println("Executando a l�gica com Spring MVC.");
 		return "ola";
 	}
 

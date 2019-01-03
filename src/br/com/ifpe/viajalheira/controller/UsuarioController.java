@@ -17,7 +17,6 @@ public class UsuarioController {
 
 	@RequestMapping("/usuario/novoCadastro")
 	public String novoCadastro() {
-		
 		return "usuario/novoCadastro";
 	}
 	@RequestMapping("/usuario/save")

@@ -2,7 +2,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,9 @@
 </head>
 <body>
 	<!-- Importando Nav -->
-	<c:import url="comum/menu.jsp"></c:import>
+	<c:import url="../comum/menu.jsp"></c:import>
+
+	
 
 	<!-- Importando Bootstrap | Jquery -->
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
