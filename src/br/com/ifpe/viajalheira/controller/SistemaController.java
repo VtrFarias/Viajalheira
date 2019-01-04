@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SistemaController {
 	@RequestMapping("ola")
 	public String olaMundo() {
-		return "ola";
+		return "Home";
 	}
 
 }
