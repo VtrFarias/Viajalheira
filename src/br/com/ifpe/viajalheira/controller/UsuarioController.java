@@ -33,6 +33,6 @@ public class UsuarioController {
 		
 		UsuarioDao dao = new UsuarioDao();
 		dao.salvar(usuario);
-		return "usuario/novoCadastro";
+		return "usuario/cadastro";
 	}
 }
