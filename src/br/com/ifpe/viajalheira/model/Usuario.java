@@ -21,21 +21,21 @@ public class Usuario {
 	private int id;
 		
 	@OneToOne
-	@JoinColumn(name="endereco_id")
+	@JoinColumn(name="id_endereco")
 	private Endereco endereco;
-	
+	@Column
 	private String nome;
-	
+	@Column(name="cpf_cnpj")
 	private String cpfCnpj;
-	
+	@Column
 	private String email;
-
+	@Column
 	private String senha;
-	
+	@Column
 	private String sexo;
-	
+	@Column(name="descricao_perfil")
 	private String descricaoPerfil;
-	
+	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
 	
 	

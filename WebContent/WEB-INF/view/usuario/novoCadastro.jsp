@@ -24,6 +24,11 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/form.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/form.js"></script>
 
+<!-- Fontes -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web" rel="stylesheet">
+<style type="text/css">body{font-family: 'Titillium Web', sans-serif;}</style>
+
+
 
 </head>
 <body class="hm-gradient">
@@ -37,7 +42,7 @@
 	 <div class="col-12 text-center ">
 	    <h2>Cadastro de Usuário</h2>
 	</div>
-	  <form role="form">
+	  <form role="form" action="save" method="post">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -97,10 +102,10 @@
                   <div class="row">
 
 	                <c:forEach var="idioma" items="${listaIdiomas}">
-	                  <div class="form-group col-sm">
+	                  <div class="form-group col-md-6">
 						<label class="label-idioma">${idioma.descricao}</label>
                           <label class="switch ">
-				         	 <input type="checkbox" name="idioma" value="${idioma.descricao}" class="warning">
+				         	 <input type="checkbox" name="idioma" value="${idioma.id}" class="warning">
 				         	 <span class="slider round"></span>
 				          </label>
 	                   </div>
@@ -182,7 +187,7 @@
      	  </div>
      	  
      		<div class="text-right">
-              <button class="btn-info btn btn-lg waves-effect">Enviar</button>
+              <button class="btn-info btn btn-lg waves-effect" type="submit">Enviar</button>
              
             </div>              
      	</div>

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Endereco")
+@Table(name = "endereco")
 public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,7 @@ public class Endereco {
 	private String complemento;
 	@Column(name="data_alteracao")
 	private Date dataalteracao;
+	
 	public int getId() {
 		return id;
 	}
