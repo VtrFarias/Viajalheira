@@ -1,5 +1,7 @@
 package br.com.ifpe.viajalheira.converters;
 
+import org.springframework.core.convert.converter.Converter;
+
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
 
@@ -7,7 +9,7 @@ import br.com.ifpe.viajalheira.model.UsuarioDao;
  * 
  * Classe converter referente a usuário
  * */
-public class UsuarioConverter {
+public class UsuarioConverter implements Converter<String,Usuario> {
 
 	public Usuario convert(String id) {
 		UsuarioDao dao = new UsuarioDao();

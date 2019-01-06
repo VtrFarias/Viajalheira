@@ -25,12 +25,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
 			<list>
-				<bean
-					class="br.com.ifpe.viajalheira.converters.EnderecoConverter" />
-					<bean
-					class="br.com.ifpe.viajalheira.converters.IdiomaConverter" />
-					<bean
-					class="br.com.ifpe.viajalheira.converters.UsuarioConverter" />
+				<bean class="br.com.ifpe.viajalheira.converters.EnderecoConverter" />
+					<bean class="br.com.ifpe.viajalheira.converters.IdiomaConverter" />
+					<bean class="br.com.ifpe.viajalheira.converters.UsuarioConverter" />
 			</list>
 		</property>
 	</bean>

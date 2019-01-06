@@ -38,7 +38,9 @@ public class IdiomaDao {
 		if (descricao != null && !descricao.equals("")) {
 			query = manager.createQuery("FROM Idioma WHERE descricao LIKE :paramDescricao ORDER BY id");
 			query.setParameter("paramDescricao", descricao);
-		} 
+		} else {
+			query = manager.createQuery("FROM Idioma ORDER BY id");
+		}
 		
 		List<Idioma> lista = query.getResultList();
 		manager.close();

@@ -1,5 +1,7 @@
 package br.com.ifpe.viajalheira.converters;
 
+import org.springframework.core.convert.converter.Converter;
+
 import br.com.ifpe.viajalheira.model.Idioma;
 import br.com.ifpe.viajalheira.model.IdiomaDao;
 
@@ -7,7 +9,7 @@ import br.com.ifpe.viajalheira.model.IdiomaDao;
  * 
  * Classe converter referente a idioma
  * */
-public class IdiomaConverter {
+public class IdiomaConverter implements Converter<String,Idioma> {
 
 	public Idioma convert(String id) {
 		IdiomaDao dao = new IdiomaDao();

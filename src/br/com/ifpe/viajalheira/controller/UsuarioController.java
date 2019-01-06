@@ -1,11 +1,15 @@
 package br.com.ifpe.viajalheira.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
 import br.com.ifpe.viajalheira.model.Idioma;
+import br.com.ifpe.viajalheira.model.IdiomaDao;
 import br.com.ifpe.viajalheira.model.IdiomaUsuario;
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
@@ -18,7 +22,12 @@ import br.com.ifpe.viajalheira.model.UsuarioDao;
 public class UsuarioController {
 
 	@RequestMapping("/usuario/novoCadastro")
-	public String novoCadastro() {
+	public String novoCadastro(Model model) {
+		
+		IdiomaDao dao = new IdiomaDao();
+		List<Idioma> listaIdiomas = dao.listar(null);
+		model.addAttribute("listaIdiomas", listaIdiomas);
+		
 		return "usuario/novoCadastro";
 	}
 	@RequestMapping("/usuario/save")

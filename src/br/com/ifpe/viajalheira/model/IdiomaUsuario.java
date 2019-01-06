@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +21,12 @@ public class IdiomaUsuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column
+	@ManyToOne
+	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
-	@Column
-	private Idioma Idioma;
+	@ManyToOne
+	@JoinColumn(name="id_idioma")
+	private Idioma idioma;
 	@Column(name = "data_alteracao")
 	private Date dataAlteracao;
 	
@@ -31,13 +37,11 @@ public class IdiomaUsuario {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 	public Idioma getIdioma() {
-		return Idioma;
+		return idioma;
 	}
 	public void setIdioma(Idioma idioma) {
-		Idioma = idioma;
+		this.idioma = idioma;
 	}
 	public Date getDataAlteracao() {
 		return dataAlteracao;

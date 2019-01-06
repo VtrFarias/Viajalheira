@@ -95,14 +95,16 @@
 				 <label class="label-titulo">Idiomas</label>
     			 <!-- Quinta linha -->
                   <div class="row">
-	                  <div class="form-group col-sm">
-						<label class="label-idioma">Português</label>
-                          <label class="switch ">
 
-				         	 <input type="checkbox" name="idioma" value="" class="warning">
+	                <c:forEach var="idioma" items="${listaIdiomas}">
+	                  <div class="form-group col-sm">
+						<label class="label-idioma">${idioma.descricao}</label>
+                          <label class="switch ">
+				         	 <input type="checkbox" name="idioma" value="${idioma.descricao}" class="warning">
 				         	 <span class="slider round"></span>
 				          </label>
 	                   </div>
+					</c:forEach>	                   
 	                 
                   </div>
                     <!-- Sexta linha -->
