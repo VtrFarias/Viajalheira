@@ -7,6 +7,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+/*@author Maria Beatriz Germano 
+ * 
+ *Classe responsável pelas ações referentes ao CRUD de IdiomaUsuario
+ */
 public class IdiomaUsuarioDao {
 
 	

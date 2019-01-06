@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//@author Maria Beatriz Germano
 @Entity
 @Table(name="idioma")
 public class Idioma {

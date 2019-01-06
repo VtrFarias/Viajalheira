@@ -85,9 +85,9 @@
 		                    	<label class="label-titulo" for="sexo">Sexo</label>
 		                    	<select class="form-control" id="sexo" name="sexo">
 		                    		<option></option>
-		                    		<option>Feminino</option>
-		                    		<option>Masculino</option>
-		                    		<option>Outros</option>
+		                    		<option value="Feminino">Feminino</option>
+		                    		<option value="Masculino">Masculino</option>
+		                    		<option value="outros">Outros</option>
 		                    	</select>
 		                  </div>
 
@@ -99,7 +99,7 @@
 						<label class="label-idioma">Português</label>
                           <label class="switch ">
 
-				         	 <input type="checkbox" class="warning">
+				         	 <input type="checkbox" name="idioma" value="" class="warning">
 				         	 <span class="slider round"></span>
 				          </label>
 	                   </div>
