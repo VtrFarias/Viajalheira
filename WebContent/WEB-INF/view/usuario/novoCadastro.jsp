@@ -37,7 +37,7 @@
 	 <div class="col-12 text-center ">
 	    <h2>Cadastro de Usuário</h2>
 	</div>
-
+	  <form role="form">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -45,29 +45,44 @@
               <h4 class="card-title">Dados Pessoais</h4>
               <hr/>
      
-     			  <form role="form">
+     		
 	     			  <!-- Primeira linha -->
 	     			  <div class="row">
-		                    <div class=" col form-group float-label-control">
-		                        <label for="nome">Nome</label>
+		                    <div class="col form-group float-label-control">
+		                        <label class="label-input" for="nome">Nome</label>
 		                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
-		                        <label for="cpfCnpj">CPF/CNPJ</label>
+		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ</label>
 		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" placeholder="CPF/CNPJ">
 		                    </div>
 	                    </div>
+	                    
 	                <!-- Segunda linha -->
-                    <div class="row">
+	                <div class="row">
 	                    <div class="col form-group float-label-control">
-	                        <label for="email">Email</label>
+	                        <label class="label-input" for="email">Email</label>
 	                        <input type="email" id="email" name="email" class="form-control" placeholder="Email">
 	                    </div>
-	                    
-	                     
-	                    <div class="col form-group">
-		                    	<label for="sexo">Sexo</label>
+                    </div>
+                    <!-- Terceira linha -->
+	                  <div class="row">
+	                    <div class="col form-group float-label-control">
+	                        <label class="label-input" for="senha">Senha</label>
+	                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
+	                    </div>
+		                    
+	                     <div class="col form-group float-label-control">
+	                        <label class="label-input" for="confirmarSenha">Confirmar Senha</label>
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha">
+	                    </div>
+                    </div>
+                    
+
+                    <!-- Quarta linha -->
+	                    <div class="form-group">
+		                    	<label class="label-titulo" for="sexo">Sexo</label>
 		                    	<select class="form-control" id="sexo" name="sexo">
 		                    		<option></option>
 		                    		<option>Feminino</option>
@@ -75,40 +90,28 @@
 		                    		<option>Outros</option>
 		                    	</select>
 		                  </div>
-	                  </div>
-                    
-                    <!-- Terceira linha -->
-	                  <div class="row">
-	                    <div class="col form-group float-label-control">
-	                        <label for="senha">Senha</label>
-	                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
-	                    </div>
-		                    
-	                     <div class="col form-group float-label-control">
-	                        <label for="confirmarSenha">Confirmar Senha</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha">
-	                    </div>
-                    </div>
-                    
 
-                    <!-- Quarta linha -->
-				 <label>Idiomas</label>	
+				
+				 <label class="label-titulo">Idiomas</label>
+    			 <!-- Quinta linha -->
                   <div class="row">
 	                  <div class="form-group col-sm">
-                          Português
+						<label class="label-idioma">Português</label>
                           <label class="switch ">
+
 				         	 <input type="checkbox" class="warning">
 				         	 <span class="slider round"></span>
 				          </label>
 	                   </div>
 	                 
                   </div>
-                    
-                    <div class="form-group float-label-control">
-                        <label for="">Descrição</label>
-                        <textarea class="form-control" placeholder="Fale um pouco sobre você..." rows="1"></textarea>
+                    <!-- Sexta linha -->
+                    <div class="row">
+	                    <div class="col form-group float-label-control">
+	                        <label class="label-input" for="">Descrição</label>
+	                        <textarea class="form-control" placeholder="Fale um pouco sobre você..." rows="1"></textarea>
+	                    </div>
                     </div>      	
-                </form>
                
           </div>
         </div>
@@ -119,13 +122,74 @@
             <div class="card-body">
               <h4 class="card-title">Endereço</h4>
               <hr/>
-     		</div>
-     	  </div>              
+              
+                <!-- Primeira linha -->
+	     			  <div class="row">
+		                    <div class="col form-group float-label-control">
+		                        <label class="label-input" for="rua">Rua</label>
+		                        <input type="text" id="rua" name="rua" class="form-control" placeholder="Rua">
+		                    </div>
+		                    
+		                    <div class="col form-group float-label-control">
+		                        <label class="label-input" for="numero">Número</label>
+		                        <input type="text" id="numero" name="numero" class="form-control" placeholder="Número">
+		                    </div>
+	                    </div>
+	                    
+	                <!-- Segunda linha -->
+	                <div class="row">
+	                        <div class="col form-group float-label-control">
+	                        <label class="label-input" for="complemento">Complemento</label>
+	                        <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Complemento">
+	                    </div>
+                    
+                    	<div class="col form-group float-label-control">
+	                        <label class="label-input" for="bairro">Bairro</label>
+	                        <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+	                    </div>
+	                    
+                    </div>
+                    <!-- Terceira linha -->
+	                  <div class="row">
+	                    <div class="col form-group float-label-control">
+	                        <label class="label-input" for="cidade">Cidade</label>
+	                        <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
+	                    </div>
+		                   
+		                   
+		              	<div class="col form-group float-label-control">
+	                        <label class="label-input" for="estado">Estado</label>
+	                        <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado">
+	                    </div>
+	                     
+                    </div>
+                    
+
+                    <!-- Quarta linha -->
+	                    <div class="form-group">
+		                    	<label class="label-titulo" for="pais">País</label>
+		                    	<select class="form-control" id="pais" name="pais">
+		                    		<option></option>
+		                    		<option>Brasil</option>
+		                    		<option>Chile</option>
+		                    		<option>Argentina</option>
+		                    	</select>
+		                  </div>
+
+     		</div>	
+     	  </div>
+     	  
+     		<div class="text-right">
+              <button class="btn-info btn btn-lg waves-effect">Enviar</button>
+             
+            </div>              
      	</div>
-     
     </div>
     
+    
+    </form>
    </div>
+  
 
 </body>
 </html>

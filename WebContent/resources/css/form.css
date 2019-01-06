@@ -54,13 +54,21 @@
     50% { opacity: 0; font-size: 0.85em; }
     100% { top: 3em; opacity: 1; }
 }
-
+.label-input{
+	margin-left:11px;
+}
+.label-titulo{
+	font-size:20px;
+	
+}
+.label-idioma{
+	color:#696969;
+	font-size:17px;
+}
 
 
 
 /*checkbox*/
-
-
 
 /* The switch - the box around the slider */
 .switch {
