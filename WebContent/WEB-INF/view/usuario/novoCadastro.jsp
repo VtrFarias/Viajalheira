@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,6 +25,11 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/form.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/form.js"></script>
 
+<!-- Fontes -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web" rel="stylesheet">
+
+
+
 
 </head>
 <body class="hm-gradient">
@@ -37,7 +43,7 @@
 	 <div class="col-12 text-center ">
 	    <h2>Cadastro de Usuário</h2>
 	</div>
-	  <form role="form">
+	  <form role="form" action="save" method="post">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -85,9 +91,9 @@
 		                    	<label class="label-titulo" for="sexo">Sexo*</label>
 		                    	<select class="form-control" id="sexo" name="sexo" required>
 		                    		<option></option>
-		                    		<option>Feminino</option>
-		                    		<option>Masculino</option>
-		                    		<option>Outros</option>
+		                    		<option value="Feminino">Feminino</option>
+		                    		<option value="Masculino">Masculino</option>
+		                    		<option value="outros">Outros</option>
 		                    	</select>
 		                  </div>
 
@@ -95,14 +101,16 @@
 				 <label class="label-titulo">Idiomas</label>
     			 <!-- Quinta linha -->
                   <div class="row">
-	                  <div class="form-group col-sm">
-						<label class="label-idioma">Português</label>
-                          <label class="switch ">
 
-				         	 <input type="checkbox" class="warning">
+	                <c:forEach var="idioma" items="${listaIdiomas}">
+	                  <div class="form-group col-md-6">
+						<label class="label-idioma">${idioma.descricao}</label>
+                          <label class="switch ">
+				         	 <input type="checkbox" name="idioma" value="${idioma.id}" class="warning">
 				         	 <span class="slider round"></span>
 				          </label>
 	                   </div>
+					</c:forEach>	                   
 	                 
                   </div>
                     <!-- Sexta linha -->
@@ -180,7 +188,7 @@
      	  </div>
      	  
      		<div class="text-right">
-              <button class="btn-info btn btn-lg waves-effect">Enviar</button>
+              <button class="btn-info btn btn-lg waves-effect" type="submit">Enviar</button>
              
             </div>              
      	</div>

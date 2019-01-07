@@ -69,4 +69,20 @@ public class UsuarioDao {
 		factory.close();
 		}
 	
+	public Usuario buscarUsuario(Usuario usuario) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createQuery("FROM Usuario WHERE email LIKE :paramEmail AND senha LIKE :paramSenha");
+		query.setParameter("paramEmail", usuario.getEmail());
+		query.setParameter("paramSenha", usuario.getSenha());
+		List<Usuario> registros = query.getResultList();
+		Usuario obj = null;
+		if (!registros.isEmpty()) {
+			obj = (Usuario) registros.get(0);
+		}
+		manager.close();
+		factory.close();
+		return obj;
+	}
 }
