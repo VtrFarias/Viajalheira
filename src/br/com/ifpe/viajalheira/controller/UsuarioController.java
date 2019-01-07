@@ -2,8 +2,11 @@ package br.com.ifpe.viajalheira.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,6 +25,26 @@ import br.com.ifpe.viajalheira.model.UsuarioDao;
  * */
 @Controller
 public class UsuarioController {
+	
+	
+	@RequestMapping("login")
+	public String login( Usuario usuario, BindingResult result, HttpSession session, Model model) {
+		
+		
+		
+		UsuarioDao dao = new UsuarioDao();
+		
+		
+		Usuario usuarioLogado = dao.buscarUsuario(usuario);
+		
+		if (usuarioLogado != null) {
+				session.setAttribute("usuarioLogado", usuarioLogado);
+				return "home";
+		}
+		model.addAttribute("msg", "Email ou Senha incorretos. <br/>Tente novamente.");
+		return "index";
+	}	
+	
 
 	@RequestMapping("/usuario/novoCadastro")
 	public String novoCadastro(Model model) {

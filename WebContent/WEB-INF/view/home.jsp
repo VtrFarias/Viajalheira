@@ -14,6 +14,6 @@
 </head>
 <body>
 	<!-- Importando Nav -->
-	<c:import url="comum/menu.jsp"></c:import>
+	<c:import url="comum/sidebar.jsp"></c:import>
 </body>
 </html>
