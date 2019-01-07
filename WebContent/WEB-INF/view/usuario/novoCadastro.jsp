@@ -55,41 +55,41 @@
 	     			  <!-- Primeira linha -->
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="nome">Nome</label>
-		                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
+		                        <label class="label-input" for="nome">Nome*</label>
+		                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome*" required>
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ</label>
-		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" placeholder="CPF/CNPJ">
+		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ*</label>
+		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" placeholder="CPF/CNPJ*" required>
 		                    </div>
 	                    </div>
 	                    
 	                <!-- Segunda linha -->
 	                <div class="row">
 	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="email">Email</label>
-	                        <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+	                        <label class="label-input" for="email">Email*</label>
+	                        <input type="email" id="email" name="email" class="form-control" placeholder="Email*" required>
 	                    </div>
                     </div>
                     <!-- Terceira linha -->
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="senha">Senha</label>
-	                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
+	                        <label class="label-input" for="senha">Senha*</label>
+	                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha*" reuqired>
 	                    </div>
 		                    
 	                     <div class="col form-group float-label-control">
-	                        <label class="label-input" for="confirmarSenha">Confirmar Senha</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha">
+	                        <label class="label-input" for="confirmarSenha">Confirmar Senha*</label>
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha*">
 	                    </div>
                     </div>
                     
 
                     <!-- Quarta linha -->
 	                    <div class="form-group">
-		                    	<label class="label-titulo" for="sexo">Sexo</label>
-		                    	<select class="form-control" id="sexo" name="sexo">
+		                    	<label class="label-titulo" for="sexo">Sexo*</label>
+		                    	<select class="form-control" id="sexo" name="sexo" required>
 		                    		<option></option>
 		                    		<option value="Feminino">Feminino</option>
 		                    		<option value="Masculino">Masculino</option>
@@ -134,13 +134,13 @@
                 <!-- Primeira linha -->
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="rua">Rua</label>
-		                        <input type="text" id="rua" name="rua" class="form-control" placeholder="Rua">
+		                        <label class="label-input" for="rua">Rua*</label>
+		                        <input type="text" id="rua" name="rua" class="form-control" placeholder="Rua*" required>
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="numero">Número</label>
-		                        <input type="text" id="numero" name="numero" class="form-control" placeholder="Número">
+		                        <label class="label-input" for="numero">Número*</label>
+		                        <input type="text" id="numero" name="numero" class="form-control" placeholder="Número*" required>
 		                    </div>
 	                    </div>
 	                    
@@ -152,22 +152,22 @@
 	                    </div>
                     
                     	<div class="col form-group float-label-control">
-	                        <label class="label-input" for="bairro">Bairro</label>
-	                        <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro">
+	                        <label class="label-input" for="bairro">Bairro*</label>
+	                        <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro*" required>
 	                    </div>
 	                    
                     </div>
                     <!-- Terceira linha -->
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="cidade">Cidade</label>
-	                        <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade">
+	                        <label class="label-input" for="cidade">Cidade*</label>
+	                        <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade*" required>
 	                    </div>
 		                   
 		                   
 		              	<div class="col form-group float-label-control">
-	                        <label class="label-input" for="estado">Estado</label>
-	                        <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado">
+	                        <label class="label-input" for="estado">Estado*</label>
+	                        <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado*" required>
 	                    </div>
 	                     
                     </div>
@@ -175,8 +175,8 @@
 
                     <!-- Quarta linha -->
 	                    <div class="form-group">
-		                    	<label class="label-titulo" for="pais">País</label>
-		                    	<select class="form-control" id="pais" name="pais">
+		                    	<label class="label-titulo" for="pais">País*</label>
+		                    	<select class="form-control" id="pais" name="pais*" required>
 		                    		<option></option>
 		                    		<option>Brasil</option>
 		                    		<option>Chile</option>
