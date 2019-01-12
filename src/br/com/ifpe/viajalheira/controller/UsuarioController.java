@@ -25,69 +25,82 @@ import br.com.ifpe.viajalheira.model.UsuarioDao;
  * */
 @Controller
 public class UsuarioController {
-	
-	
+
+	@RequestMapping("home")
+	public String home() {
+
+		return "home";
+	}
+
 	@RequestMapping("login")
-	public String login( Usuario usuario, BindingResult result, HttpSession session, Model model) {
-		
-		
-		
+	public String login(Usuario usuario, BindingResult result, HttpSession session, Model model) {
+
+		String retorno = "";
+
 		UsuarioDao dao = new UsuarioDao();
-		
-		
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
-		
+
 		if (usuarioLogado != null) {
-				session.setAttribute("usuarioLogado", usuarioLogado);
-				return "home";
+			session.setAttribute("usuarioLogado", usuarioLogado);
+			retorno = "home";
+
+		} else {
+			model.addAttribute("msg", "Email ou Senha incorretos. <br/>Tente novamente.");
+			retorno = "index";
 		}
-		model.addAttribute("msg", "Email ou Senha incorretos. <br/>Tente novamente.");
+		return retorno;
+	}
+
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
 		return "index";
-	}	
-	
+	}
 
 	@RequestMapping("/usuario/novoCadastro")
 	public String novoCadastro(Model model) {
-		
+
 		IdiomaDao dao = new IdiomaDao();
 		List<Idioma> listaIdiomas = dao.listar(null);
 		model.addAttribute("listaIdiomas", listaIdiomas);
-		
+
 		return "usuario/novoCadastro";
 	}
+
 	@RequestMapping("/usuario/save")
-	public String cadastroEndereco(Model model, Endereco endereco, @RequestParam(value="idioma", required=false)int[] idioma, Usuario usuario) {
-		
+	public String cadastroEndereco(Model model, Endereco endereco,
+			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario) {
+
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		usuario.setEndereco(endereco);
 
 		return cadastroUsuario(model, usuario, idioma);
 	}
-	
+
 	public String cadastroUsuario(Model model, Usuario usuario, int[] idioma) {
-			
+
 		UsuarioDao dao = new UsuarioDao();
 		dao.salvar(usuario);
-		
+
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
 		return "forward:novoCadastro";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
-		
+
 		IdiomaDao idiomaDao = new IdiomaDao();
 
 		for (int id : idIdioma) {
 			Idioma idioma = idiomaDao.buscarPorId(id);
 			IdiomaUsuario idiomaUsuario = new IdiomaUsuario();
 			IdiomaUsuarioDao dao = new IdiomaUsuarioDao();
-			
+
 			idiomaUsuario.setIdioma(idioma);
 			idiomaUsuario.setUsuario(usuario);
 			dao.salvar(idiomaUsuario);
 		}
 	}
-	
+
 }
