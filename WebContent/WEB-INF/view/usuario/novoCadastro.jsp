@@ -11,37 +11,57 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Viajalheira</title>
+
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-yellow.min.css" />
+	<!-- Importando Bootstrap-->
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+
 	
-<!-- Importando Bootstrap-->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
-
-<!-- sidebar arquivos -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sidebar.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/sidebar.css" />
-
-<!-- Arquivos Formulário -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/form.css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/form.js"></script>
-
-<!-- Fontes -->
-<link href="https://fonts.googleapis.com/css?family=Roboto|Titillium+Web" rel="stylesheet">
-
-
-
-
+	
 </head>
-<body class="hm-gradient">
+<body>
 
-<c:import url="../comum/sidebar.jsp"></c:import>
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Home</span>
+          
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search">
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">About</li>
+            <li class="mdl-menu__item">Contact</li>
+            <li class="mdl-menu__item">Legal information</li>
+          </ul>
+        </div>
+      </header>
+
+<div class="mdl-grid demo-content">
+          
 	
 <!-- Exemplos de cards -->	
 	
-<div id="wrapper" class="animate">
+
 	<div class="container-fluid">
 	 <div class="col-12 text-center ">
 	    <h2>Cadastro de Usuário</h2>
+
 	</div>
 	  <form role="form" action="save" method="post">
       <div class="row">
@@ -56,12 +76,12 @@
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="nome">Nome*</label>
-		                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome*" required>
+		                        <input type="text" id="nome" name="nome" class="form-control"  required>
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ*</label>
-		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" placeholder="CPF/CNPJ*" required>
+		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control"  required>
 		                    </div>
 	                    </div>
 	                    
@@ -84,7 +104,7 @@
 	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha*">
 	                    </div>
                     </div>
-                    
+
 
                     <!-- Quarta linha -->
 	                    <div class="form-group">
@@ -101,17 +121,17 @@
 				 <label class="label-titulo">Idiomas</label>
     			 <!-- Quinta linha -->
                   <div class="row">
-
+					<div class = "mdl-grid">
 	                <c:forEach var="idioma" items="${listaIdiomas}">
-	                  <div class="form-group col-md-6">
-						<label class="label-idioma">${idioma.descricao}</label>
-                          <label class="switch ">
-				         	 <input type="checkbox" name="idioma" value="${idioma.id}" class="warning">
-				         	 <span class="slider round"></span>
-				          </label>
-	                   </div>
+	              	
+		             <div class = "mdl-cell mdl-cell--4-col graybox">
+	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light" for="${idioma.descricao}">
+  					  	<input type="checkbox" name="idioma" id="${idioma.descricao}" class="mdl-checkbox__input">
+  						<span class="mdl-checkbox__label">${idioma.descricao}</span>
+					  </label>	
+	                </div>
 					</c:forEach>	                   
-	                 
+	                 </div>
                   </div>
                     <!-- Sexta linha -->
                     <div class="row">
@@ -188,7 +208,8 @@
      	  </div>
      	  
      		<div class="text-right">
-              <button class="btn-info btn btn-lg waves-effect" type="submit">Enviar</button>
+     		<br>
+              <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" type="submit">Enviar</button>
              
             </div>              
      	</div>
@@ -197,7 +218,7 @@
     
     </form>
    </div>
-  
+  </div>
 
 </body>
 </html>
