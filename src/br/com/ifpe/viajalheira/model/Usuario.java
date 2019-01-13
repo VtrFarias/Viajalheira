@@ -38,8 +38,10 @@ public class Usuario {
 	
 	@Column
 	private String sexo;
+	
 	@Column(name="descricao_perfil")
 	private String descricaoPerfil;
+	
 	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
 	

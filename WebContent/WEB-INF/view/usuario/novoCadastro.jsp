@@ -3,8 +3,8 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html">
+<html lang="pt-br">
 <head>
 
 
@@ -15,23 +15,20 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-yellow.min.css" />
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-yellow.min.css" />
 	<!-- Importando Bootstrap-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+
 
 	
 	
 </head>
 <body>
 
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Home</span>
-          
-          <div class="mdl-layout-spacer"></div>
+          	<span class="mdl-layout-title">Home</span>
+          	<div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>
@@ -81,7 +78,7 @@
 		                    
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ*</label>
-		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control"  required>
+		                        <input type="text" id="cpfCnpj" name="cpfCnpj" maxlength="14" class="form-control"  required>
 		                    </div>
 	                    </div>
 	                    
@@ -89,19 +86,19 @@
 	                <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="email">Email*</label>
-	                        <input type="email" id="email" name="email" class="form-control" placeholder="Email*" required>
+	                        <input type="email" id="email" name="email" class="form-control" required>
 	                    </div>
                     </div>
                     <!-- Terceira linha -->
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="senha">Senha*</label>
-	                        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha*" reuqired>
+	                        <input type="password" id="senha" name="senha" class="form-control" reuqired>
 	                    </div>
 		                    
 	                     <div class="col form-group float-label-control">
 	                        <label class="label-input" for="confirmarSenha">Confirmar Senha*</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha*">
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control">
 	                    </div>
                     </div>
 
@@ -136,8 +133,8 @@
                     <!-- Sexta linha -->
                     <div class="row">
 	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="">Descrição</label>
-	                        <textarea class="form-control" placeholder="Fale um pouco sobre você..." rows="1"></textarea>
+	                        <label class="label-input" for="inputDescricao">Descrição</label>
+	                        <textarea class="form-control" id="inputDescricao" name="descricaoPerfil" placeholder="Fale um pouco sobre você..." rows="1"></textarea>
 	                    </div>
                     </div>      	
                
@@ -155,12 +152,12 @@
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="rua">Rua*</label>
-		                        <input type="text" id="rua" name="rua" class="form-control" placeholder="Rua*" required>
+		                        <input type="text" id="rua" name="rua" class="form-control" required>
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="numero">Número*</label>
-		                        <input type="text" id="numero" name="numero" class="form-control" placeholder="Número*" required>
+		                        <input type="text" id="numero" name="numerocasa" class="form-control" required>
 		                    </div>
 	                    </div>
 	                    
@@ -168,12 +165,12 @@
 	                <div class="row">
 	                        <div class="col form-group float-label-control">
 	                        <label class="label-input" for="complemento">Complemento</label>
-	                        <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Complemento">
+	                        <input type="text" id="complemento" name="complemento" class="form-control">
 	                    </div>
                     
                     	<div class="col form-group float-label-control">
 	                        <label class="label-input" for="bairro">Bairro*</label>
-	                        <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Bairro*" required>
+	                        <input type="text" id="bairro" name="bairro" class="form-control" required>
 	                    </div>
 	                    
                     </div>
@@ -181,13 +178,13 @@
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="cidade">Cidade*</label>
-	                        <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Cidade*" required>
+	                        <input type="text" id="cidade" name="cidade" class="form-control" required>
 	                    </div>
 		                   
 		                   
 		              	<div class="col form-group float-label-control">
 	                        <label class="label-input" for="estado">Estado*</label>
-	                        <input type="text" id="estado" name="estado" class="form-control" placeholder="Estado*" required>
+	                        <input type="text" id="estado" name="estado" class="form-control" required>
 	                    </div>
 	                     
                     </div>
@@ -196,7 +193,7 @@
                     <!-- Quarta linha -->
 	                    <div class="form-group">
 		                    	<label class="label-titulo" for="pais">País*</label>
-		                    	<select class="form-control" id="pais" name="pais*" required>
+		                    	<select class="form-control" id="pais" name="pais" required>
 		                    		<option></option>
 		                    		<option>Brasil</option>
 		                    		<option>Chile</option>
@@ -211,14 +208,18 @@
      		<br>
               <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" type="submit">Enviar</button>
              
-            </div>              
-     	</div>
-    </div>
+            			</div>              
+     				</div>
+    			</div>
     
     
-    </form>
-   </div>
-  </div>
+    		</form>
+  	 	</div>
+  	</div>
 
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+	
 </body>
 </html>
