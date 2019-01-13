@@ -44,7 +44,7 @@
     <div class="form-check">
     
     	
-	   	<a class="text-info">Cadastre-se</a> 
+	   	<a class="text-info" href="/viajalheira/usuario/novoCadastro">Cadastre-se</a> 
 	    
 	    <button type="submit" class="btn btn-info float-right">Entrar</button>
   	</div>	
