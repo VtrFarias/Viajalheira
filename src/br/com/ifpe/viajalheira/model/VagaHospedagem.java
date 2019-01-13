@@ -2,19 +2,42 @@ package br.com.ifpe.viajalheira.model;
 
 import java.security.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vaga_hospedagem")
 public class VagaHospedagem {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
+	@JoinColumn(name="id_endereco")
 	private Endereco endereco;
+	@JoinColumn(name="id_tipo_vaga")
 	private TipoVaga tipoVaga;
+	@Column
 	private String titulo;
+	@Column
 	private String descricao;
+	@Column
 	private String situacao;
+	@Column(name="tempo_minimo_semanas")
 	private String tempoMinimoSemanas;
+	@Column(name="tempo_maximo_semanas")
 	private String tempoMaximoSemanas;
+	@Column(name="horas_trabalho_semanal")
 	private String horasTrabalhoSemanal;
-	private Timestamp dataAlteraacao;
+	@Column(name="data_alteracao")
+	private Timestamp dataAlteracao;
 	
 	
 	public int getId() {
@@ -77,11 +100,12 @@ public class VagaHospedagem {
 	public void setHorasTrabalhoSemanal(String horasTrabalhoSemanal) {
 		this.horasTrabalhoSemanal = horasTrabalhoSemanal;
 	}
-	public Timestamp getDataAlteraacao() {
-		return dataAlteraacao;
+	public Timestamp getDataAlteracao() {
+		return dataAlteracao;
 	}
-	public void setDataAlteraacao(Timestamp dataAlteraacao) {
-		this.dataAlteraacao = dataAlteraacao;
+	public void setDataAlteracao(Timestamp dataAlteracao) {
+		this.dataAlteracao = dataAlteracao;
 	}
+	
 	
 }
