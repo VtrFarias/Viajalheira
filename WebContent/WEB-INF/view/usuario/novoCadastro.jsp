@@ -60,7 +60,7 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-	  <form role="form" action="save" method="post">
+	  <form role="form" id="formulario" action="save" method="post">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -123,7 +123,7 @@
 	              	
 		             <div class = "mdl-cell mdl-cell--4-col graybox">
 	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light" for="${idioma.descricao}">
-  					  	<input type="checkbox" name="idioma" id="${idioma.descricao}" class="mdl-checkbox__input">
+  					  	<input type="checkbox" name="idioma" id="${idioma.descricao}"  value="${idioma.id}" class="mdl-checkbox__input">
   						<span class="mdl-checkbox__label">${idioma.descricao}</span>
 					  </label>	
 	                </div>
@@ -206,20 +206,28 @@
      	  
      		<div class="text-right">
      		<br>
-              <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" type="submit">Enviar</button>
+              <button id="enviarForm" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" type="submit">Enviar</button>
              
             			</div>              
      				</div>
     			</div>
-    
-    
+
     		</form>
   	 	</div>
   	</div>
+  	
+	  	
+
+	
+	<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+	  <div class="mdl-snackbar__text"></div>
+	  <button class="mdl-snackbar__action" type="button"></button>
+	</div>
+
 
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
-	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/mensagemSucess.js"></script>	
 </body>
 </html>

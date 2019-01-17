@@ -63,7 +63,7 @@ public class UsuarioController {
 		IdiomaDao dao = new IdiomaDao();
 		List<Idioma> listaIdiomas = dao.listar(null);
 		model.addAttribute("listaIdiomas", listaIdiomas);
-
+		
 		return "usuario/novoCadastro";
 	}
 
