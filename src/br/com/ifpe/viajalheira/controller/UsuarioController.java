@@ -87,7 +87,7 @@ public class UsuarioController {
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		return "forward:novoCadastro";
+		return "index";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {

@@ -14,11 +14,13 @@
 
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-yellow.min.css" />
+	
 	<!-- Importando Bootstrap-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
-
+	
 
 	
 	
@@ -60,7 +62,7 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-	  <form role="form" id="formulario" action="save" method="post">
+	  <form role="form" id="formulario" action="save" method="post" onsubmit="cadastroComSucesso()">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -98,7 +100,7 @@
 		                    
 	                     <div class="col form-group float-label-control">
 	                        <label class="label-input" for="confirmarSenha">Confirmar Senha*</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control">
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" onblur="senhas()">
 	                    </div>
                     </div>
 
@@ -215,19 +217,12 @@
     		</form>
   	 	</div>
   	</div>
-  	
-	  	
-
-	
-	<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-	  <div class="mdl-snackbar__text"></div>
-	  <button class="mdl-snackbar__action" type="button"></button>
-	</div>
 
 
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/mensagemSucess.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
 </body>
 </html>
