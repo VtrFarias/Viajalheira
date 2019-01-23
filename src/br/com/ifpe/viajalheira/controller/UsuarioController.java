@@ -36,7 +36,6 @@ public class UsuarioController {
 	public String login(Usuario usuario, BindingResult result, HttpSession session, Model model) {
 
 		String retorno = "";
-
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
 
@@ -55,6 +54,13 @@ public class UsuarioController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "index";
+	}
+	@RequestMapping("visu")
+	public String visu(Model model, HttpSession session) {
+		IdiomaDao dao = new IdiomaDao();
+		List<Idioma> listaIdiomas = dao.listar(null);
+		model.addAttribute("listaIdiomas", listaIdiomas);
+		return "usuario/visualizarPerfil";
 	}
 
 	@RequestMapping("/usuario/novoCadastro")
