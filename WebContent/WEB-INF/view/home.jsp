@@ -26,7 +26,6 @@
 
 <!-- Importando o menu de navegação -->
 <c:import url="comum/menu.jsp"></c:import>
- <a href='visu'>clique</a>
  
  <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
              <!-- Card -->
