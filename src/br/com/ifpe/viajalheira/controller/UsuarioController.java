@@ -57,6 +57,13 @@ public class UsuarioController {
 		session.invalidate();
 		return "index";
 	}
+	@RequestMapping("visu")
+	public String visu(Model model, HttpSession session) {
+		IdiomaDao dao = new IdiomaDao();
+		List<Idioma> listaIdiomas = dao.listar(null);
+		model.addAttribute("listaIdiomas", listaIdiomas);
+		return "usuario/visualizarPerfil";
+	}
 
 	@RequestMapping("/usuario/novoCadastro")
 	public String novoCadastro(Model model) {
