@@ -31,10 +31,11 @@
 	        </div>
 	        </div>
 	      <div class="row">
-	          <div class="col infoUsuarioPerfil">
-	            <strong>${usuarioLogado.nome}</strong>
-	            <div class="mdl-layout-spacer">${usuarioLogado.email}</div>
-	          </div>
+          <div class="col infoUsuarioPerfil">
+            <strong>${usuarioLogado.nome}</strong>
+            <div class="mdl-layout-spacer">${usuarioLogado.email}</div>
+          </div>
+        
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
