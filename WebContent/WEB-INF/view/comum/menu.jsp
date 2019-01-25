@@ -25,19 +25,16 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="https://image.ibb.co/mGn5np/user.jpg" class="demo-avatar">
-          <div class="demo-avatar-dropdown">
-            <span>${usuarioLogado.email}</span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">arrow_drop_down</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">hello@example.com</li>
-              <li class="mdl-menu__item">info@example.com</li>
-              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-            </ul>
+          <div class="row">
+	         <div class="col">
+	          <img src="https://image.ibb.co/mGn5np/user.jpg" class="avatarPerfil">
+	        </div>
+	        </div>
+	      <div class="row">
+	          <div class="col infoUsuarioPerfil">
+	            <strong>${usuarioLogado.nome}</strong>
+	            <div class="mdl-layout-spacer">${usuarioLogado.email}</div>
+	          </div>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
