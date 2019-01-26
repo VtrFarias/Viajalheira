@@ -7,8 +7,13 @@
 <html lang="pt-br">
 <head>
 
+<!-- Inclusão do jQuery-->
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<!-- Inclusão do Plugin jQuery Validation-->
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
 
-	<meta charset="UTF-8">
+
+<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Viajalheira</title>
 
@@ -60,7 +65,7 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-	  <form role="form" action="save" method="post">
+	  <form id="cadastrousuario" role="form" action="save" method="post">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -93,7 +98,7 @@
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="senha">Senha*</label>
-	                        <input type="password" id="senha" name="senha" class="form-control" reuqired>
+	                        <input type="password" id="senha" name="senha" class="form-control" required>
 	                    </div>
 		                    
 	                     <div class="col form-group float-label-control">
@@ -214,6 +219,7 @@
     
     
     		</form>
+    		<script src="js/validacao.js"></script>
   	 	</div>
   	</div>
 
