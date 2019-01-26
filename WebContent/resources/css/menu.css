@@ -83,8 +83,9 @@ html, body {
   font-weight: 500;
 }
 .demo-layout .demo-navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
-  color: #37474F;
+
+	background-color: #FFCC80;
+
 }
 .demo-navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
@@ -212,8 +213,29 @@ _:-ms-input-placeholder, :root .demo-graph {
 	
 .infoUsuarioPerfil{
 
+	position:relative;
+	top:15px;
 	text-align:center;
-	padding:5px;
+	padding:20px 0px;
+}
+
+.header-avatar{
+	width:100px;
+	margin:0px;
+	position:relative;
+	top:20px;
+	left:45px;
+}
+
+a#link-home:link {
+  color: #CDC5BF;
 }
 
 
+.link-home:hover {
+  border-botton: solid 2px;
+}
+
+.link-home:active {
+  color: blue;
+}
