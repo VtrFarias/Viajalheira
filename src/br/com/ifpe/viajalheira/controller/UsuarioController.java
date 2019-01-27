@@ -64,7 +64,19 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("visu")
-	public String visu(Model model, Model model1,  HttpSession session) {
+	public String visu(Model model,  HttpSession session) {
+		Usuario usu = new Usuario();
+		usu = (Usuario) session.getAttribute("usuarioLogado");
+		System.out.println(usu.getCpfCnpj());
+		IdiomaUsuario idi = new IdiomaUsuario();
+		idi.setUsuario(usu);
+		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
+		List<IdiomaUsuario> lis = a.listar(idi); 
+		model.addAttribute("lis", lis);;
+		return "usuario/visualizarPerfil";
+	}
+	@RequestMapping("alter")
+	public String alter(Model model, Model model1,  HttpSession session) {
 		Usuario usu = new Usuario();
 		usu = (Usuario) session.getAttribute("usuarioLogado");
 		System.out.println(usu.getCpfCnpj());
@@ -76,7 +88,7 @@ public class UsuarioController {
 		IdiomaDao dao = new IdiomaDao();
 		List<Idioma> listaIdiomas = dao.listar(null);
 		model1.addAttribute("listaIdiomas", listaIdiomas);
-		return "usuario/visualizarPerfil";
+		return "usuario/alterarPerfil";
 	}
 
 	@RequestMapping("/usuario/novoCadastro")
