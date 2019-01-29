@@ -81,44 +81,29 @@
 						<!-- Quarta linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Tempo Mínimo em Semanas</label> <input
-									type="text" id="situacao" name="tempoMinimoSemanas" class="form-control" required>
+								<label class="label-input" for="senha">Tempo Mínimo em
+									Semanas</label> <input type="text" id="situacao"
+									name="tempoMinimoSemanas" class="form-control" required>
 							</div>
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Tempo Máximo em Semanas</label> <input
-									type="text" id="situacao" name="tempoMaximoSemanas" class="form-control" required>
+								<label class="label-input" for="senha">Tempo Máximo em
+									Semanas</label> <input type="text" id="situacao"
+									name="tempoMaximoSemanas" class="form-control" required>
 							</div>
 
 						</div>
 
 
-						<label class="label-titulo">Idiomas</label>
+						<p>Imagem:</p>
 						<!-- Quinta linha -->
 						<div class="row">
-							<div class="mdl-grid">
-								<c:forEach var="idioma" items="${listaIdiomas}">
-
-									<div class="mdl-cell mdl-cell--4-col graybox">
-										<label class="mdl-checkbox  mdl-js-checkbox theme--light"
-											for="${idioma.descricao}"> <input type="checkbox"
-											name="idioma" id="${idioma.descricao}" value="${idioma.id}"
-											class="mdl-checkbox__input"> <span
-											class="mdl-checkbox__label">${idioma.descricao}</span>
-										</label>
-									</div>
-								</c:forEach>
+							<div class="col">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="customFile">
+									<label class="custom-file-label" for="customFile">Imagem</label>
+								</div>
 							</div>
 						</div>
-						<!-- Sexta linha -->
-						<div class="row">
-							<div class="col form-group float-label-control">
-								<label class="label-input" for="inputDescricao">Descrição</label>
-								<textarea class="form-control" id="inputDescricao"
-									name="descricaoPerfil"
-									placeholder="Fale um pouco sobre você..." rows="1"></textarea>
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</div>
@@ -201,8 +186,6 @@
 		</div>
 
 	</form>
-	</div>
-	</div>
 
 
 	<script type="text/javascript"

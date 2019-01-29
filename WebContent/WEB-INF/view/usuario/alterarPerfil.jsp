@@ -48,7 +48,7 @@
 		</div> -->
 
 	</div>
-	<form role="form" id="form" action="alter" method="post">
+	<form role="form" id="form" action="alterarDados" method="post">
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -90,8 +90,15 @@
 							<label class="label-titulo" for="sexo">Sexo*</label> <select
 								class="form-control" id="sexo" name="sexo" required>
 								<option>Selecione...</option>
-								<option value="Feminino" <c:if test="${usuarioLogado.sexo eq 'Feminino' }"> selected="selected" </c:if> >Feminino</option>
-								<option value="Masculino" <c:if test="${usuarioLogado.sexo eq 'Masculino' }"> selected="selected" </c:if> >Masculino</option>
+								<c:choose>
+									<c:when test="${usuarioLogado.sexo eq 'Feminino' }"> <option value="Feminino"  selected="selected">Feminino</option> </c:when>
+									<c:otherwise><option value="Feminino">Feminino</option></c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${usuarioLogado.sexo eq 'Masculino' }"> <option value="Masculino"  selected="selected">Masculino</option> </c:when>
+									<c:otherwise><option value="Masculino">Masculino</option></c:otherwise>
+								</c:choose>
+								
 								<option value="outros">Outros</option>
 							</select>
 						</div>
@@ -195,19 +202,32 @@
 							<label class="label-titulo" for="pais">País*</label> <select
 								class="form-control" id="pais" name="pais" required>
 								<option>Selecione...</option>
-
-								<option value="Brasil"
-									<c:if test="${usuarioLogado.endereco.pais eq 'Brasil'}"> selected="selected"
-								</c:if> 
-								>Brasil</option>
-								<option value="Chile"
-								<c:if test="${usuarioLogado.endereco.pais eq 'Chile'}"> selected="selected"
-								</c:if>
-								>Chile</option>
-								<option value="Argentina" 
-								<c:if test="${usuarioLogado.endereco.pais eq 'Argentina'}"> selected="selected"
-								</c:if>
-								>Argentina</option>
+								<c:choose>
+									<c:when test="${usuarioLogado.endereco.pais eq 'Brasil'}">
+										<option value="Brasil" selected="selected">Brasil</option>
+									</c:when>
+									<c:otherwise>
+										<option value="Brasil">Brasil</option>
+									</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${usuarioLogado.endereco.pais eq 'Chile'}">
+										<option value="Chile" selected="selected">Chile</option>
+									</c:when>
+									<c:otherwise>
+										<option value="Chile">Brasil</option>
+									</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when test="${usuarioLogado.endereco.pais eq 'Argentina'}">
+										<option value="Argentina" selected="selected">Argentina</option>
+									</c:when>
+									<c:otherwise>
+										<option value="Argentina">Argentina</option>
+									</c:otherwise>
+								</c:choose>
+								
+								
 							</select>
 						</div>
 
