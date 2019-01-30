@@ -18,6 +18,7 @@ import br.com.ifpe.viajalheira.model.IdiomaUsuario;
 import br.com.ifpe.viajalheira.model.IdiomaUsuarioDao;
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
+import br.com.ifpe.viajalheira.util.Criptografia;
 
 /*@author Maria Beatriz Germano
  * 
@@ -36,8 +37,8 @@ public class UsuarioController {
 	public String login(Usuario usuario, BindingResult result, HttpSession session, Model model) {
 
 		String retorno = "";
-
 		UsuarioDao dao = new UsuarioDao();
+		usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
 
 		if (usuarioLogado != null) {
@@ -63,7 +64,7 @@ public class UsuarioController {
 		IdiomaDao dao = new IdiomaDao();
 		List<Idioma> listaIdiomas = dao.listar(null);
 		model.addAttribute("listaIdiomas", listaIdiomas);
-
+		
 		return "usuario/novoCadastro";
 	}
 
@@ -74,18 +75,19 @@ public class UsuarioController {
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		usuario.setEndereco(endereco);
-
+		
 		return cadastroUsuario(model, usuario, idioma);
 	}
 
 	public String cadastroUsuario(Model model, Usuario usuario, int[] idioma) {
 
+		usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
 		UsuarioDao dao = new UsuarioDao();
 		dao.salvar(usuario);
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		return "forward:novoCadastro";
+		return "index";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
