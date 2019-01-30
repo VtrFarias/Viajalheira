@@ -30,6 +30,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 				<bean class="br.com.ifpe.viajalheira.converters.UsuarioConverter" />
 				<bean class="br.com.ifpe.viajalheira.converters.BeneficioConverter" />
 				<bean class="br.com.ifpe.viajalheira.converters.TipoVagaConverter" />
+				<bean class="br.com.ifpe.viajalheira.converters.VagaBeneficioConverter" />
+				<bean class="br.com.ifpe.viajalheira.converters.ImagensConverter" />
 				<bean class="br.com.ifpe.viajalheira.converters.VagaHospedagemConverter" />
 			</list>
 		</property>

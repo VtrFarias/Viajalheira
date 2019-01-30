@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,11 +19,14 @@ public class VagaHospedagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@JoinColumn(name="id_usuario")
+	@ManyToOne
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
-	@JoinColumn(name="id_endereco")
+	
+	@OneToOne
+	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
+	@ManyToOne
 	@JoinColumn(name="id_tipo_vaga")
 	private TipoVaga tipoVaga;
 	@Column
@@ -36,6 +41,9 @@ public class VagaHospedagem {
 	private String tempoMaximoSemanas;
 	@Column(name="horas_trabalho_semanal")
 	private String horasTrabalhoSemanal;
+	@ManyToOne
+	@JoinColumn(name="imagem_id")
+	private Imagens imagem;
 	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
 	
@@ -43,65 +51,71 @@ public class VagaHospedagem {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public Usuario getUsuario() {
 		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 	public Endereco getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
 	public TipoVaga getTipoVaga() {
 		return tipoVaga;
-	}
-	public void setTipoVaga(TipoVaga tipoVaga) {
-		this.tipoVaga = tipoVaga;
 	}
 	public String getTitulo() {
 		return titulo;
 	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
 	public String getDescricao() {
 		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 	public String getSituacao() {
 		return situacao;
 	}
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
 	public String getTempoMinimoSemanas() {
 		return tempoMinimoSemanas;
-	}
-	public void setTempoMinimoSemanas(String tempoMinimoSemanas) {
-		this.tempoMinimoSemanas = tempoMinimoSemanas;
 	}
 	public String getTempoMaximoSemanas() {
 		return tempoMaximoSemanas;
 	}
-	public void setTempoMaximoSemanas(String tempoMaximoSemanas) {
-		this.tempoMaximoSemanas = tempoMaximoSemanas;
-	}
 	public String getHorasTrabalhoSemanal() {
 		return horasTrabalhoSemanal;
+	}
+	public Imagens getImagem() {
+		return imagem;
+	}
+	public Timestamp getDataAlteracao() {
+		return dataAlteracao;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	public void setTipoVaga(TipoVaga tipoVaga) {
+		this.tipoVaga = tipoVaga;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+	public void setTempoMinimoSemanas(String tempoMinimoSemanas) {
+		this.tempoMinimoSemanas = tempoMinimoSemanas;
+	}
+	public void setTempoMaximoSemanas(String tempoMaximoSemanas) {
+		this.tempoMaximoSemanas = tempoMaximoSemanas;
 	}
 	public void setHorasTrabalhoSemanal(String horasTrabalhoSemanal) {
 		this.horasTrabalhoSemanal = horasTrabalhoSemanal;
 	}
-	public Timestamp getDataAlteracao() {
-		return dataAlteracao;
+	public void setImagem(Imagens imagem) {
+		this.imagem = imagem;
 	}
 	public void setDataAlteracao(Timestamp dataAlteracao) {
 		this.dataAlteracao = dataAlteracao;
