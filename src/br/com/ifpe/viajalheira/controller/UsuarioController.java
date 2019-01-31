@@ -55,7 +55,7 @@ public class UsuarioController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "forward:/home";
 	}
 
 	@RequestMapping("/usuario/novoCadastro")
@@ -87,7 +87,7 @@ public class UsuarioController {
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		return "index";
+		return "forward:/home";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
