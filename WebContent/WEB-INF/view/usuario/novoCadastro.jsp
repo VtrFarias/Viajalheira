@@ -8,12 +8,6 @@
 <html lang="pt-br">
 <head>
 
-<!-- Inclusão do jQuery-->
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<!-- Inclusão do Plugin jQuery Validation-->
-<script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
-
-
 <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Viajalheira</title>
@@ -22,6 +16,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/novoCadastro.css">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-yellow.min.css" />
 	
 	<!-- Importando Bootstrap-->
@@ -83,12 +78,12 @@
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="nome">Nome*</label>
-		                        <input type="text" id="nome" name="nome" class="form-control"  required>
+		                        <input type="text" id="nome" name="nome" class="form-control" maxlength="254" >
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ*</label>
-		                        <input type="text" id="cpfCnpj" name="cpfCnpj" maxlength="14" class="form-control"  required>
+		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" maxlength="254" >
 		                    </div>
 	                    </div>
 	                    
@@ -96,19 +91,19 @@
 	                <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="email">Email*</label>
-	                        <input type="email" id="email" name="email" class="form-control" required>
+	                        <input type="email" id="email" name="email" class="form-control" maxlength="254">
 	                    </div>
                     </div>
                     <!-- Terceira linha -->
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="senha">Senha*</label>
-	                        <input type="password" id="senha" name="senha" class="form-control" required>
+	                        <input type="password" id="senha" name="senha" class="form-control" maxlength="254">
 	                    </div>
 		                    
 	                     <div class="col form-group float-label-control">
 	                        <label class="label-input" for="confirmarSenha">Confirmar Senha*</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" onblur="senhas()">
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" onblur="senhas()" maxlength="254">
 	                    </div>
                     </div>
 
@@ -116,7 +111,7 @@
                     <!-- Quarta linha -->
 	                    <div class="form-group">
 		                    	<label class="label-titulo" for="sexo">Sexo*</label>
-		                    	<select class="form-control" id="sexo" name="sexo" required>
+		                    	<select class="form-control" id="sexo" name="sexo">
 		                    		<option></option>
 		                    		<option value="Feminino">Feminino</option>
 		                    		<option value="Masculino">Masculino</option>
@@ -144,7 +139,7 @@
                     <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="inputDescricao">Descrição</label>
-	                        <textarea class="form-control" id="inputDescricao" name="descricaoPerfil" placeholder="Fale um pouco sobre você..." rows="1"></textarea>
+	                        <textarea class="form-control" id="inputDescricao" name="descricaoPerfil" placeholder="Fale um pouco sobre você..." rows="1" maxlength="254"></textarea>
 	                    </div>
                     </div>      	
                
@@ -162,12 +157,12 @@
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="rua">Rua*</label>
-		                        <input type="text" id="rua" name="rua" class="form-control" required>
+		                        <input type="text" id="rua" name="rua" class="form-control" maxlength="254">
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="numero">Número*</label>
-		                        <input type="text" id="numero" name="numerocasa" class="form-control" required>
+		                        <label class="label-input" for="numerocasa">Número*</label>
+		                        <input type="text" id="numero" name="numerocasa" class="form-control" maxlength="254">
 		                    </div>
 	                    </div>
 	                    
@@ -175,12 +170,12 @@
 	                <div class="row">
 	                        <div class="col form-group float-label-control">
 	                        <label class="label-input" for="complemento">Complemento</label>
-	                        <input type="text" id="complemento" name="complemento" class="form-control">
+	                        <input type="text" id="complemento" name="complemento" class="form-control" maxlength="254">
 	                    </div>
                     
                     	<div class="col form-group float-label-control">
 	                        <label class="label-input" for="bairro">Bairro*</label>
-	                        <input type="text" id="bairro" name="bairro" class="form-control" required>
+	                        <input type="text" id="bairro" name="bairro" class="form-control" maxlength="254">
 	                    </div>
 	                    
                     </div>
@@ -188,13 +183,13 @@
 	                  <div class="row">
 	                    <div class="col form-group float-label-control">
 	                        <label class="label-input" for="cidade">Cidade*</label>
-	                        <input type="text" id="cidade" name="cidade" class="form-control" required>
+	                        <input type="text" id="cidade" name="cidade" class="form-control" maxlength="254">
 	                    </div>
 		                   
 		                   
 		              	<div class="col form-group float-label-control">
 	                        <label class="label-input" for="estado">Estado*</label>
-	                        <input type="text" id="estado" name="estado" class="form-control" required>
+	                        <input type="text" id="estado" name="estado" class="form-control" maxlength="254" >
 	                    </div>
 	                     
                     </div>
@@ -203,7 +198,7 @@
                     <!-- Quarta linha -->
 	                    <div class="form-group">
 		                    	<label class="label-titulo" for="pais">País*</label>
-		                    	<select class="form-control" id="pais" name="pais" required>
+		                    	<select class="form-control" id="pais" name="pais">
 		                    		<option></option>
 		                    		<option>Brasil</option>
 		                    		<option>Chile</option>
@@ -223,7 +218,6 @@
     			</div>
 
     		</form>
-    		<script src="js/validacao.js"></script>
   	 	</div>
   	</div>
 
@@ -231,6 +225,8 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validacao.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
 </body>
