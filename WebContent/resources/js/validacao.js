@@ -2,7 +2,8 @@ $(document).ready(function(){
     $("#cadastrousuario").validate({
         rules: {
         	nome: {
-                required: true
+                required: true,
+                minlength: 3
             },
             cpfCnpj: {
             	required: true,
@@ -18,6 +19,9 @@ $(document).ready(function(){
     			required: true
     		},
     		confirmarSenha: {
+    			required: true
+    		},
+    		idioma: {
     			required: true
     		},
     		sexo: {
@@ -45,7 +49,8 @@ $(document).ready(function(){
         },
         messages: {
         	nome: {
-                required: "Campo obrigatório"
+                required: "Campo obrigatório",
+                minlength: "Mínimo de 3 Caracteres"
             },
 			cpfCnpj:{
 				required:"Campo obrigatorio",
@@ -61,6 +66,9 @@ $(document).ready(function(){
     			required: "Campo obrigatorio"
     		},
     		confirmarSenha: {
+    			required: "Campo obrigatorio"
+    		},
+    		idioma: {
     			required: "Campo obrigatorio"
     		},
     		sexo: {
