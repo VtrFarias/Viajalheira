@@ -14,12 +14,28 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+<<<<<<< HEAD
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/material.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu1.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/paginaPerfil.css" id="" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+=======
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css"
+	id="bootstrap-css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/css/paginaPerfil.css"
+	id="" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/material.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+>>>>>>> 85f13f98b465a40dfab0b33728db38bff48a536c
 <script type="text/javascript">
 	function enable(div, div1) {
 		document.getElementById(div).style.display = "none";
@@ -33,6 +49,56 @@
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
+<<<<<<< HEAD
+
+
+	<form role="form" id="form" action="alter" method="post">
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Dados Pessoais</h4>
+						<hr />
+
+
+						<!-- Primeira linha -->
+						<input type="hidden" value="${usuarioLogado.id}" name="id">
+						<div class="row">
+							<div class="col form-group float-label-control">
+								<label class="label-input" for="nome">Nome*</label> <input
+									type="text" id="nome" name="nome" class="form-control"
+									value="${usuarioLogado.nome }" required>
+							</div>
+
+							<div class="col form-group float-label-control">
+								<label class="label-input" for="cpfCnpj">CPF/CNPJ*</label> <input
+									type="text" id="cpfCnpj" name="cpfCnpj" maxlength="14"
+									class="form-control" value="${usuarioLogado.cpfCnpj}" required>
+							</div>
+						</div>
+
+						<!-- Segunda linha -->
+						<div class="row">
+							<div class="col form-group float-label-control">
+								<label class="label-input" for="email">Email*</label> <input
+									type="email" id="email" value="${usuarioLogado.email }"
+									name="email" class="form-control" required>
+							</div>
+						</div>
+						<!-- Terceira linha -->
+
+
+
+						<!-- Quarta linha -->
+						<div class="form-group">
+							<label class="label-titulo" for="sexo">Sexo*</label> <select
+								class="form-control" id="sexo" name="sexo" required>
+								<option>Selecione...</option>
+								<option value="Feminino" <c:if test="${usuarioLogado.sexo eq 'Feminino' }"> selected="selected" </c:if> >Feminino</option>
+								<option value="Masculino" <c:if test="${usuarioLogado.sexo eq 'Masculino' }"> selected="selected" </c:if> >Masculino</option>
+								<option value="outros">Outros</option>
+							</select>
+=======
 	<div class="row" id="lin">
 		<div class="col">
 			<div class="card">
@@ -45,6 +111,7 @@
 							<p class="textos" id="textos1">
 								<em>"${usuarioLogado.descricaoPerfil }"</em>
 							</p>
+>>>>>>> 85f13f98b465a40dfab0b33728db38bff48a536c
 						</div>
 
 						<div class="col-md-6" id="center">
@@ -94,18 +161,8 @@
 
 					</div>
 				</div>
-
-				<div class="text-right">
-					<br>
-					<a href="alter"><button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Alterar Dados</button></a>
-
-				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Fechamento Menu -->
-	</div>
-	</main>
-    </div>
 </body>
 </html>
