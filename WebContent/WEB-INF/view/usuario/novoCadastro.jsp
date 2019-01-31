@@ -22,9 +22,6 @@
 	<!-- Importando Bootstrap-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
 	
-
-	
-	
 </head>
 <body>
 
@@ -63,9 +60,7 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-
 	  <form id="cadastrousuario" role="form" id="formulario" action="save" method="post" onsubmit="cadastroComSucesso()">
-
       <div class="row">
         <div class="col">
           <div class="card">
@@ -83,7 +78,7 @@
 		                    
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ*</label>
-		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" maxlength="254" >
+		                        <input type="text" id="cpfCnpj" name="cpfCnpj" class="form-control" maxlength="14" >
 		                    </div>
 	                    </div>
 	                    
@@ -229,5 +224,6 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validacao.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
+
 </body>
 </html>

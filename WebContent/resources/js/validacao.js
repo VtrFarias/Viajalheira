@@ -1,4 +1,4 @@
- $(document).ready(function(){
+$(document).ready(function(){
     $("#cadastrousuario").validate({
         rules: {
         	nome: {
@@ -89,3 +89,4 @@
         }
     });
 }); 
+
