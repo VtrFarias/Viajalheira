@@ -40,7 +40,9 @@ $(document).ready(function(){
     			required: true
     		},
     		estado: {
-    			required: true
+    			required: true,
+    			minlength: 2,
+    			maxlength: 2
     		},
     		pais: {
     			required: true
@@ -87,7 +89,9 @@ $(document).ready(function(){
     			required: "Campo obrigatorio"
     		},
     		estado: {
-    			required: "Campo obrigatorio"
+    			required: "Campo obrigatorio",
+    			minlength: "Apenas 2 Caracteres",
+    			maxlength: "Apenas 2 Caracteres"
     		},
     		pais: {
     			required: "Campo obrigatorio"
