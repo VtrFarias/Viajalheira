@@ -19,6 +19,9 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css"
 	id="bootstrap-css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/resources/css/paginaPerfil.css"
+	id="" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"
@@ -34,249 +37,75 @@
 	}
 </script>
 <style>
-#form {
-	display: none;
-}
 
-#dados {
-	display: block;
-}
 </style>
-<title>Insert title here</title>
+<title>Viajalheira-Perfil</title>
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<div class="mdl-card__actions mdl-card--border" style="width: 35%">
-		<div class="col-sm-10">
-			<button class="mdl-button mdl-js-button mdl-button--accent"
-				onclick="enable('form', 'dados')">Visualizar</button>
-			<button class="mdl-button mdl-js-button mdl-button--primary"
-				onclick="enable('dados', 'form')">Alterar Dados</button>
-		</div>
+	<div class="row" id="lin">
+		<div class="col">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3" id="das">
+							<img
+								src="https://www.urbanarts.com.br/imagens/produtos/110915/0/Ampliada/mulher-maravilha-simbolo.jpg"
+								class="can" alt="...">
+							<p class="textos" id="textos1">
+								<em>"${usuarioLogado.descricaoPerfil }"</em>
+							</p>
+						</div>
 
-	</div>
+						<div class="col-md-6" id="center">
+							<h3 class="card-title">${usuarioLogado.nome}</h3>
+							<div class="row data">
+								<div class="col-md-2">
+									<p>
+										<strong>Email:</strong>
+									</p>
+								</div>
+								<div class="col">
+									<p class="textos">${usuarioLogado.email }</p>
+								</div>
 
-	<div id="dados" class="container">
-		<h2 class="display-4">Dados Pessoais</h2>
-		<div class="row" style="background-color: lightgrey; padding: 10px;">
+							</div>
+							<div class="row data">
+								<div class="col-md-2">
+									<p>
+										<strong>Idade: </strong>
+									</p>
+								</div>
+								<div class="col">
+									<p class="textos">X anos.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<h5>Idiomas</h5>
+									<ul>
+									<c:forEach var="idiomaUsuario" items="${lis}">
+										<li>${idiomaUsuario.idioma.descricao}</li>
+									</c:forEach>
+									</ul>
+								</div>
 
-			<div class="col">
-				<table class="mdl-data-table mdl-js-data-table">
-					<thead>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Dados
-									Pessoais</strong></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Nome:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.nome}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Email:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.email}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Cpf/Cnpj:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.cpfCnpj}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Sexo:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.sexo}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Descrição:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.descricaoPerfil}</td>
-						</tr>
-					</tbody>
-				</table>
+							</div>
+						</div>
+						<div class="col" id="end">
+							<h5 class="titr">Endereço</h5>
+							<p>
+								<strong>País: </strong>${usuarioLogado.endereco.pais }</p>
+							<p>
+								<strong>Estado: </strong>${usuarioLogado.endereco.estado }</p>
+							<p>
+								<strong>Cidade: </strong>${usuarioLogado.endereco.cidade }</p>
+						</div>
 
+					</div>
+				</div>
 			</div>
-			<div class="col" style="">
-				<table class="mdl-data-table mdl-js-data-table">
-					<thead>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Dados
-									de Endereço</strong></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Cidade:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.endereco.cidade}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Estado:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.endereco.estado}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Pais:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.endereco.pais}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Rua:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.endereco.rua},
-								${usuarioLogado.endereco.numerocasa}</td>
-						</tr>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric"><strong>Número:</strong></td>
-							<td class="mdl-data-table__cell--non-numeric">${usuarioLogado.endereco.numerocasa}</td>
-						</tr>
-					</tbody>
-				</table>
-
-			</div>
-			<div class="col"></div>
 		</div>
 	</div>
-	<form role="form" id="form" action="alter" method="post">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Dados Pessoais</h4>
-              <hr/>
-     
-     		
-	     			  <!-- Primeira linha -->
-	     			  <input type="hidden" value="${usuarioLogado.id}">
-	     			  <div class="row">
-		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="nome">Nome*</label>
-		                        <input type="text" id="nome" name="nome" class="form-control" value="${usuarioLogado.nome }" required>
-		                    </div>
-		                    
-		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="cpfCnpj">CPF/CNPJ*</label>
-		                        <input type="text" id="cpfCnpj" name="cpfCnpj" maxlength="14" class="form-control" value="${usuarioLogado.cpfCnpj}" required>
-		                    </div>
-	                    </div>
-	                    
-	                <!-- Segunda linha -->
-	                <div class="row">
-	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="email">Email*</label>
-	                        <input type="email" id="email" value="${usuarioLogado.email }" name="email" class="form-control" required>
-	                    </div>
-                    </div>
-                    <!-- Terceira linha -->
-	               
-
-
-                    <!-- Quarta linha -->
-	                    <div class="form-group">
-		                    	<label class="label-titulo" for="sexo">Sexo*</label>
-		                    	<select class="form-control" id="sexo" name="sexo" required>
-		                    		<option>Selecione...</option>
-		                    		<option value="Feminino">Feminino</option>
-		                    		<option value="Masculino">Masculino</option>
-		                    		<option value="outros">Outros</option>
-		                    	</select>
-		                  </div>
-
-				
-				 <label class="label-titulo">Idiomas</label>
-    			 <!-- Quinta linha -->
-                  <div class="row">
-					<div class = "mdl-grid">
-	                <c:forEach var="idioma" items="${listaIdiomas}">
-	              	
-		             <div class = "mdl-cell mdl-cell--4-col graybox">
-	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light" for="${idioma.descricao}">
-  					  	<input type="checkbox" name="idioma" id="${idioma.descricao}" class="mdl-checkbox__input">
-  						<span class="mdl-checkbox__label">${idioma.descricao}</span>
-					  </label>	
-	                </div>
-					</c:forEach>	                   
-	                 </div>
-                  </div>
-                    <!-- Sexta linha -->
-                    <div class="row">
-	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="inputDescricao">Descrição</label>
-	                        <textarea class="form-control" id="inputDescricao" name="descricaoPerfil" value="${usuarioLogado.descricaoPerfil }"placeholder="Fale um pouco sobre você..." rows="1"></textarea>
-	                    </div>
-                    </div>      	
-          </div>
-        </div>
-     </div>
-     
-     	<div class="col">
-     	  <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Endereço</h4>
-              <hr/>
-              
-                <!-- Primeira linha -->
-	     			  <div class="row">
-		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="rua">Rua*</label>
-		                        <input type="text" id="rua" name="rua" value="${usuarioLogado.endereco.rua }" class="form-control" required>
-		                    </div>
-		                    
-		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="numero">Número*</label>
-		                        <input type="text" id="numero" name="numerocasa" value="${usuarioLogado.endereco.numerocasa}" class="form-control" required>
-		                    </div>
-	                    </div>
-	                    
-	                <!-- Segunda linha -->
-	                <div class="row">
-	                        <div class="col form-group float-label-control">
-	                        <label class="label-input" for="complemento">Complemento</label>
-	                        <input type="text" id="complemento" value="${usuarioLogado.endereco.complemento }" name="complemento" class="form-control">
-	                    </div>
-                    
-                    	<div class="col form-group float-label-control">
-	                        <label class="label-input" for="bairro">Bairro*</label>
-	                        <input type="text" id="bairro" name="bairro" class="form-control" value="${usuarioLogado.endereco.bairro }" required>
-	                    </div>
-	                    
-                    </div>
-                    <!-- Terceira linha -->
-	                  <div class="row">
-	                    <div class="col form-group float-label-control">
-	                        <label class="label-input" for="cidade">Cidade*</label>
-	                        <input type="text" id="cidade" name="cidade" class="form-control" value="${usuarioLogado.endereco.cidade }" required>
-	                    </div>
-		                   
-		                   
-		              	<div class="col form-group float-label-control">
-	                        <label class="label-input" for="estado">Estado*</label>
-	                        <input type="text" id="estado" name="estado" class="form-control" value="${usuarioLogado.endereco.estado }" required>
-	                    </div>
-	                     
-                    </div>
-                    
-
-                    <!-- Quarta linha -->
-	                    <div class="form-group">
-		                    	<label class="label-titulo" for="pais">País*</label>
-		                    	<select class="form-control" id="pais" name="pais" required>
-	                    	<c:if test='${usuarioLogado.endereco.pais } eq Brasil"'>selected="selected"
-		                    	</c:if>
-		                    		<option></option>
-		                    		<option value ="Brasil">Brasil</option>
-		                    		<option>Chile</option>
-		                    		<option>Argentina</option>
-		                    	</select>
-		                  </div>
-
-     		</div>	
-     	  </div>
-     	  
-     		<div class="text-right">
-     		<br>
-              <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" type="submit">Enviar</button>
-             
-            			</div>              
-     				</div>
-    			</div>
-    
-    
-    		</form>
-
-
 </body>
 </html>

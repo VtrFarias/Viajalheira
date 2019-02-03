@@ -57,12 +57,38 @@ public class UsuarioController {
 		session.invalidate();
 		return "index";
 	}
+	
+	@RequestMapping("CadastrarHospedagem")
+	public String CadastrarHospedagem(){
+		return "hospedagem/novaHospedagem";
+	}
+	
 	@RequestMapping("visu")
-	public String visu(Model model, HttpSession session) {
+	public String visu(Model model,  HttpSession session) {
+		Usuario usu = new Usuario();
+		usu = (Usuario) session.getAttribute("usuarioLogado");
+		System.out.println(usu.getCpfCnpj());
+		IdiomaUsuario idi = new IdiomaUsuario();
+		idi.setUsuario(usu);
+		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
+		List<IdiomaUsuario> lis = a.listar(idi); 
+		model.addAttribute("lis", lis);;
+		return "usuario/visualizarPerfil";
+	}
+	@RequestMapping("alter")
+	public String alter(Model model, Model model1,  HttpSession session) {
+		Usuario usu = new Usuario();
+		usu = (Usuario) session.getAttribute("usuarioLogado");
+		System.out.println(usu.getCpfCnpj());
+		IdiomaUsuario idi = new IdiomaUsuario();
+		idi.setUsuario(usu);
+		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
+		List<IdiomaUsuario> lis = a.listar(idi); 
+		model.addAttribute("lis", lis);
 		IdiomaDao dao = new IdiomaDao();
 		List<Idioma> listaIdiomas = dao.listar(null);
-		model.addAttribute("listaIdiomas", listaIdiomas);
-		return "usuario/visualizarPerfil";
+		model1.addAttribute("listaIdiomas", listaIdiomas);
+		return "usuario/alterarPerfil";
 	}
 
 	@RequestMapping("/usuario/novoCadastro")
