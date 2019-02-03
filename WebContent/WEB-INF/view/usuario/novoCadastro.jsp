@@ -60,7 +60,7 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-	  <form id="cadastrousuario" role="form" id="formulario" action="save" method="post" onsubmit="cadastroComSucesso()">
+	  <form id="cadastrousuario" role="form" id="formulario" action="save" method="post">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -229,7 +229,6 @@
     		</form>
   	 	</div>
   	</div>
-
     
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
@@ -238,6 +237,12 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validacao.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
+	
+	<c:if test= "${not empty sucessoCadastro}">
+		<script>
+			cadastroComSucesso();
+		</script>
+	</c:if>
 
 </body>
 </html>

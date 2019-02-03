@@ -87,7 +87,8 @@ public class UsuarioController {
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		return "forward:/home";
+		model.addAttribute("sucessoCadastro", "true");
+		return "forward:novoCadastro";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
