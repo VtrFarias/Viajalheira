@@ -36,8 +36,6 @@
 	              <label class="label-input" for="senha">Senha</label>
 	              <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha">
 	          </div>
-	  
-  
     <div class="form-check">
     
     	
