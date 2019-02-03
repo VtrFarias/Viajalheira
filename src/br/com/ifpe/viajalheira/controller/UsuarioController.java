@@ -88,7 +88,6 @@ public class UsuarioController {
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
 		List<IdiomaUsuario> lis = a.listar(idi); 
 		model.addAttribute("lis", lis);
-		System.out.println("meu ovo");
 		return "usuario/visualizarPerfil";
 	}
 	
