@@ -13,10 +13,10 @@
 	<title>Viajalheira</title>
 
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-yellow.min.css" />
+
 	
 	<!-- Importando Bootstrap-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
@@ -29,7 +29,7 @@
 
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          	<span class="mdl-layout-title">Home</span>
+          	<a class="color-text--brown-500" href="../home"><span class="mdl-layout-title">Home</span></a>
           	<div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -37,16 +37,14 @@
             </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+              <label class="mdl-textfield__label" for="search">Que tipo de oportunidade você procura?</label>
             </div>
           </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
+            <a href="../logout"><li class="mdl-menu__item">Sair</li></a>
           </ul>
         </div>
       </header>
@@ -106,7 +104,8 @@
 
 
                     <!-- Quarta linha -->
-	                    <div class="form-group">
+                    <div class="row">
+	                    <div class="col form-group">
 		                    	<label class="label-titulo" for="sexo">Sexo*</label>
 		                    	<select class="form-control" id="sexo" name="sexo" required>
 		                    		<option></option>
@@ -115,7 +114,13 @@
 		                    		<option value="outros">Outros</option>
 		                    	</select>
 		                  </div>
-
+		                  <div class="col form-group">
+		                    	
+		                    <label class="label-input" for="confirmarSenha">Data de Nascimento*</label>
+	                       	<input type="text" id="dataNascimento" name="dataNascimento" class="form-control" maxlength="10"  onkeyup="formatoData(this.id)">
+	                   
+		                  </div>
+					</div>
 				
 				 <label class="label-titulo">Idiomas</label>
     			 <!-- Quinta linha -->
@@ -223,6 +228,7 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/mascara.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
 </body>
 </html>
