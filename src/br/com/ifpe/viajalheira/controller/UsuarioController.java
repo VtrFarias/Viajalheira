@@ -57,13 +57,7 @@ public class UsuarioController {
 		session.invalidate();
 		return "index";
 	}
-	
-	@RequestMapping("CadastrarHospedagem")
-	public String CadastrarHospedagem(){
-		return "hospedagem/novaHospedagem";
-	}
-	
-	@RequestMapping("visu")
+	@RequestMapping("perfil")
 	public String visu(Model model,  HttpSession session) {
 		Usuario usu = new Usuario();
 		usu = (Usuario) session.getAttribute("usuarioLogado");

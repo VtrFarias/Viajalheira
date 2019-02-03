@@ -1,6 +1,7 @@
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  
 }
 .demo-avatar {
   width: 48px;
@@ -44,7 +45,10 @@ html, body {
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 16px;
-
+  position:relative;
+  top:15px;
+  left:30px;
+  
 }
 .demo-avatar-dropdown {
   display: -webkit-flex;
@@ -79,8 +83,9 @@ html, body {
   font-weight: 500;
 }
 .demo-layout .demo-navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
-  color: #37474F;
+
+	background-color: #FFCC80;
+
 }
 .demo-navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
@@ -199,3 +204,38 @@ _:-ms-input-placeholder, :root .demo-graph {
           align-items: center;
 }
 
+ .avatarPerfil{
+	
+	border-radius:50%;
+	width:130px;
+	height: 130px;
+	}
+	
+.infoUsuarioPerfil{
+
+	position:relative;
+	top:15px;
+	text-align:center;
+	padding:20px 0px;
+}
+
+.header-avatar{
+	width:100px;
+	margin:0px;
+	position:relative;
+	top:20px;
+	left:45px;
+}
+
+a#link-home:link {
+  color: #CDC5BF;
+}
+
+
+.link-home:hover {
+  border-botton: solid 2px;
+}
+
+.link-home:active {
+  color: blue;
+}

@@ -1,6 +1,7 @@
 package br.com.ifpe.viajalheira.model;
 
 import java.security.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,81 +46,89 @@ public class Usuario {
 	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
 	
-	
+	@Column(name="data_nascimento")
+	private Date dataNascimento;
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	
-
 	public Endereco getEndereco() {
 		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public String getCpfCnpj() {
 		return cpfCnpj;
-	}
-
-	public void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getSenha() {
 		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
 	public String getDescricaoPerfil() {
 		return descricaoPerfil;
-	}
-
-	public void setDescricaoPerfil(String descricaoPerfil) {
-		this.descricaoPerfil = descricaoPerfil;
 	}
 
 	public Timestamp getDataAlteracao() {
 		return dataAlteracao;
 	}
 
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public void setDescricaoPerfil(String descricaoPerfil) {
+		this.descricaoPerfil = descricaoPerfil;
+	}
+
 	public void setDataAlteracao(Timestamp dataAlteracao) {
 		this.dataAlteracao = dataAlteracao;
 	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 	
 	 	
 }
