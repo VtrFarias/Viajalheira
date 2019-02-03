@@ -105,22 +105,7 @@ public class UsuarioController {
 			dao.salvar(idiomaUsuario);
 		}
 	}
-	@RequestMapping("/usuario/edit")
-	public String edit(@RequestParam("id") Integer id, Model model){
-		
-		UsuarioDao dao = new UsuarioDao();
-		Usuario usuario = dao.buscarPorId1(id);
-		model.addAttribute("usuario", usuario);
-		return "usuario/alterarusuario";
-	}
-	@RequestMapping("/usuario/update")
-	public String update(Usuario usuario, Model model) {
 	
-		UsuarioDao dao = new UsuarioDao();
-		dao.alterar1(usuario);
-		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
-		return "forward:list";
-	}
 	
 
 }
