@@ -5,23 +5,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Viajalheira</title>
-	
-	<!-- Importando Bootstrap-->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
-	
-	
-	<!-- Arquivos da index -->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/index.css"/>
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/form.css"/>
-	
-	
-	<!-- API google login -->
-	<meta name="google-signin-client_id" content="51908511993-li3cuj2vg28nmtmug86tv88244jnokg3.apps.googleusercontent.com">
-	
-	<!-- Executar LogOut da conta google -->
-	<script> signOut(); </script>
+<meta charset="UTF-8">
+<title>Viajalheira</title>
+
+<!-- Importando Bootstrap-->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+
+<!-- Arquivos da index -->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/index.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/form.css"/>
+
+
+<!-- Arquivos alert -->
 </head>
 <body>
 
@@ -53,9 +50,6 @@
 	<div class="msg-erro">
 		<span class="text-center text-danger">${msg}</span>
 	</div>
-	
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
-	
 		</div>
 		<div class="col-md-8 banner-sec">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -99,28 +93,5 @@
 </div>
 </div>
 </section>
-
-	<!-- Valores da conta do google guardadas em variáveis, porém valores não estão inseridos na Session ou ao banco,
-	Implementação pendente.  -->
-	<script>
-		function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  var userID = profile.getId(); // Do not send to your backend! Use an ID token instead.
-		  var userName = profile.getName();
-		  var userPicture = profile.getImageUrl();
-		  var userEmail = profile.getEmail();
-		  var id_token = googleUser.getAuthResponse().id_token;
-		}
-		
-		function signOut() {
-		    var auth2 = gapi.auth2.getAuthInstance();
-		    auth2.signOut().then(function () {
-		      console.log('User signed out.');
-		    });
-		  }
-	</script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script> <!-- API google login -->
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 </body>
 </html>
