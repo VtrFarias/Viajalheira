@@ -115,21 +115,35 @@
 		                  </div>
 
 				
-				 <label class="label-titulo">Idiomas</label>
-    			 <!-- Quinta linha -->
-                  <div class="row">
-					<div class = "mdl-grid">
-	                <c:forEach var="idioma" items="${listaIdiomas}">
+				 
 	              	
-		             <div class = "mdl-cell mdl-cell--4-col graybox">
-	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light" for="${idioma.descricao}">
-  					  	<input type="checkbox" name="idioma" id="${idioma.descricao}"  value="${idioma.id}" class="mdl-checkbox__input">
-  						<span class="mdl-checkbox__label">${idioma.descricao}</span>
+		             <!--  
+	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light"">
+  					  	<input  name="idioma"  class="mdl-checkbox__input">
+  						
 					  </label>	
-	                </div>
-					</c:forEach>	                   
+	                -->
+					
+                  
+                 <fieldset>
+                 	<label class="label-titulo">Idiomas*</label>
+                 	<label for="idioma" class="error"></label>
+	    			 <!-- Quinta linha -->
+	                  <div class="row">
+						<div class = "mdl-grid">
+		                <c:forEach var="idioma" items="${listaIdiomas}">
+							<div class = "mdl-cell mdl-cell--4-col graybox">
+								<label for="${idioma.descricao}">
+									<input type="checkbox" class="checkbox" id="${idioma.descricao}" value="${idioma.id}" name="idioma" required minlength="1"><span class="mdl-checkbox__input">${idioma.descricao}</span>
+								</label>
+							</div>
+						</c:forEach>
+							                   
 	                 </div>
                   </div>
+				</fieldset>
+                  
+                  
                     <!-- Sexta linha -->
                     <div class="row">
 	                    <div class="col form-group float-label-control">

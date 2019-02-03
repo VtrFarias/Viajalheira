@@ -16,7 +16,8 @@ $(document).ready(function(){
     			email: true
     		},
     		senha: {
-    			required: true
+    			required: true,
+    			minlength: 6
     		},
     		confirmarSenha: {
     			required: true
@@ -65,15 +66,16 @@ $(document).ready(function(){
 				email: "Este endereço de email não é válido"
 			},
 			senha:{
-    			required: "Campo obrigatorio"
+    			required: "Campo obrigatorio",
+    			minlength:"Mínimo de 6 Caracteres"
     		},
     		confirmarSenha: {
     			required: "Campo obrigatorio"
     		},
-    		idioma: {
+    		sexo: {
     			required: "Campo obrigatorio"
     		},
-    		sexo: {
+    		idioma: {
     			required: "Campo obrigatorio"
     		},
     		rua: {
