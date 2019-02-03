@@ -27,8 +27,9 @@
 
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          	<span class="mdl-layout-title">Home</span>
+          	<span class="mdl-layout-title"><a href="/viajalheira/">Home</a></span>
           	<div class="mdl-layout-spacer"></div>
+          	<!-- 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>
@@ -46,6 +47,7 @@
             <li class="mdl-menu__item">Contact</li>
             <li class="mdl-menu__item">Legal information</li>
           </ul>
+           -->
         </div>
       </header>
 
@@ -60,7 +62,7 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-	  <form id="cadastrousuario" role="form" id="formulario" action="save" method="post" onsubmit="cadastroComSucesso()">
+	  <form id="cadastrousuario" role="form" id="formulario" action="save" method="post">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -98,7 +100,7 @@
 		                    
 	                     <div class="col form-group float-label-control">
 	                        <label class="label-input" for="confirmarSenha">Confirmar Senha*</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" onblur="senhas()" maxlength="254">
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" maxlength="254">
 	                    </div>
                     </div>
 
@@ -115,21 +117,35 @@
 		                  </div>
 
 				
-				 <label class="label-titulo">Idiomas</label>
-    			 <!-- Quinta linha -->
-                  <div class="row">
-					<div class = "mdl-grid">
-	                <c:forEach var="idioma" items="${listaIdiomas}">
+				 
 	              	
-		             <div class = "mdl-cell mdl-cell--4-col graybox">
-	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light" for="${idioma.descricao}">
-  					  	<input type="checkbox" name="idioma" id="${idioma.descricao}"  value="${idioma.id}" class="mdl-checkbox__input">
-  						<span class="mdl-checkbox__label">${idioma.descricao}</span>
+		             <!--  
+	              	  <label class="mdl-checkbox  mdl-js-checkbox theme--light"">
+  					  	<input  name="idioma"  class="mdl-checkbox__input">
+  						
 					  </label>	
-	                </div>
-					</c:forEach>	                   
+	                -->
+					
+                  
+                 <fieldset>
+                 	<label class="label-titulo">Idiomas*</label>
+                 	<label for="idioma" class="error"></label>
+	    			 <!-- Quinta linha -->
+	                  <div class="row">
+						<div class = "mdl-grid">
+		                <c:forEach var="idioma" items="${listaIdiomas}">
+							<div class = "mdl-cell mdl-cell--4-col graybox">
+								<label for="${idioma.descricao}">
+									<input type="checkbox" class="checkbox" id="${idioma.descricao}" value="${idioma.id}" name="idioma" required minlength="1"><span class="mdl-checkbox__input">${idioma.descricao}</span>
+								</label>
+							</div>
+						</c:forEach>
+							                   
 	                 </div>
                   </div>
+				</fieldset>
+                  
+                  
                     <!-- Sexta linha -->
                     <div class="row">
 	                    <div class="col form-group float-label-control">
@@ -215,7 +231,6 @@
     		</form>
   	 	</div>
   	</div>
-
     
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
@@ -224,6 +239,12 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validacao.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
+	
+	<c:if test= "${not empty sucessoCadastro}">
+		<script>
+			cadastroComSucesso();
+		</script>
+	</c:if>
 
 </body>
 </html>
