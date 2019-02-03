@@ -20,7 +20,8 @@ $(document).ready(function(){
     			minlength: 6
     		},
     		confirmarSenha: {
-    			required: true
+    			required: true,
+    			equalTo: "#senha"
     		},
     		idioma: {
     			required: true
@@ -70,7 +71,8 @@ $(document).ready(function(){
     			minlength:"Mínimo de 6 Caracteres"
     		},
     		confirmarSenha: {
-    			required: "Campo obrigatorio"
+    			required: "Campo obrigatorio",
+    			equalTo: "As senhas não coincidem"
     		},
     		sexo: {
     			required: "Campo obrigatorio"

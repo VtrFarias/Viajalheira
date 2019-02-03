@@ -98,7 +98,7 @@
 		                    
 	                     <div class="col form-group float-label-control">
 	                        <label class="label-input" for="confirmarSenha">Confirmar Senha*</label>
-	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" onblur="senhas()" maxlength="254">
+	                        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" maxlength="254">
 	                    </div>
                     </div>
 
