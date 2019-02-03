@@ -55,7 +55,7 @@ public class UsuarioController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "forward:/home";
 	}
 
 	@RequestMapping("/usuario/novoCadastro")
@@ -87,7 +87,8 @@ public class UsuarioController {
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		return "index";
+		model.addAttribute("sucessoCadastro", "true");
+		return "forward:novoCadastro";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
@@ -104,5 +105,22 @@ public class UsuarioController {
 			dao.salvar(idiomaUsuario);
 		}
 	}
+	@RequestMapping("/usuario/edit")
+	public String edit(@RequestParam("id") Integer id, Model model){
+		
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usuario = dao.buscarPorId1(id);
+		model.addAttribute("usuario", usuario);
+		return "usuario/alterarusuario";
+	}
+	@RequestMapping("/usuario/update")
+	public String update(Usuario usuario, Model model) {
+	
+		UsuarioDao dao = new UsuarioDao();
+		dao.alterar1(usuario);
+		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
+		return "forward:list";
+	}
+	
 
 }
