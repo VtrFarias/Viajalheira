@@ -90,6 +90,10 @@
 									Semanas</label> <input type="text" id="situacao"
 									name="tempoMaximoSemanas" class="form-control" required>
 							</div>
+							<div class="col form-group float-label-control">
+								<label class="label-input" for="horasTrabalhoSemanal">Horas de Trabalho Semanal</label> <input type="text" id="horasTrabalhoSemanal"
+									name="horasTrabalhoSemanal" class="form-control" required>
+							</div>
 
 						</div>
 

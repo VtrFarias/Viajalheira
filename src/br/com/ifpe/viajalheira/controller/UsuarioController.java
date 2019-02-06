@@ -58,29 +58,31 @@ public class UsuarioController {
 		return "forward:/home";
 	}
 	@RequestMapping("perfil")
-	public String visu(Model model,  HttpSession session) {
+	public String visu(Model model,  HttpSession session, @RequestParam("id") int id) {
 		Usuario usu = new Usuario();
-		usu = (Usuario) session.getAttribute("usuarioLogado");
-		System.out.println(usu.getCpfCnpj());
-		IdiomaUsuario idi = new IdiomaUsuario();
-		idi.setUsuario(usu);
-		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
-		List<IdiomaUsuario> lis = a.listar(idi); 
-		model.addAttribute("lis", lis);;
-		return "usuario/visualizarPerfil";
-	}
-	@RequestMapping("alter")
-	public String alter(Model model, Model model1,  HttpSession session) {
-		Usuario usu = new Usuario();
-		usu = (Usuario) session.getAttribute("usuarioLogado");
+		UsuarioDao dao = new UsuarioDao();
+		usu = dao.buscarPorId(id);
 		System.out.println(usu.getCpfCnpj());
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
 		List<IdiomaUsuario> lis = a.listar(idi); 
 		model.addAttribute("lis", lis);
-		IdiomaDao dao = new IdiomaDao();
-		List<Idioma> listaIdiomas = dao.listar(null);
+		model.addAttribute("usuario", usu);
+		return "usuario/visualizarPerfil";
+	}
+	@RequestMapping("alterar")
+	public String alter(Model model, Model model1,  HttpSession session, @RequestParam("id") int id) {
+		Usuario usu = new Usuario();
+		UsuarioDao dao = new UsuarioDao();
+		usu = dao.buscarPorId1(id);
+		IdiomaUsuario idi = new IdiomaUsuario();
+		idi.setUsuario(usu);
+		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
+		List<IdiomaUsuario> lis = a.listar(idi); 
+		model.addAttribute("lis", lis);
+		IdiomaDao dao1 = new IdiomaDao();
+		List<Idioma> listaIdiomas = dao1.listar(null);
 		model1.addAttribute("listaIdiomas", listaIdiomas);
 		return "usuario/alterarPerfil";
 	}
@@ -131,14 +133,6 @@ public class UsuarioController {
 			idiomaUsuario.setUsuario(usuario);
 			dao.salvar(idiomaUsuario);
 		}
-	}
-	@RequestMapping("/usuario/edit")
-	public String edit(@RequestParam("id") Integer id, Model model){
-		
-		UsuarioDao dao = new UsuarioDao();
-		Usuario usuario = dao.buscarPorId1(id);
-		model.addAttribute("usuario", usuario);
-		return "usuario/alterarusuario";
 	}
 	@RequestMapping("/usuario/update")
 	public String update(Usuario usuario, Model model) {

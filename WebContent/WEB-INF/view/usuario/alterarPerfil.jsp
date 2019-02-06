@@ -22,7 +22,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/material.css">
+	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <script type="text/javascript"
@@ -48,7 +48,7 @@
 		</div> -->
 
 	</div>
-	<form role="form" id="form" action="alterarDados" method="post">
+	<form role="form" id="form" action="update" method="post">
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -56,9 +56,10 @@
 						<h4 class="card-title">Dados Pessoais</h4>
 						<hr />
 
-
+						
 						<!-- Primeira linha -->
 						<input type="hidden" value="${usuarioLogado.id}" name="id">
+						<input type="hidden" value="${usuario.senha}" name="senha">
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="nome">Nome*</label> <input
