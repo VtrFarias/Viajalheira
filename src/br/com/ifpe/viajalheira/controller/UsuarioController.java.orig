@@ -57,7 +57,14 @@ public class UsuarioController {
 		session.invalidate();
 		return "index";
 	}
-	@RequestMapping("perfil")
+<<<<<<< HEAD
+	
+	@RequestMapping("CadastrarHospedagem")
+	public String CadastrarHospedagem(){
+		return "hospedagem/novaHospedagem";
+	}
+	
+	@RequestMapping("visu")
 	public String visu(Model model,  HttpSession session) {
 		Usuario usu = new Usuario();
 		usu = (Usuario) session.getAttribute("usuarioLogado");
@@ -71,6 +78,10 @@ public class UsuarioController {
 	}
 	@RequestMapping("alter")
 	public String alter(Model model, Model model1,  HttpSession session) {
+=======
+	@RequestMapping("perfil")
+	public String visu(Model model, Model model1,  HttpSession session) {
+>>>>>>> c0dd8f9626171ec089373ae27b5add036e219838
 		Usuario usu = new Usuario();
 		usu = (Usuario) session.getAttribute("usuarioLogado");
 		System.out.println(usu.getCpfCnpj());

@@ -73,7 +73,7 @@
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="nome">Nome*</label>
-		                        <input type="text" id="nome" name="nome" class="form-control"  value="${usuarioLogado.nome }"required>
+		                        <input type="text" id="nome" name="nome" class="form-control" required>
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">

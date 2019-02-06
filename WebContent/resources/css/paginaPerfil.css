@@ -1,0 +1,52 @@
+.can {
+	width: 220px;
+	height: 220px;
+	border-radius: 50%;
+	padding: 2px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+#lin {
+	width: 100%;
+}
+
+h3 {
+	text-align: left;
+}
+
+.textos {
+	
+	text-align: left;
+}
+#textos1{
+	padding: 3%;
+}
+
+#end {
+	border-left: 1px solid lightgrey;
+	text-align: left;
+}
+
+.titr {
+	text-align: center;
+}
+
+#center {
+	
+}
+#das{
+	padding: 2%;
+}
+
+.data {
+	padding: 1%;
+}
+ul{
+  list-style-type: circle;
+}
