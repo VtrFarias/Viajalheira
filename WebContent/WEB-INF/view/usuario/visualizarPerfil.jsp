@@ -40,7 +40,7 @@
 					<div class="row">
 						<div class="col-md-3" id="das">
 							<img
-								src="https://www.urbanarts.com.br/imagens/produtos/110915/0/Ampliada/mulher-maravilha-simbolo.jpg"
+								src="<%=request.getContextPath()%>/resources/img/${usuarioLogado.imagem}"
 								class="can" alt="...">
 							<p class="textos" id="textos1">
 								<em>"${usuarioLogado.descricaoPerfil }"</em>
