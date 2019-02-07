@@ -15,22 +15,19 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css"
-	id="bootstrap-css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/material.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/menu.css" />
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<form role="form" id="formulario" action="save" method="post"
-		onsubmit="cadastroComSucesso()">
+	<form role="form" id="formulario" action="AdicionarHospedagem" method="post" onsubmit="cadastroComSucesso()">
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -38,13 +35,13 @@
 						<h4 class="card-title">Dados Hospedagem</h4>
 						<hr />
 
-
+						<input type="hidden" value="${usuarioLogado.id}">
+						
 						<!-- Primeira linha -->
 						<div class="row">
 							<div class=" col form-group">
 								<label class="label-titulo" for="tipoVaga">Tipo da vaga</label>
-								<select class="form-control" id="tipoVaga" name="tipoVaga"
-									required>
+								<select class="form-control" id="tipoVaga" name="tipoVaga" required>
 									<option>Selecione..</option>
 									<option>Entretenimento</option>
 									<option>Culinária</option>
@@ -53,18 +50,20 @@
 							</div>
 
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="titulo">Titulo</label> <input
-									type="text" id="titulo" name="titulo" maxlength="14"
-									class="form-control" required>
+								<label class="label-input" for="titulo">
+									Titulo
+								</label> 
+								<input type="text" id="titulo" name="titulo" maxlength="14" class="form-control" required>
 							</div>
 						</div>
 
 						<!-- Segunda linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="email">Descrição</label> <input
-									type="text" id="descricao" name="descricao"
-									class="form-control" required>
+								<label class="label-input" for="email">
+									Descrição
+								</label> 
+								<input type="text" id="descricao" name="descricao" class="form-control" required>
 							</div>
 						</div>
 						<!-- Terceira linha -->
@@ -192,16 +191,7 @@
 	</form>
 
 
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/js/material.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>
+	
 
 </body>
 </html>

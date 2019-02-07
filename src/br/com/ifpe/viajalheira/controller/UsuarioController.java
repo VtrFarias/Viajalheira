@@ -29,7 +29,6 @@ public class UsuarioController {
 
 	@RequestMapping("home")
 	public String home() {
-
 		return "home";
 	}
 
@@ -123,7 +122,6 @@ public class UsuarioController {
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
 
 		IdiomaDao idiomaDao = new IdiomaDao();
-
 		for (int id : idIdioma) {
 			Idioma idioma = idiomaDao.buscarPorId(id);
 			IdiomaUsuario idiomaUsuario = new IdiomaUsuario();
@@ -141,6 +139,10 @@ public class UsuarioController {
 		dao.alterar1(usuario);
 		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
 		return "forward:list";
+	}
+	@RequestMapping("alterarFoto")
+	public String alterarFoto() {
+		return "";
 	}
 	
 
