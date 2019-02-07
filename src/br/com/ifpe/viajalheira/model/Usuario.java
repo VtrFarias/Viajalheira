@@ -41,6 +41,9 @@ public class Usuario {
 	@Column
 	private String sexo;
 	
+	@Column
+	private String imagem;
+	
 	@Column(name="descricao_perfil")
 	private String descricaoPerfil;
 	
@@ -89,6 +92,14 @@ public class Usuario {
 
 	public String getSexo() {
 		return sexo;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 	public String getDescricaoPerfil() {

@@ -39,7 +39,9 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-3" id="das">
-							<img src="https://www.urbanarts.com.br/imagens/produtos/110915/0/Ampliada/mulher-maravilha-simbolo.jpg" class="can" alt="...">
+							<img
+								src="<%=request.getContextPath()%>/resources/img/${usuario.imagem}"
+								class="can" alt="...">
 							<p class="textos" id="textos1">
 								<em>"${usuario.descricaoPerfil }"</em>
 							</p>
