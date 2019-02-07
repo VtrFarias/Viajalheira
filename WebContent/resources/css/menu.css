@@ -239,3 +239,19 @@ a#link-home:link {
 .link-home:active {
   color: blue;
 }
+.cardAjuste {
+	margin:0;
+	display: inline-block;
+}
+.cardTitulo{
+	font-size: 1.6em;
+	margin: 0 auto;
+}
+.cardFunção {
+	margin: 0px;
+	pading: 0px;
+}
+.cardPais {
+	margin: 0px;
+	pading: 0px;
+}
