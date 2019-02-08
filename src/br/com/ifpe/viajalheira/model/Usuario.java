@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -40,6 +41,9 @@ public class Usuario {
 	@Column
 	private String sexo;
 	
+	@Column
+	private String imagem;
+	
 	@Column(name="descricao_perfil")
 	private String descricaoPerfil;
 	
@@ -48,6 +52,19 @@ public class Usuario {
 	
 	@Column(name="data_nascimento")
 	private Date dataNascimento;
+	
+	@ManyToOne
+	@JoinColumn(name="id_imagem")
+	private Imagens imagem;
+	
+
+	public Imagens getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Imagens imagem) {
+		this.imagem = imagem;
+	}
 
 	public int getId() {
 		return id;
@@ -75,6 +92,14 @@ public class Usuario {
 
 	public String getSexo() {
 		return sexo;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 	public String getDescricaoPerfil() {
