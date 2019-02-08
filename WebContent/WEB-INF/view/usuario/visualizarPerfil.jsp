@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/material.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu1.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/paginaPerfil.css" id="" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript">
@@ -40,7 +40,7 @@
 					<div class="row">
 						<div class="col-md-3" id="das">
 							<img
-								src="https://www.urbanarts.com.br/imagens/produtos/110915/0/Ampliada/mulher-maravilha-simbolo.jpg"
+								src="<%=request.getContextPath()%>/resources/img/${usuarioLogado.imagem}"
 								class="can" alt="...">
 							<p class="textos" id="textos1">
 								<em>"${usuarioLogado.descricaoPerfil }"</em>
@@ -94,18 +94,8 @@
 
 					</div>
 				</div>
-
-				<div class="text-right">
-					<br>
-					<a href="alter"><button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">Alterar Dados</button></a>
-
-				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Fechamento Menu -->
-	</div>
-	</main>
-    </div>
 </body>
 </html>

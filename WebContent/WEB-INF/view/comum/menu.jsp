@@ -26,7 +26,7 @@
         <header class=" ">
          
 	         <div class="header-avatar">
-	          <img src="https://image.ibb.co/mGn5np/user.jpg" class="avatarPerfil">
+	          <img src="<%=request.getContextPath()%>/resources/img/${usuarioLogado.imagem}" class="avatarPerfil">
 	        </div>
 	       
 	     
