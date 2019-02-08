@@ -29,7 +29,6 @@ public class UsuarioController {
 
 	@RequestMapping("home")
 	public String home() {
-
 		return "home";
 	}
 
@@ -55,32 +54,34 @@ public class UsuarioController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "forward:/home";
 	}
 	@RequestMapping("perfil")
-	public String visu(Model model,  HttpSession session) {
+	public String visu(Model model,  HttpSession session, @RequestParam("id") int id) {
 		Usuario usu = new Usuario();
-		usu = (Usuario) session.getAttribute("usuarioLogado");
-		System.out.println(usu.getCpfCnpj());
-		IdiomaUsuario idi = new IdiomaUsuario();
-		idi.setUsuario(usu);
-		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
-		List<IdiomaUsuario> lis = a.listar(idi); 
-		model.addAttribute("lis", lis);;
-		return "usuario/visualizarPerfil";
-	}
-	@RequestMapping("alter")
-	public String alter(Model model, Model model1,  HttpSession session) {
-		Usuario usu = new Usuario();
-		usu = (Usuario) session.getAttribute("usuarioLogado");
+		UsuarioDao dao = new UsuarioDao();
+		usu = dao.buscarPorId(id);
 		System.out.println(usu.getCpfCnpj());
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
 		List<IdiomaUsuario> lis = a.listar(idi); 
 		model.addAttribute("lis", lis);
-		IdiomaDao dao = new IdiomaDao();
-		List<Idioma> listaIdiomas = dao.listar(null);
+		model.addAttribute("usuario", usu);
+		return "usuario/visualizarPerfil";
+	}
+	@RequestMapping("alterar")
+	public String alter(Model model, Model model1,  HttpSession session, @RequestParam("id") int id) {
+		Usuario usu = new Usuario();
+		UsuarioDao dao = new UsuarioDao();
+		usu = dao.buscarPorId1(id);
+		IdiomaUsuario idi = new IdiomaUsuario();
+		idi.setUsuario(usu);
+		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
+		List<IdiomaUsuario> lis = a.listar(idi); 
+		model.addAttribute("lis", lis);
+		IdiomaDao dao1 = new IdiomaDao();
+		List<Idioma> listaIdiomas = dao1.listar(null);
 		model1.addAttribute("listaIdiomas", listaIdiomas);
 		return "usuario/alterarPerfil";
 	}
@@ -114,13 +115,13 @@ public class UsuarioController {
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		return "index";
+		model.addAttribute("sucessoCadastro", "true");
+		return "forward:novoCadastro";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
 
 		IdiomaDao idiomaDao = new IdiomaDao();
-
 		for (int id : idIdioma) {
 			Idioma idioma = idiomaDao.buscarPorId(id);
 			IdiomaUsuario idiomaUsuario = new IdiomaUsuario();
@@ -131,5 +132,18 @@ public class UsuarioController {
 			dao.salvar(idiomaUsuario);
 		}
 	}
+	@RequestMapping("/usuario/update")
+	public String update(Usuario usuario, Model model) {
+	
+		UsuarioDao dao = new UsuarioDao();
+		dao.alterar1(usuario);
+		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
+		return "forward:list";
+	}
+	@RequestMapping("alterarFoto")
+	public String alterarFoto() {
+		return "";
+	}
+	
 
 }

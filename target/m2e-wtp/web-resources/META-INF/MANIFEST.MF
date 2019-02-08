@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: val
 Build-Jdk: 1.8.0_171
+=======
+Built-By: Rivaldo
+Build-Jdk: 1.8.0_191
+>>>>>>> 8b2c278baf74bb2151431d8cda7b74ce9e2fcfc4
 Created-By: Maven Integration for Eclipse
 
