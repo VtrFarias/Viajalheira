@@ -67,15 +67,7 @@
 							</div>
 						</div>
 						<!-- Terceira linha -->
-						<div class="row">
-							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Situação</label> <input
-									type="text" id="situacao" name="situacao" class="form-control"
-									required>
-							</div>
-
-						</div>
-
+						
 
 						<!-- Quarta linha -->
 						<div class="row">

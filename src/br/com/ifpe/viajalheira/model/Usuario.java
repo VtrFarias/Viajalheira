@@ -53,19 +53,6 @@ public class Usuario {
 	@Column(name="data_nascimento")
 	private Date dataNascimento;
 	
-	@ManyToOne
-	@JoinColumn(name="id_imagem")
-	private Imagens imagem;
-	
-
-	public Imagens getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(Imagens imagem) {
-		this.imagem = imagem;
-	}
-
 	public int getId() {
 		return id;
 	}
