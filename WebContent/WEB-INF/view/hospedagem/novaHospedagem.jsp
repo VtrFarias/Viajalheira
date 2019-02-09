@@ -4,28 +4,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description"
-	content="A front-end template that helps you build fast, modern mobile web apps.">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Viajalheira</title>
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Material Design Lite">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css"
-	id="bootstrap-css" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/material.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/menu.css" />
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Viajalheira</title>
+
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
+
+	
+	<!-- Importando Bootstrap-->
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
+	
+
+	
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
@@ -43,13 +37,17 @@
 						<div class="row">
 							<div class=" col form-group">
 								<label class="label-titulo" for="tipoVaga">Tipo da vaga</label>
-								<select class="form-control" id="tipoVaga" name="tipoVaga"
-									required>
-									<option>Selecione..</option>
-									<option>Entretenimento</option>
-									<option>Culinária</option>
-									<option>Informática</option>
-								</select>
+							
+	              					<select class="form-control" id="tipoVaga" name="tipoVaga" required>
+										<option>Selecione..</option>
+									<c:forEach var="tipoVaga" items="${listaTipoVaga}">
+										<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
+									</c:forEach>
+
+									</select>
+
+								
+								
 							</div>
 
 							<div class="col form-group float-label-control">
@@ -62,20 +60,11 @@
 						<!-- Segunda linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="email">Descrição</label> <input
-									type="text" id="descricao" name="descricao"
-									class="form-control" required>
-							</div>
+	                        	<label class="label-input" for="inputDescricao">Descrição</label>
+	                        	<textarea class="form-control" id="inputDescricao" name="descricaoPerfil" placeholder="Quanto mais legal for, mais legal será..." rows="3"></textarea>
+	                    	</div>
 						</div>
-						<!-- Terceira linha -->
-						<div class="row">
-							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Situação</label> <input
-									type="text" id="situacao" name="situacao" class="form-control"
-									required>
-							</div>
-
-						</div>
+					
 
 
 						<!-- Quarta linha -->
@@ -94,8 +83,7 @@
 						</div>
 
 
-						<p>Imagem:</p>
-						<!-- Quinta linha -->
+					<!-- 	<p>Imagem:</p>
 						<div class="row">
 							<div class="col">
 								<div class="custom-file">
@@ -103,7 +91,7 @@
 									<label class="custom-file-label" for="customFile">Imagem</label>
 								</div>
 							</div>
-						</div>
+						</div>  -->
 					</div>
 				</div>
 			</div>
