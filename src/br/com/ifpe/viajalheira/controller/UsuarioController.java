@@ -18,6 +18,8 @@ import br.com.ifpe.viajalheira.model.IdiomaUsuario;
 import br.com.ifpe.viajalheira.model.IdiomaUsuarioDao;
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
+import br.com.ifpe.viajalheira.model.VagaHospedagem;
+import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
 import br.com.ifpe.viajalheira.util.Criptografia;
 
 /*@author Maria Beatriz Germano
@@ -28,7 +30,10 @@ import br.com.ifpe.viajalheira.util.Criptografia;
 public class UsuarioController {
 
 	@RequestMapping("home")
-	public String home() {
+	public String home(Model model) {
+		VagaHospedagemDao dao = new VagaHospedagemDao();
+		List<VagaHospedagem> listaHospedagem = dao.listar();
+		model.addAttribute("listaHospedagem",listaHospedagem);
 		return "home";
 	}
 
@@ -42,7 +47,7 @@ public class UsuarioController {
 
 		if (usuarioLogado != null) {
 			session.setAttribute("usuarioLogado", usuarioLogado);
-			retorno = "home";
+			retorno = home(model);
 
 		} else {
 			model.addAttribute("msg", "Email ou Senha incorretos. <br/>Tente novamente.");
