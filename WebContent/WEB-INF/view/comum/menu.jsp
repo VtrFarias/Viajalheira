@@ -34,11 +34,11 @@
             <strong>${usuarioLogado.nome}</strong>
             <div class="mdl-layout-spacer">${usuarioLogado.email}</div>
           </div>
-        
+      
         
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--amber-600">
-          <a class="mdl-navigation__link mdl-color-text--brown-500" href="perfil"><i class="mdl-color-text--brown-800 material-icons" role="presentation">home</i>Minha Conta</a>
+          <a class="mdl-navigation__link mdl-color-text--brown-500" href="perfil?id=${usuarioLogado.id}"><i class="mdl-color-text--brown-800 material-icons" role="presentation">home</i>Minha Conta</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">inbox</i>Inbox</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">delete</i>Trash</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">report</i>Spam</a>
@@ -55,4 +55,5 @@
         <div class="mdl-grid demo-content">
          
 <!-- fechamentos devem ficar na página principal  -->
+       
        

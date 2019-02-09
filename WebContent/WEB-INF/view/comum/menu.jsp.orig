@@ -10,7 +10,7 @@
             </label>
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Que tipo de oportunidade você procura?</label>
+              <label class="mdl-textfield__label" for="search">Que tipo de oportunidade vocÃª procura?</label>
             </div>
           </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
@@ -67,5 +67,5 @@
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
          
-<!-- fechamentos devem ficar na página principal  -->
+<!-- fechamentos devem ficar na pÃ¡gina principal  -->
        
