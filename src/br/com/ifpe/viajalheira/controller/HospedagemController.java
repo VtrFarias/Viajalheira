@@ -20,7 +20,7 @@ public class HospedagemController {
 	@RequestMapping("/hospedagem/novoCadastro")
 	public String novoCadastro() {
 		
-		return "hospedagem/novoCadastroHospedagem";
+		return "hospedagem/novaHospedagem";
 	}
 	
 	@RequestMapping("/hospedagem/save")
@@ -68,6 +68,6 @@ public class HospedagemController {
 		
 		dao.salvar(vagaBeneficio);
 		
-		return "";
+		return "home";
 	}
 }

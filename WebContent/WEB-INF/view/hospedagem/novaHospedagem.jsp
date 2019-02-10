@@ -27,7 +27,7 @@
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<form role="form" id="formulario" action="AdicionarHospedagem" method="post" onsubmit="cadastroComSucesso()">
+	<form id="formulario" action="save" method="post" onsubmit="cadastroComSucesso()">
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -35,7 +35,7 @@
 						<h4 class="card-title">Dados Hospedagem</h4>
 						<hr />
 
-						<input type="hidden" value="${usuarioLogado.id}">
+						<input type="hidden" value="${usuarioLogado.id}" name="usuario">
 						
 						<!-- Primeira linha -->
 						<div class="row">
@@ -43,9 +43,9 @@
 								<label class="label-titulo" for="tipoVaga">Tipo da vaga</label>
 								<select class="form-control" id="tipoVaga" name="tipoVaga" required>
 									<option>Selecione..</option>
-									<option>Entretenimento</option>
-									<option>Culinária</option>
-									<option>Informática</option>
+									<option value="Entretenimento">Entretenimento</option>
+									<option value="Culinaria">Culinária</option>
+									<option value="Informatica">Informática</option>
 								</select>
 							</div>
 
@@ -60,23 +60,13 @@
 						<!-- Segunda linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="email">
-									Descrição
+								<label class="label-input" for="descricao">
+									Descrição Da vaga
 								</label> 
 								<input type="text" id="descricao" name="descricao" class="form-control" required>
 							</div>
 						</div>
-						<!-- Terceira linha -->
-						<div class="row">
-							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Situação</label> <input
-									type="text" id="situacao" name="situacao" class="form-control"
-									required>
-							</div>
-
-						</div>
-
-
+						
 						<!-- Quarta linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
