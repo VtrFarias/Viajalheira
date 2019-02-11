@@ -1,6 +1,9 @@
 package br.com.ifpe.viajalheira.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.viajalheira.model.Beneficio;
@@ -18,7 +21,10 @@ import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
 public class HospedagemController {
 
 	@RequestMapping("/hospedagem/novoCadastro")
-	public String novoCadastro() {
+	public String novoCadastro(Model model) {
+		TipoVagaDao dao = new TipoVagaDao();
+		List<TipoVaga> listaTipoVaga = dao.listar();
+		model.addAttribute("listaTipoVaga", listaTipoVaga);
 		
 		return "hospedagem/novaHospedagem";
 	}

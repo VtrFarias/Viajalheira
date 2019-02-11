@@ -41,11 +41,12 @@
 						<div class="row">
 							<div class=" col form-group">
 								<label class="label-titulo" for="tipoVaga">Tipo da vaga</label>
+								
 								<select class="form-control" id="tipoVaga" name="tipoVaga" required>
 									<option>Selecione..</option>
-									<option value="Entretenimento">Entretenimento</option>
-									<option value="Culinaria">Culinária</option>
-									<option value="Informatica">Informática</option>
+								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
+									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
+								</c:forEach>
 								</select>
 							</div>
 
@@ -70,13 +71,13 @@
 						<!-- Quarta linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Tempo Mínimo em
-									Semanas</label> <input type="text" id="situacao"
+								<label class="label-input" for="tempoMinimoSemanas">Tempo Mínimo em
+									Semanas</label> <input type="text" id="tempoMinimoSemanas"
 									name="tempoMinimoSemanas" class="form-control" required>
 							</div>
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Tempo Máximo em
-									Semanas</label> <input type="text" id="situacao"
+								<label class="label-input" for="tempoMaximoSemanas">Tempo Máximo em
+									Semanas</label> <input type="text" id="tempoMaximoSemanas"
 									name="tempoMaximoSemanas" class="form-control" required>
 							</div>
 							<div class="col form-group float-label-control">
