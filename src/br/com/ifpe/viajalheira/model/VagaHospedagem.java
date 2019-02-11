@@ -33,7 +33,7 @@ public class VagaHospedagem {
 	private String titulo;
 	@Column
 	private String descricao;
-	@Column
+	@Column (name="situacao")
 	private String situacao;
 	@Column(name="tempo_minimo_semanas")
 	private String tempoMinimoSemanas;
@@ -41,9 +41,7 @@ public class VagaHospedagem {
 	private String tempoMaximoSemanas;
 	@Column(name="horas_trabalho_semanal")
 	private String horasTrabalhoSemanal;
-	@ManyToOne
-	@JoinColumn(name="imagem_id")
-	private Imagens imagem;
+	
 	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
 	
@@ -78,9 +76,7 @@ public class VagaHospedagem {
 	public String getHorasTrabalhoSemanal() {
 		return horasTrabalhoSemanal;
 	}
-	public Imagens getImagem() {
-		return imagem;
-	}
+	
 	public Timestamp getDataAlteracao() {
 		return dataAlteracao;
 	}
@@ -114,9 +110,7 @@ public class VagaHospedagem {
 	public void setHorasTrabalhoSemanal(String horasTrabalhoSemanal) {
 		this.horasTrabalhoSemanal = horasTrabalhoSemanal;
 	}
-	public void setImagem(Imagens imagem) {
-		this.imagem = imagem;
-	}
+	
 	public void setDataAlteracao(Timestamp dataAlteracao) {
 		this.dataAlteracao = dataAlteracao;
 	}

@@ -18,6 +18,8 @@ import br.com.ifpe.viajalheira.model.IdiomaUsuario;
 import br.com.ifpe.viajalheira.model.IdiomaUsuarioDao;
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
+import br.com.ifpe.viajalheira.model.VagaHospedagem;
+import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
 import br.com.ifpe.viajalheira.util.Criptografia;
 
 /*@author Maria Beatriz Germano
@@ -28,8 +30,10 @@ import br.com.ifpe.viajalheira.util.Criptografia;
 public class UsuarioController {
 
 	@RequestMapping("home")
-	public String home() {
-
+	public String home(Model model) {
+		VagaHospedagemDao dao = new VagaHospedagemDao();
+		List<VagaHospedagem> listaHospedagem = dao.listar();
+		model.addAttribute("listaHospedagem",listaHospedagem);
 		return "home";
 	}
 
@@ -43,7 +47,7 @@ public class UsuarioController {
 
 		if (usuarioLogado != null) {
 			session.setAttribute("usuarioLogado", usuarioLogado);
-			retorno = "home";
+			retorno = home(model);
 
 		} else {
 			model.addAttribute("msg", "Email ou Senha incorretos. <br/>Tente novamente.");
@@ -58,29 +62,31 @@ public class UsuarioController {
 		return "forward:/home";
 	}
 	@RequestMapping("perfil")
-	public String visu(Model model,  HttpSession session) {
+	public String visu(Model model,  HttpSession session, @RequestParam("id") int id) {
 		Usuario usu = new Usuario();
-		usu = (Usuario) session.getAttribute("usuarioLogado");
-		System.out.println(usu.getCpfCnpj());
-		IdiomaUsuario idi = new IdiomaUsuario();
-		idi.setUsuario(usu);
-		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
-		List<IdiomaUsuario> lis = a.listar(idi); 
-		model.addAttribute("lis", lis);;
-		return "usuario/visualizarPerfil";
-	}
-	@RequestMapping("alter")
-	public String alter(Model model, Model model1,  HttpSession session) {
-		Usuario usu = new Usuario();
-		usu = (Usuario) session.getAttribute("usuarioLogado");
+		UsuarioDao dao = new UsuarioDao();
+		usu = dao.buscarPorId(id);
 		System.out.println(usu.getCpfCnpj());
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
 		List<IdiomaUsuario> lis = a.listar(idi); 
 		model.addAttribute("lis", lis);
-		IdiomaDao dao = new IdiomaDao();
-		List<Idioma> listaIdiomas = dao.listar(null);
+		model.addAttribute("usuario", usu);
+		return "usuario/visualizarPerfil";
+	}
+	@RequestMapping("alterar")
+	public String alter(Model model, Model model1,  HttpSession session, @RequestParam("id") int id) {
+		Usuario usu = new Usuario();
+		UsuarioDao dao = new UsuarioDao();
+		usu = dao.buscarPorId1(id);
+		IdiomaUsuario idi = new IdiomaUsuario();
+		idi.setUsuario(usu);
+		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
+		List<IdiomaUsuario> lis = a.listar(idi); 
+		model.addAttribute("lis", lis);
+		IdiomaDao dao1 = new IdiomaDao();
+		List<Idioma> listaIdiomas = dao1.listar(null);
 		model1.addAttribute("listaIdiomas", listaIdiomas);
 		return "usuario/alterarPerfil";
 	}
@@ -121,7 +127,6 @@ public class UsuarioController {
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
 
 		IdiomaDao idiomaDao = new IdiomaDao();
-
 		for (int id : idIdioma) {
 			Idioma idioma = idiomaDao.buscarPorId(id);
 			IdiomaUsuario idiomaUsuario = new IdiomaUsuario();
@@ -132,6 +137,7 @@ public class UsuarioController {
 			dao.salvar(idiomaUsuario);
 		}
 	}
+
 	@RequestMapping("/usuario/edit")
 	public String edit(@RequestParam("id") Integer id, Model model){
 		
@@ -140,6 +146,7 @@ public class UsuarioController {
 		model.addAttribute("usuarioed", usuarioed);
 		return "usuario/alterarPerfil";
 	}
+
 	@RequestMapping("/usuario/update")
 	public String update(Usuario usuarioed, Model model) {
 	
@@ -147,6 +154,10 @@ public class UsuarioController {
 		dao.alterar1(usuarioed);
 		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
 		return "forward:/visu";
+	}
+	@RequestMapping("alterarFoto")
+	public String alterarFoto() {
+		return "";
 	}
 	
 	
