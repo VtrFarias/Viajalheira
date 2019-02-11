@@ -40,15 +40,15 @@
 					<div class="row">
 						<div class="col-md-3" id="das">
 							<img
-								src="https://www.urbanarts.com.br/imagens/produtos/110915/0/Ampliada/mulher-maravilha-simbolo.jpg"
+								src="<%=request.getContextPath()%>/resources/img/${usuario.imagem}"
 								class="can" alt="...">
 							<p class="textos" id="textos1">
-								<em>"${usuarioLogado.descricaoPerfil }"</em>
+								<em>"${usuario.descricaoPerfil }"</em>
 							</p>
 						</div>
 
 						<div class="col-md-6" id="center">
-							<h3 class="card-title">${usuarioLogado.nome}</h3>
+							<h3 class="card-title">${usuario.nome}</h3>
 							<div class="row data">
 								<div class="col-md-2">
 									<p>
@@ -56,7 +56,7 @@
 									</p>
 								</div>
 								<div class="col">
-									<p class="textos">${usuarioLogado.email }</p>
+									<p class="textos">${usuario.email }</p>
 								</div>
 
 							</div>
@@ -85,17 +85,21 @@
 						<div class="col" id="end">
 							<h5 class="titr">Endereço</h5>
 							<p>
-								<strong>País: </strong>${usuarioLogado.endereco.pais }</p>
+								<strong>País: </strong>${usuario.endereco.pais }</p>
 							<p>
-								<strong>Estado: </strong>${usuarioLogado.endereco.estado }</p>
+								<strong>Estado: </strong>${usuario.endereco.estado }</p>
 							<p>
-								<strong>Cidade: </strong>${usuarioLogado.endereco.cidade }</p>
+								<strong>Cidade: </strong>${usuario.endereco.cidade }</p>
 						</div>
 
 					</div>
+					<c:choose><c:when test="${usuarioLogado.id eq usuario.id}"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="alterar?id=${usuario.id}"> Alterar dados</a></c:when></c:choose>
 				</div>
+				
 			</div>
+			
 		</div>
+		
 	</div>
 </body>
 </html>

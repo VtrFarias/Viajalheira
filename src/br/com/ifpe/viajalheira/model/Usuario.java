@@ -40,6 +40,9 @@ public class Usuario {
 	@Column
 	private String sexo;
 	
+	@Column
+	private String imagem;
+	
 	@Column(name="descricao_perfil")
 	private String descricaoPerfil;
 	
@@ -48,7 +51,7 @@ public class Usuario {
 	
 	@Column(name="data_nascimento")
 	private Date dataNascimento;
-
+	
 	public int getId() {
 		return id;
 	}
@@ -75,6 +78,14 @@ public class Usuario {
 
 	public String getSexo() {
 		return sexo;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 	public String getDescricaoPerfil() {
