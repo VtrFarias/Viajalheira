@@ -55,9 +55,16 @@ public class UsuarioController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "forward:/home";
+		return "index";
 	}
-	@RequestMapping("perfil")
+<<<<<<< HEAD
+	
+	@RequestMapping("CadastrarHospedagem")
+	public String CadastrarHospedagem(){
+		return "hospedagem/novaHospedagem";
+	}
+	
+	@RequestMapping("visu")
 	public String visu(Model model,  HttpSession session) {
 		Usuario usu = new Usuario();
 		usu = (Usuario) session.getAttribute("usuarioLogado");
@@ -71,6 +78,10 @@ public class UsuarioController {
 	}
 	@RequestMapping("alter")
 	public String alter(Model model, Model model1,  HttpSession session) {
+=======
+	@RequestMapping("perfil")
+	public String visu(Model model, Model model1,  HttpSession session) {
+>>>>>>> c0dd8f9626171ec089373ae27b5add036e219838
 		Usuario usu = new Usuario();
 		usu = (Usuario) session.getAttribute("usuarioLogado");
 		System.out.println(usu.getCpfCnpj());
@@ -114,8 +125,7 @@ public class UsuarioController {
 
 		this.cadastroIdiomaUsuario(idioma, usuario);
 
-		model.addAttribute("sucessoCadastro", "true");
-		return "forward:novoCadastro";
+		return "index";
 	}
 
 	private void cadastroIdiomaUsuario(int[] idIdioma, Usuario usuario) {
@@ -132,22 +142,5 @@ public class UsuarioController {
 			dao.salvar(idiomaUsuario);
 		}
 	}
-	@RequestMapping("/usuario/edit")
-	public String edit(@RequestParam("id") Integer id, Model model){
-		
-		UsuarioDao dao = new UsuarioDao();
-		Usuario usuario = dao.buscarPorId1(id);
-		model.addAttribute("usuario", usuario);
-		return "usuario/alterarusuario";
-	}
-	@RequestMapping("/usuario/update")
-	public String update(Usuario usuario, Model model) {
-	
-		UsuarioDao dao = new UsuarioDao();
-		dao.alterar1(usuario);
-		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
-		return "forward:list";
-	}
-	
 
 }

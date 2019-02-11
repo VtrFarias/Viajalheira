@@ -18,15 +18,15 @@
     <meta name="apple-mobile-web-app-title" content="Material Design Lite">
     
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+ 
 </head>
 <body>
 
 <!-- Importando o menu de navegação -->
 <c:import url="comum/menu.jsp"></c:import>
- 
  
  <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
              <!-- Card -->
