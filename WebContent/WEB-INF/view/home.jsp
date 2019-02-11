@@ -19,9 +19,8 @@
     
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
-  	
  
 </head>
 <body>
@@ -38,8 +37,8 @@
 						<h2 class="mdl-card__title-text cardTitulo">${vagaHospedagem.titulo}</h2>
 					</div>
 					<div class="mdl-card__supporting-text mdl-color-text--grey-600">
-						<h4 class="cardFunção">${vagaHospedagem.Função}</h4>
-						<div class="cardPais">${vagaHospedagem.pais}/${vagaHospedagem.estado}</div>
+						<h4 class="cardFunção">${vagaHospedagem.tipoVaga.descricao}</h4>
+						<div class="cardPais">${vagaHospedagem.endereco.estado}, ${vagaHospedagem.endereco.pais}</div>
 					</div>
 					<div class="mdl-card__actions mdl-card--border">
 						<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Ver mais</a>

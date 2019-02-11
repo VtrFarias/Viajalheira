@@ -24,7 +24,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/menu.css" />
+	href="<%=request.getContextPath()%>/resources/css/menu1.css" />
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript">
@@ -237,9 +237,7 @@
 
 				<div class="text-right">
 					<br>
-					<button
-						class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect"
-						type="submit">Enviar</button>
+					<button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" type="submit">Enviar</button>
 
 				</div>
 			</div>
@@ -247,7 +245,10 @@
 
 
 	</form>
-
+<!-- Complemento do menu -->
+        
+      </main>
+    </div>
 
 </body>
 </html>

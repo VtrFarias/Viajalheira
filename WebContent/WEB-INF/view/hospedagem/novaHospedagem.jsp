@@ -67,7 +67,7 @@
 								<input type="text" id="descricao" name="descricao" class="form-control" required>
 							</div>
 						</div>
-						
+
 						<!-- Quarta linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
@@ -180,9 +180,6 @@
 		</div>
 
 	</form>
-
-
-	
 
 </body>
 </html>

@@ -23,7 +23,7 @@ public class HospedagemController {
 	@RequestMapping("/hospedagem/novoCadastro")
 	public String novoCadastro(Model model) {
 		TipoVagaDao dao = new TipoVagaDao();
-		List<TipoVaga> listaTipoVaga = dao.listar();
+		List<TipoVaga> listaTipoVaga = dao.listar(null);
 		model.addAttribute("listaTipoVaga", listaTipoVaga);
 		
 		return "hospedagem/novaHospedagem";
