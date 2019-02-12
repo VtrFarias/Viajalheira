@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
@@ -21,6 +22,7 @@ import br.com.ifpe.viajalheira.model.UsuarioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;
 import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
 import br.com.ifpe.viajalheira.util.Criptografia;
+import br.com.ifpe.viajalheira.util.Util;
 
 /*@author Maria Beatriz Germano
  * 
@@ -146,8 +148,14 @@ public class UsuarioController {
 		return "forward:list";
 	}
 	@RequestMapping("alterarFoto")
-	public String alterarFoto() {
-		return "";
+	public String alterarFoto(@RequestParam("file") MultipartFile imagem, @RequestParam("idUsuario") int id) {
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usuario = dao.buscarPorId(id);
+		if (Util.fazerUploadImagem(imagem)) {
+			usuario.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
+			}
+		dao.alterar(usuario);
+		return "usuario/visualizarPerfil";
 	}
 	
 
