@@ -66,6 +66,12 @@
 								</label> 
 								<input type="text" id="descricao" name="descricao" class="form-control" required>
 							</div>
+							<div class="col form-group float-label-control">
+								<label class="label-input" for="beneficio">
+									Beneficio
+								</label> 
+								<input type="text" id="beneficio" name="beneficio" class="form-control" required>
+							</div>
 						</div>
 
 						<!-- Quarta linha -->
