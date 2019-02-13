@@ -24,7 +24,12 @@ public class HospedagemController {
 	public String novoCadastro(Model model) {
 		TipoVagaDao dao = new TipoVagaDao();
 		List<TipoVaga> listaTipoVaga = dao.listar(null);
+		
+		BeneficioDao beneficioDao = new BeneficioDao();
+		List<Beneficio> listaBeneficio = beneficioDao.listar(null);
+		
 		model.addAttribute("listaTipoVaga", listaTipoVaga);
+		model.addAttribute("listaBeneficio", listaBeneficio);
 		
 		return "hospedagem/novaHospedagem";
 	}
@@ -45,17 +50,9 @@ public class HospedagemController {
 		dao.salvar(tipoVaga);
 		vaga.setTipoVaga(tipoVaga);
 		
-		return cadastrarBeneficio(beneficio, vaga);
-	}
-	
-	public String cadastrarBeneficio(Beneficio beneficio, VagaHospedagem vaga) {
-		
-		BeneficioDao dao = new BeneficioDao();
-		dao.salvar(beneficio);
-		
 		return cadastrarVaga(vaga, beneficio);
 	}
-	
+
 	
 	
 	public String cadastrarVaga(VagaHospedagem vaga, Beneficio beneficio) {
@@ -75,5 +72,7 @@ public class HospedagemController {
 		dao.salvar(vagaBeneficio);
 		
 		return "home";
+
+		return "forward:novoCadastro";
 	}
 }
