@@ -35,14 +35,14 @@
 						<h4 class="card-title">Dados Hospedagem</h4>
 						<hr />
 
-						<input type="hidden" value="${usuarioLogado.id}" name="usuario">
+						
 						
 						<!-- Primeira linha -->
 						<div class="row">
 							<div class=" col form-group">
-								<label class="label-titulo" for="tipoVaga">Tipo da vaga</label>
+								<label class="label-titulo" for="tipovaga">Tipo da vaga</label>
 								
-								<select class="form-control" id="tipoVaga" name="tipoVaga" required>
+								<select class="form-control" id="tipovaga" name="tipovaga" required>
 									<option>Selecione..</option>
 								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
 									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
