@@ -66,13 +66,25 @@
 								</label> 
 								<input type="text" id="descricao" name="descricao" class="form-control" required>
 							</div>
-							<div class="col form-group float-label-control">
-								<label class="label-input" for="beneficio">
-									Beneficio
-								</label> 
-								<input type="text" id="beneficio" name="beneficio" class="form-control" required>
-							</div>
 						</div>
+						
+						<fieldset>
+		                 	<label class="label-titulo">Beneficios*</label>
+		                 	<label for="idioma" class="error"></label>
+			    			 <!-- Quinta linha -->
+			                  <div class="row">
+								<div class = "mdl-grid">
+				                <c:forEach var="beneficio" items="${listaBeneficio}">
+									<div class = "mdl-cell mdl-cell--4-col graybox">
+										<label for="${beneficio.descricao}">
+											<input type="checkbox" class="checkbox" id="${beneficio.descricao}" value="${beneficio.id}" name="beneficio" minlength="1"><span class="mdl-checkbox__input">${beneficio.descricao}</span>
+										</label>
+									</div>
+								</c:forEach>
+									                   
+			                 </div>
+		                  </div>
+						</fieldset>
 
 						<!-- Quarta linha -->
 						<div class="row">

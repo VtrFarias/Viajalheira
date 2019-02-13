@@ -73,6 +73,5 @@ public class HospedagemController {
 		
 		return "home";
 
-		return "forward:novoCadastro";
 	}
 }
