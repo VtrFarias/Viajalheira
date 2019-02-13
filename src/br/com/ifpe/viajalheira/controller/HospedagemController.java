@@ -24,7 +24,12 @@ public class HospedagemController {
 	public String novoCadastro(Model model) {
 		TipoVagaDao dao = new TipoVagaDao();
 		List<TipoVaga> listaTipoVaga = dao.listar(null);
+		
+		BeneficioDao beneficioDao = new BeneficioDao();
+		List<Beneficio> listaBeneficio = beneficioDao.listar(null);
+		
 		model.addAttribute("listaTipoVaga", listaTipoVaga);
+		model.addAttribute("listaBeneficio", listaBeneficio);
 		
 		return "hospedagem/novaHospedagem";
 	}
