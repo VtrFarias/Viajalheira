@@ -45,17 +45,9 @@ public class HospedagemController {
 		dao.salvar(tipoVaga);
 		vaga.setTipoVaga(tipoVaga);
 		
-		return cadastrarBeneficio(beneficio, vaga);
-	}
-	
-	public String cadastrarBeneficio(Beneficio beneficio, VagaHospedagem vaga) {
-		
-		BeneficioDao dao = new BeneficioDao();
-		dao.salvar(beneficio);
-		
 		return cadastrarVaga(vaga, beneficio);
 	}
-	
+
 	
 	
 	public String cadastrarVaga(VagaHospedagem vaga, Beneficio beneficio) {
@@ -74,6 +66,6 @@ public class HospedagemController {
 		
 		dao.salvar(vagaBeneficio);
 		
-		return "";
+		return "forward:novoCadastro";
 	}
 }
