@@ -1,5 +1,8 @@
 package br.com.ifpe.viajalheira.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -82,6 +85,7 @@ public class UsuarioController {
 		Usuario usu = new Usuario();
 		UsuarioDao dao = new UsuarioDao();
 		usu = dao.buscarPorId1(id);
+		model1.addAttribute("usuario", usu);
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
@@ -105,13 +109,16 @@ public class UsuarioController {
 
 	@RequestMapping("/usuario/save")
 	public String cadastroEndereco(Model model, Endereco endereco,
-			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario) {
-
+			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario , @RequestParam("nascimento") String nasc) throws ParseException {
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
+		Date data = dataFormatada.parse(nasc);
+		usuario.setDataNascimento(data);
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		usuario.setEndereco(endereco);
 		
 		return cadastroUsuario(model, usuario, idioma);
+		
 	}
 
 	public String cadastroUsuario(Model model, Usuario usuario, int[] idioma) {
@@ -140,12 +147,19 @@ public class UsuarioController {
 		}
 	}
 	@RequestMapping("/usuario/update")
-	public String update(Usuario usuario, Model model) {
+	public String update(HttpSession session,Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma) {
 	
-		UsuarioDao dao = new UsuarioDao();
-		dao.alterar1(usuario);
+		EnderecoDao dao = new EnderecoDao();
+		endereco.setId(idEnd);
+		dao.alterar(endereco);
+		usuario.setEndereco(endereco);
+		
+		UsuarioDao dao1 = new UsuarioDao();
+		dao1.alterar1(usuario);
+		session.setAttribute("usuarioLogado", usuario);
 		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
-		return "forward:list";
+		//this.alterarIdiomaUsuario(idioma, usuario);
+		return "forward:/home";
 	}
 	@RequestMapping("alterarFoto")
 	public String alterarFoto(@RequestParam("file") MultipartFile imagem, @RequestParam("idUsuario") int id) {

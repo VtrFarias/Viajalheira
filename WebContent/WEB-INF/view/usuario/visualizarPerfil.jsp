@@ -83,7 +83,7 @@
 									</p>
 								</div>
 								<div class="col">
-									<p class="textos">X anos.</p>
+									<p class="textos">${usuario.dataNascimento}</p>
 								</div>
 							</div>
 							<div class="row">

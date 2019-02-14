@@ -78,6 +78,7 @@
 		                    </div>
 	                    </div>
 	                    
+	                    
 	                <!-- Segunda linha -->
 	                <div class="row">
 	                    <div class="col form-group float-label-control">
@@ -100,7 +101,8 @@
 
 
                     <!-- Quarta linha -->
-	                    <div class="form-group">
+                    <div class="row">
+                     <div class="col form-group">
 		                    	<label class="label-titulo" for="sexo">Sexo*</label>
 		                    	<select class="form-control" id="sexo" name="sexo">
 		                    		<option></option>
@@ -109,6 +111,13 @@
 		                    		<option value="outros">Outros</option>
 		                    	</select>
 		                  </div>
+		                 <div class="col form-group float-label-control">
+	                        <label class="label-input" for="dataNascimento">Data Nascimento</label>
+	                        <input type="date" id="dataNascimento" name="nascimento" class="form-control">
+	                    </div>
+                    
+                    </div>
+	                   
 
 				
 	              	

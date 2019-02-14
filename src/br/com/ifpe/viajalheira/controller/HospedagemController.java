@@ -44,52 +44,12 @@ public class HospedagemController {
 		return "hospedagem/novaHospedagem";
 	}
 	
-	@RequestMapping("kj")
-	public String cadastrarEndereco(Endereco endereco, TipoVaga tipoVaga, Beneficio beneficio, VagaHospedagem vaga) {
-		EnderecoDao dao = new EnderecoDao();
-		dao.salvar(endereco);
-		vaga.setEndereco(endereco);
-		
-		return cadastrarTipoVaga(tipoVaga, beneficio, vaga);
-	}
-	
-	
-	public String cadastrarTipoVaga(TipoVaga tipoVaga, Beneficio beneficio, VagaHospedagem vaga) {
-		
-		TipoVagaDao dao = new TipoVagaDao();
-		dao.salvar(tipoVaga);
-		vaga.setTipoVaga(tipoVaga);
-		
-		return cadastrarVaga(vaga, beneficio);
-	}
 
-	
-	
-	public String cadastrarVaga(VagaHospedagem vaga, Beneficio beneficio) {
-		
-		VagaHospedagemDao dao = new VagaHospedagemDao();
-		dao.salvar(vaga);
-		
-		return cadastrarVagaBeneficio(vaga, beneficio);
-	}
-	
-	public String cadastrarVagaBeneficio(VagaHospedagem vaga, Beneficio beneficio) {
-		VagaBeneficio vagaBeneficio = new VagaBeneficio();
-		vagaBeneficio.setVaga(vaga);
-		vagaBeneficio.setBeneficio(beneficio);
-		VagaBeneficioDao dao = new VagaBeneficioDao();
-		
-		dao.salvar(vagaBeneficio);
-		
-		return "home";
-
-	}
 	@RequestMapping("/hospedagem/save")
 	public String cadastrarEndereco1(HttpServletRequest request, Endereco endereco, @RequestParam("tipovaga") int tipoVaga, @RequestParam(value = "beneficio", required = false)int [] beneficio, VagaHospedagem vaga) {
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		vaga.setEndereco(endereco);
-		System.out.println(tipoVaga +" --- " + Arrays.toString(beneficio));
 		return cadastrarVaga1(vaga, beneficio, tipoVaga, request);
 	}
 	public String cadastrarVaga1(VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request) {
