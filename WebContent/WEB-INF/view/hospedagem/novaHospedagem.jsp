@@ -24,10 +24,12 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validinclusaonovahosped.js"></script>
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<form id="formulario" action="save" method="post" onsubmit="cadastroComSucesso()">
+	<form id="formulariohos" action="save" method="post" onsubmit="cadastroComSucesso()">
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -42,7 +44,7 @@
 							<div class=" col form-group">
 								<label class="label-titulo" for="tipovaga">Tipo da vaga</label>
 								
-								<select class="form-control" id="tipovaga" name="tipovaga" required>
+								<select class="form-control" id="tipovaga" name="tipovaga">
 									<option>Selecione..</option>
 								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
 									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
@@ -54,7 +56,7 @@
 								<label class="label-input" for="titulo">
 									Titulo
 								</label> 
-								<input type="text" id="titulo" name="titulo" maxlength="14" class="form-control" required>
+								<input type="text" id="titulo" name="titulo" class="form-control">
 							</div>
 						</div>
 
@@ -70,7 +72,7 @@
 						
 						<fieldset>
 		                 	<label class="label-titulo">Beneficios*</label>
-		                 	<label for="idioma" class="error"></label>
+		                 	<label for="beneficio" class="error"></label>
 			    			 <!-- Quinta linha -->
 			                  <div class="row">
 								<div class = "mdl-grid">
@@ -134,7 +136,7 @@
 							</div>
 
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="numero">Número*</label> <input
+								<label class="label-input" for="numeroho">Número*</label> <input
 									type="text" id="numero" name="numerocasa" class="form-control"
 									required>
 							</div>
