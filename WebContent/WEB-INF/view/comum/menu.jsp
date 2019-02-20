@@ -18,7 +18,7 @@
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
            
-            <a href="logout"><li class="mdl-menu__item">Sair</li></a>
+            <a href="/viajalheira/logout"><li class="mdl-menu__item">Sair</li></a>
           </ul>
         </div>
       </header>
