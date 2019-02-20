@@ -44,8 +44,10 @@
 									<img src="<%=request.getContextPath()%>/resources/img/${usuario.imagem}" class="can" alt="...">
 								</c:when>
 								<c:otherwise>
-									<form action="alterarFoto" method="post" enctype="multipart/form-data">
-										<input type="hidden" value="${usuario.id}" name="idUsuario">
+								<img src="<%=request.getContextPath()%>/resources/img/avatar.jpg" class="can" alt="...">
+									<form action="/viajalheira/alterarFoto" method="post" enctype="multipart/form-data" >
+									<div id="fotoalterar"><input type="hidden" value="${usuario.id}" name="idUsuario"></div>
+										
 										<h5>Adicionar Foto</h5>
 											<div class="custom-file">
 											<input type="file" class="custom-file-input" id="customFile" name="file">
