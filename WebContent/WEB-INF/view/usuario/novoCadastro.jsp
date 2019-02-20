@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
-
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 	
 	<!-- Importando Bootstrap-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>

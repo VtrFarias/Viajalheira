@@ -20,13 +20,11 @@ $(document).ready(function(){
     		},
     		tempoMinimoSemanas: {
     			required: true,
-    			minlength: 1,
-    			maxlength: 3
+
     		},
     		tempoMaximoSemanas: {
     			required: true,
-    			minlength: 1,
-    			maxlength: 3
+
     		},
     		horasTrabalhoSemanal: {
     			required: true,
@@ -38,7 +36,7 @@ $(document).ready(function(){
     			minlength: 2,
     			maxlength: 150
     		},
-    		numeroho: {
+    		numerocasa: {
     			required: true,
     			minlength: 2,
     			maxlength: 150
@@ -74,8 +72,8 @@ $(document).ready(function(){
             },
             titulo:{
 				required:"Campo obrigatorio",
-				minlength:"Mínimo de 11 Digitos",
-				maxlength:"Máximo de 14 Digitos"
+				minlength:"Mínimo de 5 Digitos",
+				maxlength:"Máximo de 100 Digitos"
 			},
 			descricao: {
 				required: "Campo obrigatório",
@@ -87,25 +85,21 @@ $(document).ready(function(){
     		},
     		tempoMinimoSemanas: {
     			required: "Campo obrigatorio",
-    			minlength:"Mínimo de 1 Digitos",
-				maxlength:"Máximo de 3 Digitos"
     		},
     		tempoMaximoSemanas: {
     			required: "Campo obrigatorio",
-    			minlength:"Mínimo de 1 Digitos",
-    			maxlength:"Máximo de 3 Digitos"
     		},
     		horasTrabalhoSemanal: {
     			required: "Campo obrigatorio",
     			minlength:"Mínimo de 1 Digitos",
-    			maxlength:"Máximo de 3 Digitos"
+    			maxlength:"Máximo de 2 Digitos"
     		},
     		rua: {
     			required: "Campo obrigatorio",
     			minlength: "Mínimo 2 Caracteres",
     			maxlength: "Apenas 150 Caracteres"
     		},
-    		numeroho: {
+    		numerocasa: {
     			required: "Campo obrigatorio",
     			minlength: "Mínimo 2 Caracteres",
     			maxlength: "Máximo 150 Caracteres"
