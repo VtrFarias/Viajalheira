@@ -37,22 +37,9 @@
 					<div class="card-body">
 						<h4 class="card-title">Dados Hospedagem</h4>
 						<hr />
-
-						
 						
 						<!-- Primeira linha -->
 						<div class="row">
-							<div class=" col form-group">
-								<label class="label-titulo" for="tipovaga">Tipo da vaga*</label>
-								
-								<select class="form-control" id="tipovaga" name="tipovaga">
-									<option></option>
-									<option>Selecione..</option>
-								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
-									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
-								</c:forEach>
-								</select>
-							</div>
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="titulo">
@@ -61,6 +48,7 @@
 								<input type="text" id="titulo" name="titulo" class="form-control">
 							</div>
 						</div>
+						
 
 						<!-- Segunda linha -->
 						<div class="row">
@@ -72,6 +60,23 @@
 							</div>
 						</div>
 						
+						
+						<div class="row">
+						
+							<div class=" col form-group">
+								<label class="label-titulo" for="tipovaga">Tipo da vaga*</label>
+								
+								<select class="form-control" id="tipovaga" name="tipovaga">
+									<option></option>
+									<option>Selecione..</option>
+								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
+									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
+								</c:forEach>
+								</select>
+							</div>
+						
+						</div>
+						
 						<fieldset>
 		                 	<label class="label-titulo">Beneficios*</label>
 		                 	<label for="beneficio" class="error"></label>
@@ -81,7 +86,8 @@
 				                <c:forEach var="beneficio" items="${listaBeneficio}">
 									<div class = "mdl-cell mdl-cell--4-col graybox">
 										<label for="${beneficio.descricao}">
-											<input type="checkbox" class="checkbox" id="${beneficio.descricao}" value="${beneficio.id}" name="beneficio" minlength="1"><span class="mdl-checkbox__input">${beneficio.descricao}</span>
+											<input type="checkbox" class="checkbox" id="${beneficio.descricao}" value="${beneficio.id}" name="beneficio" minlength="1">
+											<span class="mdl-checkbox__input"> ${beneficio.descricao}</span>
 										</label>
 									</div>
 								</c:forEach>
