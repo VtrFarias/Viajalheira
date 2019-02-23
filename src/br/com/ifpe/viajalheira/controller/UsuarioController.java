@@ -162,14 +162,15 @@ public class UsuarioController {
 		return "forward:/home";
 	}
 	@RequestMapping("alterarFoto")
-	public String alterarFoto(@RequestParam("file") MultipartFile imagem, @RequestParam("idUsuario") int id) {
+	public String alterarFoto(@RequestParam("file") MultipartFile imagem, @RequestParam("idUsuario") int id, HttpSession session) {
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuario = dao.buscarPorId(id);
 		if (Util.fazerUploadImagem(imagem)) {
 			usuario.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
 			}
 		dao.alterar(usuario);
-		return "usuario/visualizarPerfil";
+		session.setAttribute("usuarioLogado", usuario);
+		return "forward:/perfil?id="+id;
 	}
 	
 

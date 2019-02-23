@@ -2,7 +2,7 @@
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <a class="color-text--brown-500" href="home"><span class="mdl-layout-title">Home</span></a>
+          <a class="color-text--brown-500" href="/viajalheira/home"><span class="mdl-layout-title">Home</span></a>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -18,7 +18,7 @@
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
            
-            <a href="logout"><li class="mdl-menu__item">Sair</li></a>
+            <a href="/viajalheira/logout"><li class="mdl-menu__item">Sair</li></a>
           </ul>
         </div>
       </header>
@@ -38,8 +38,10 @@
         
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--amber-600">
-          <a class="mdl-navigation__link mdl-color-text--brown-500" href="perfil?id=${usuarioLogado.id}"><i class="mdl-color-text--brown-800 material-icons" role="presentation">home</i>Minha Conta</a>
-          <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/perfil?id=${usuarioLogado.id}"><i class="mdl-color-text--brown-800 material-icons" role="presentation">home</i>Minha Conta</a>
+          <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/hospedagem/novoCadastro"><i class="mdl-color-text--brown-500 material-icons" role="presentation">inbox</i>Nova Hospedagem</a>
+          
+          <!-- 
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">delete</i>Trash</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">report</i>Spam</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">forum</i>Forums</a>
@@ -49,6 +51,8 @@
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">people</i>Social</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--amber-900 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+           -->
+         
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
