@@ -29,28 +29,32 @@
 <!-- Importando o menu de navegação -->
 <c:import url="comum/menu.jsp"></c:import>
  
-	
- <div class="demo-cards mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-             <!-- Card -->
-			<c:forEach var="vagaHospedagem" items="${listaHospedagem}">
+		<div class="container">
+             <div class="row">
+                <!-- Card -->
+			   <c:forEach var="vagaHospedagem" items="${listaHospedagem}">
 			
-	            <div class="cardAjuste demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop ">
-					<div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-						<h2 class="mdl-card__title-text cardTitulo">${vagaHospedagem.titulo}</h2>
-					</div>
-					<div class="mdl-card__supporting-text mdl-color-text--grey-600">
-						<h4 class="cardFunção">${vagaHospedagem.tipoVaga.descricao}</h4>
-						<div class="cardPais">${vagaHospedagem.endereco.estado}, ${vagaHospedagem.endereco.pais}</div>
-					</div>
-					<div class="mdl-card__actions mdl-card--border">
-						<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Ver mais</a>
-					</div>
-				</div>
-				<div class="demo-separator mdl-cell--1-col"></div>
+                <div class="cardAjuste col">
+                    <div class="box3">
+                        <img src="http://bestjquery.com/tutorial/hover-effect/demo169/images/img-1.jpg">
+                        <h3 class="title-type">${vagaHospedagem.tipoVaga.descricao}</h3>
+                        <div class="box-content">
+                            <h3 class="title">${vagaHospedagem.titulo}</h3>
+                            <span class="post">${vagaHospedagem.endereco.cidade} - ${vagaHospedagem.endereco.estado}, ${vagaHospedagem.endereco.pais} </span>
+                            <p class="description">
+                                ${vagaHospedagem.descricao}
+                            </p>
+                            <ul class="icon">
+                                <li><a href="#" class=""><i class="material-icons" role="presentation">add</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
 				
             </c:forEach>
             
-            
+           </div>
           </div>
 
    <!-- Complemento do menu -->

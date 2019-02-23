@@ -53,23 +53,25 @@ body{background-color:#f1f1f2}
 .box2 .title{font-size:16px}
 }
 /*********************** Demo - 3 *******************/
-.box3{box-shadow:0 0 3px rgba(0,0,0,.3);position:relative}
+.box3{box-shadow:0 0 3px rgba(0,0,0,.3);position:relative; width:300px;}
 .box3 .box-content,.box3:after,.box3:before{position:absolute;left:7%;right:7%;transition:all .3s}
 .box3:after,.box3:before{display:block;background:rgba(0,0,0,.3);top:10%;bottom:10%;z-index:1;transform:scale(0,1)}
 .box3:after{top:10.8%;bottom:10.8%;transform:scale(1,0)}
 .box3:hover:after,.box3:hover:before{transform:scale(1);animation:animate 1.5s}
 .box3:hover:before{border-top:3px solid #fff;border-bottom:3px solid #fff}
 .box:hover:after{border-left:3px solid #fff;border-right:3px solid #fff}
-.box img{width:100%;height:auto;transition:all .3s}
+.box img{width:100%; transition:all .3s}
 .box3:hover img{transform:scale(1.2);filter:blur(5px);-moz-filter:blur(5px);-webkit-filter:blur(5px)}
 .box3 .box-content{padding:30px 10px;top:10%;bottom:10%;opacity:0;z-index:2}
 .box3:hover .box-content{box-shadow:0 0 0 35px rgba(255,255,255,.3);opacity:1;transition:all .3s}
-.box3 .title{font-size:24px;font-weight:600;color:#88c425;margin:0 0 5px}
+.box3 .title{font-size:24px;font-weight:600;color:#FFBF00;margin:0 0 5px}
+.box3 .title-type{font-size:22px;font-weight:600;color:#00B2EE;margin:0 0 5px}
 .box3 .post{display:block;margin:0 0 5px;font-size:14px;color:rgba(255,255,255,.8)}
 .box3 .description{font-size:14px;color:#fff;margin:0 0 20px}
 .box3 .icon{padding:0;margin:0;list-style:none}
 .box3 .icon li{display:inline-block;margin:0 10px 0 0}
-.box3 .icon li a{display:block;width:30px;height:30px;line-height:30px;color:#fff;background:#88c425;transition:all .5s}
+.box3 .icon li a{display:block;width:30px;height:30px;line-height:30px;color:#fff;background:#00B2EE;transition:all .5s}
+.box3 .icon li a i{margin-top:3px;}
 .box3 .icon a:hover{text-decoration:none;animation:animate-hover .5s;transition:all .3s}
 @keyframes animate{0%,100%{opacity:1}
 }
@@ -106,7 +108,7 @@ body{background-color:#f1f1f2}
 }
 
 /*********************** Demo - 5 *******************/
-.box5{background:#444;position:relative}
+.box5{background:#444;position:relative;  width: 300px;}
 .box5:after,.box5:before{width:50px;height:50px;border-radius:50%;background:#10a5b8;position:absolute;top:-80px;left:15px;opacity:0;z-index:1;transition:all .35s ease}
 .box5:after{top:auto;left:auto;bottom:-80px;right:15px}
 .box5:hover:after,.box5:hover:before{opacity:.75;transform:scale(8);transition-delay:.15s}
@@ -168,9 +170,10 @@ body{background-color:#f1f1f2}
 /*********************** Demo - 8 *******************/
 .box8 .icon,.box8 .title{margin:0;position:absolute}
 .box8{box-shadow:0 0 3px rgba(0,0,0,.3);position:relative}
+.box8 .post{display:block;margin:0 0 5px;font-size:14px;color:rgba(255,255,255,.8); position: relative; top: 30%;}
 .box8 img{width:100%;height:auto}
 .box8 .box-content{width:100%;height:100%;background:rgba(0,0,0,.6);opacity:0;position:absolute;top:0;left:0;transform:perspective(400px) rotateX(-90deg);transform-origin:center top 0;transition:all .5s ease 0s}
-.box8 .icon li a,.box8 .title{background:#ef4050;font-size:20px;color:#fff}
+.box8 .icon li a,.box8 .title{background:#FFBF00;font-size:20px;color:#fff}
 .box8:hover .box-content{opacity:1;transform:perspective(400px) rotateX(0)}
 .box8 .title{padding:5px 7px;border-radius:5px;font-weight:600;bottom:20px;left:20px;transition:all .9s ease 0s}
 .box8 .icon li a,.box9 .box-content,.box9 .icon li,.box9 img{transition:all .35s ease 0s}
@@ -433,7 +436,7 @@ body{background-color:#f1f1f2}
 }
 
 /*********************** Demo - 21 *******************/
-.box21{text-align:center;position:relative}
+.box21{text-align:center;position:relative;}
 .box21:after,.box21:before{content:"";width:2px;height:2px;border-radius:50%;background:rgba(0,0,0,.35);position:absolute;top:50%;left:50%;-webkit-transform:scale(0);-moz-transform:scale(0);-ms-transform:scale(0);-o-transform:scale(0);transform:scale(0)}
 .box21:hover:after,.box21:hover:before{-webkit-transform:scale(400);-moz-transform:scale(400);-ms-transform:scale(400);-o-transform:scale(400);transform:scale(400)}
 .box21:before{-o-transition:all .5s linear .3s;-moz-transition:all .5s linear .3s;-ms-transition:all .5s linear .3s;-webkit-transition:all .5s linear .3s;transition:all .5s linear .3s}
