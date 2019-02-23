@@ -47,11 +47,11 @@ public class VagaHospedagemDao {
 			"FROM VagaHospedagem WHERE titulo LIKE :paramTitulo AND tipoVaga.descricao LIKE :paramDescricao AND situacao NOT LIKE :paramSituacao ORDER BY id");
 			query.setParameter("paramTitulo", "%" + titulo + "%");
 			query.setParameter("paramDescricao", "%" + tipoVaga + "%");
-			query.setParameter("paramSituacao",String.valueOf('0'));
+			query.setParameter("paramSituacao",'0');
 			} else {
 			query = manager.createQuery("FROM VagaHospedagem WHERE situacao NOT LIKE :paramSituacao ORDER BY id");
 
-			query.setParameter("paramSituacao",String.valueOf('0'));
+			query.setParameter("paramSituacao",'0');
 			}
 		List<VagaHospedagem> lista = query.getResultList();
 		manager.close();

@@ -60,6 +60,7 @@ public class HospedagemController {
 		TipoVaga tipov = tipo.buscarPorId(tipoVaga);
 		vaga.setUsuario(usu);
 		vaga.setTipoVaga(tipov);
+		vaga.setSituacao('1');
 		VagaHospedagemDao dao = new VagaHospedagemDao();
 		dao.salvar(vaga);
 		
