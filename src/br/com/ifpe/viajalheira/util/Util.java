@@ -25,7 +25,8 @@ public class Util {
 		String nomeArquivo = imagem.getOriginalFilename();
 		try {
 		// Criando o diretório para armazenar o arquivo
-		String workspaceProjeto = "/home/Viajalheira";
+			
+		String workspaceProjeto = "/home/ALUNO/git/Viajalheira";
 		File dir = new File(workspaceProjeto + "/WebContent/resources/img");
 		if (!dir.exists()) {
 		dir.mkdirs();
@@ -35,14 +36,14 @@ public class Util {
 		BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 		stream.write(imagem.getBytes());
 		stream.close();
-		System. out .println("Arquivo armazenado em:" + serverFile.getAbsolutePath());
-		System. out .println("Você fez o upload do arquivo " + nomeArquivo + " com sucesso");
+		System.out.println("Arquivo armazenado em:" + serverFile.getAbsolutePath());
+		System.out.println("Você fez o upload do arquivo " + nomeArquivo + " com sucesso");
 		sucessoUpload = true;
 		} catch (Exception e) {
-		System. out .println("Você falhou em carregar o arquivo " + nomeArquivo + " => " + e.getMessage());
+		System.out.println("Você falhou em carregar o arquivo " + nomeArquivo + " => " + e.getMessage());
 		}
 		} else {
-		System. out .println("Você falhou em carregar o arquivo porque ele está vazio ");
+		System.out.println("Você falhou em carregar o arquivo porque ele está vazio ");
 		}
 		return sucessoUpload;
 		}

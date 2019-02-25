@@ -19,71 +19,124 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validinclusaonovahospe.js"></script>
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<form role="form" id="formulario" action="AdicionarHospedagem" method="post" onsubmit="cadastroComSucesso()">
+	<form id="formulariohos" action="save" method="post" onsubmit="cadastroComSucesso()">
 		<div class="row">
 			<div class="col">
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title">Dados Hospedagem</h4>
 						<hr />
-
-						<input type="hidden" value="${usuarioLogado.id}">
 						
 						<!-- Primeira linha -->
 						<div class="row">
-							<div class=" col form-group">
-								<label class="label-titulo" for="tipoVaga">Tipo da vaga</label>
-								<select class="form-control" id="tipoVaga" name="tipoVaga" required>
-									<option>Selecione..</option>
-									<option>Entretenimento</option>
-									<option>Culinária</option>
-									<option>Informática</option>
-								</select>
-							</div>
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="titulo">
-									Titulo
+									Titulo*
 								</label> 
-								<input type="text" id="titulo" name="titulo" maxlength="14" class="form-control" required>
+								<input type="text" id="titulo" name="titulo" class="form-control">
 							</div>
 						</div>
+						
 
 						<!-- Segunda linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="email">
-									Descrição
+								<label class="label-input" for="descricao">
+									Descrição Da vaga*
 								</label> 
-								<input type="text" id="descricao" name="descricao" class="form-control" required>
+								<input type="text" id="descricao" name="descricao" class="form-control" >
 							</div>
 						</div>
-						<!-- Terceira linha -->
 						
+						
+						<div class="row">
+						
+							<div class=" col form-group">
+								<label class="label-titulo" for="tipovaga">Tipo da vaga*</label>
+								
+								<select class="form-control" id="tipovaga" name="tipovaga">
+									<option></option>
+									<option>Selecione..</option>
+								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
+									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
+								</c:forEach>
+								</select>
+							</div>
+						
+						</div>
+						
+						<fieldset>
+		                 	<label class="label-titulo">Beneficios*</label>
+		                 	<label for="beneficio" class="error"></label>
+			    			 <!-- Quinta linha -->
+			                  <div class="row">
+								<div class = "mdl-grid">
+				                <c:forEach var="beneficio" items="${listaBeneficio}">
+									<div class = "mdl-cell mdl-cell--4-col graybox">
+										<label for="${beneficio.descricao}">
+											<input type="checkbox" class="checkbox" id="${beneficio.descricao}" value="${beneficio.id}" name="beneficio" minlength="1">
+											<span class="mdl-checkbox__input"> ${beneficio.descricao}</span>
+										</label>
+									</div>
+								</c:forEach>
+									                   
+			                 </div>
+		                  </div>
+						</fieldset>
 
 						<!-- Quarta linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Tempo Mínimo em
-									Semanas</label> <input type="text" id="situacao"
-									name="tempoMinimoSemanas" class="form-control" required>
+								<label class="label-input" for="tempoMinimoSemanas">Tempo mínimo em
+									Semanas*</label> 
+								<select class="form-control" id="tempoMinimoSemanas" name="tempoMinimoSemanas" >
+									<option></option>
+									<option value="2">2 Semanas</option>
+									<option value="3">3 Semanas</option>
+									<option value="4">4 Semanas</option>
+									<option value="5">5 Semanas</option>
+									<option value="6">6 Semanas</option>
+									<option value="7">7 Semanas</option>
+									<option value="8">8 Semanas</option>
+									<option value="9">9 Semanas</option>
+									<option value="10">10 Semanas</option>
+									<option value="11">11 Semanas</option>
+									<option value="12">12 Semanas</option>
+								</select>
 							</div>
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Tempo Máximo em
-									Semanas</label> <input type="text" id="situacao"
-									name="tempoMaximoSemanas" class="form-control" required>
+								<label class="label-input" for="tempoMaximoSemanas">Tempo maximo em
+									Semanas*</label>
+								<select class="form-control" id="tempoMaximoSemanas" name="tempoMaximoSemanas" >
+									<option></option>
+									<option value="2">2 Semanas</option>
+									<option value="3">3 Semanas</option>
+									<option value="4">4 Semanas</option>
+									<option value="5">5 Semanas</option>
+									<option value="6">6 Semanas</option>
+									<option value="7">7 Semanas</option>
+									<option value="8">8 Semanas</option>
+									<option value="9">9 Semanas</option>
+									<option value="10">10 Semanas</option>
+									<option value="11">11 Semanas</option>
+									<option value="12">12 Semanas</option>
+								</select>
 							</div>
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="horasTrabalhoSemanal">Horas de Trabalho Semanal</label> <input type="text" id="horasTrabalhoSemanal"
-									name="horasTrabalhoSemanal" class="form-control" required>
+								<label class="label-input" for="horasTrabalhoSemanal">Horas de Trabalho Semanal*</label> <input type="text" id="horasTrabalhoSemanal"
+									name="horasTrabalhoSemanal" class="form-control" >
 							</div>
 
 						</div>
@@ -113,20 +166,20 @@
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="rua">Rua*</label> <input
-									type="text" id="rua" name="rua" class="form-control" required>
+									type="text" id="rua" name="rua" class="form-control" >
 							</div>
 
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="numero">Número*</label> <input
+								<label class="label-input" for="numeroho">Número*</label> <input
 									type="text" id="numero" name="numerocasa" class="form-control"
-									required>
+									>
 							</div>
 						</div>
 
 						<!-- Segunda linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="complemento">Complemento</label>
+								<label class="label-input" for="complemento">Complemento*</label>
 								<input type="text" id="complemento" name="complemento"
 									class="form-control">
 							</div>
@@ -134,7 +187,7 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="bairro">Bairro*</label> <input
 									type="text" id="bairro" name="bairro" class="form-control"
-									required>
+									>
 							</div>
 
 						</div>
@@ -143,14 +196,14 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="cidade">Cidade*</label> <input
 									type="text" id="cidade" name="cidade" class="form-control"
-									required>
+									>
 							</div>
 
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="estado">Estado*</label> <input
 									type="text" id="estado" name="estado" class="form-control"
-									required>
+									>
 							</div>
 
 						</div>
@@ -159,7 +212,7 @@
 						<!-- Quarta linha -->
 						<div class="form-group">
 							<label class="label-titulo" for="pais">País*</label> <select
-								class="form-control" id="pais" name="pais" required>
+								class="form-control" id="pais" name="pais" >
 								<option></option>
 								<option>Brasil</option>
 								<option>Chile</option>

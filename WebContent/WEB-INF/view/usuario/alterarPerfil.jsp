@@ -24,7 +24,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/css/menu1.css" />
+	href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript">
@@ -48,7 +48,7 @@
 		</div> -->
 
 	</div>
-	<form role="form" id="form" action="update" method="post">
+	<form role="form" id="form" action="usuario/update" method="post">
 		<div class="row">
 			<div class="col">
 				<div class="card">
@@ -58,8 +58,9 @@
 
 						
 						<!-- Primeira linha -->
-						<input type="hidden" value="${usuarioLogado.id}" name="id">
+						<input type="hidden" value="${usuario.id}" name="id">
 						<input type="hidden" value="${usuario.senha}" name="senha">
+						<input type="hidden" value="${usuario.imagem}" name="imagem">
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="nome">Nome*</label> <input
@@ -70,7 +71,7 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="cpfCnpj">CPF/CNPJ*</label> <input
 									type="text" id="cpfCnpj" name="cpfCnpj" maxlength="14"
-									class="form-control" value="${usuarioLogado.cpfCnpj}" required>
+									class="form-control" value="${usuario.cpfCnpj}" required>
 							</div>
 						</div>
 
@@ -78,7 +79,7 @@
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="email">Email*</label> <input
-									type="email" id="email" value="${usuarioLogado.email }"
+									type="email" id="email" value="${usuario.email}"
 									name="email" class="form-control" required>
 							</div>
 							
@@ -98,11 +99,11 @@
 								class="form-control" id="sexo" name="sexo" required>
 								<option>Selecione...</option>
 								<c:choose>
-									<c:when test="${usuarioLogado.sexo eq 'Feminino' }"> <option value="Feminino"  selected="selected">Feminino</option> </c:when>
+									<c:when test="${usuario.sexo eq 'Feminino' }"> <option value="Feminino"  selected="selected">Feminino</option> </c:when>
 									<c:otherwise><option value="Feminino">Feminino</option></c:otherwise>
 								</c:choose>
 								<c:choose>
-									<c:when test="${usuarioLogado.sexo eq 'Masculino' }"> <option value="Masculino"  selected="selected">Masculino</option> </c:when>
+									<c:when test="${usuario.sexo eq 'Masculino' }"> <option value="Masculino"  selected="selected">Masculino</option> </c:when>
 									<c:otherwise><option value="Masculino">Masculino</option></c:otherwise>
 								</c:choose>
 								
@@ -121,7 +122,7 @@
 										<label class="mdl-checkbox  mdl-js-checkbox theme--light"
 											for="${idioma.descricao}"> <input type="checkbox"
 											name="idioma" id="${idioma.descricao}"
-											class="mdl-checkbox__input"
+											class="mdl-checkbox__input" value="${idioma.id}"
 											<c:forEach var="idiomaUsuario" items="${lis}">
 												<c:if test="${idiomaUsuario.idioma.id eq idioma.id }">checked</c:if>
 												</c:forEach>>
@@ -140,7 +141,7 @@
 								<label class="label-input" for="inputDescricao">Descrição</label>
 								<textarea class="form-control" id="inputDescricao"
 									name="descricaoPerfil"
-									placeholder="Fale um pouco sobre você..." rows="1">${usuarioLogado.descricaoPerfil}</textarea>
+									placeholder="Fale um pouco sobre você..." rows="1">${usuario.descricaoPerfil}</textarea>
 							</div>
 						</div>
 					</div>
@@ -152,20 +153,20 @@
 					<div class="card-body">
 						<h4 class="card-title">Endereço</h4>
 						<hr />
-
+						<input type="hidden" value="${usuario.endereco.id}" name="idendereco">
 						<!-- Primeira linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="rua">Rua*</label> <input
 									type="text" id="rua" name="rua"
-									value="${usuarioLogado.endereco.rua }" class="form-control"
+									value="${usuario.endereco.rua }" class="form-control"
 									required>
 							</div>
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="numero">Número*</label> <input
 									type="text" id="numero" name="numerocasa"
-									value="${usuarioLogado.endereco.numerocasa}"
+									value="${usuario.endereco.numerocasa}"
 									class="form-control" required>
 							</div>
 						</div>
@@ -175,14 +176,14 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="complemento">Complemento</label>
 								<input type="text" id="complemento"
-									value="${usuarioLogado.endereco.complemento }"
+									value="${usuario.endereco.complemento }"
 									name="complemento" class="form-control">
 							</div>
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="bairro">Bairro*</label> <input
 									type="text" id="bairro" name="bairro" class="form-control"
-									value="${usuarioLogado.endereco.bairro }" required>
+									value="${usuario.endereco.bairro }" required>
 							</div>
 
 						</div>
@@ -191,14 +192,14 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="cidade">Cidade*</label> <input
 									type="text" id="cidade" name="cidade" class="form-control"
-									value="${usuarioLogado.endereco.cidade }" required>
+									value="${usuario.endereco.cidade }" required>
 							</div>
 
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="estado">Estado*</label> <input
 									type="text" id="estado" name="estado" class="form-control"
-									value="${usuarioLogado.endereco.estado }" required>
+									value="${usuario.endereco.estado }" required>
 							</div>
 
 						</div>
@@ -210,7 +211,7 @@
 								class="form-control" id="pais" name="pais" required>
 								<option>Selecione...</option>
 								<c:choose>
-									<c:when test="${usuarioLogado.endereco.pais eq 'Brasil'}">
+									<c:when test="${usuario.endereco.pais eq 'Brasil'}">
 										<option value="Brasil" selected="selected">Brasil</option>
 									</c:when>
 									<c:otherwise>
@@ -218,7 +219,7 @@
 									</c:otherwise>
 								</c:choose>
 								<c:choose>
-									<c:when test="${usuarioLogado.endereco.pais eq 'Chile'}">
+									<c:when test="${usuario.endereco.pais eq 'Chile'}">
 										<option value="Chile" selected="selected">Chile</option>
 									</c:when>
 									<c:otherwise>
@@ -226,7 +227,7 @@
 									</c:otherwise>
 								</c:choose>
 								<c:choose>
-									<c:when test="${usuarioLogado.endereco.pais eq 'Argentina'}">
+									<c:when test="${usuario.endereco.pais eq 'Argentina'}">
 										<option value="Argentina" selected="selected">Argentina</option>
 									</c:when>
 									<c:otherwise>

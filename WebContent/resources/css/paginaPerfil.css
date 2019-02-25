@@ -1,3 +1,7 @@
+.fotoDoPerfil{
+	padding: 2px;
+	
+}
 .can {
 	width: 220px;
 	height: 220px;
@@ -49,4 +53,7 @@ h3 {
 }
 ul{
   list-style-type: circle;
+}
+#fotoalterar{
+	width: 50%;
 }

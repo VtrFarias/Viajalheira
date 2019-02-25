@@ -1,5 +1,8 @@
 package br.com.ifpe.viajalheira.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
@@ -21,6 +25,7 @@ import br.com.ifpe.viajalheira.model.UsuarioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;
 import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
 import br.com.ifpe.viajalheira.util.Criptografia;
+import br.com.ifpe.viajalheira.util.Util;
 
 /*@author Maria Beatriz Germano
  * 
@@ -80,6 +85,7 @@ public class UsuarioController {
 		Usuario usu = new Usuario();
 		UsuarioDao dao = new UsuarioDao();
 		usu = dao.buscarPorId1(id);
+		model1.addAttribute("usuario", usu);
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
@@ -103,13 +109,16 @@ public class UsuarioController {
 
 	@RequestMapping("/usuario/save")
 	public String cadastroEndereco(Model model, Endereco endereco,
-			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario) {
-
+			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario , @RequestParam("nascimento") String nasc) throws ParseException {
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
+		Date data = dataFormatada.parse(nasc);
+		usuario.setDataNascimento(data);
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		usuario.setEndereco(endereco);
 		
 		return cadastroUsuario(model, usuario, idioma);
+		
 	}
 
 	public String cadastroUsuario(Model model, Usuario usuario, int[] idioma) {
@@ -148,16 +157,30 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/usuario/update")
-	public String update(Usuario usuarioed, Model model) {
+	public String update(HttpSession session,Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma) {
 	
-		UsuarioDao dao = new UsuarioDao();
-		dao.alterar1(usuarioed);
+		EnderecoDao dao = new EnderecoDao();
+		endereco.setId(idEnd);
+		dao.alterar(endereco);
+		usuario.setEndereco(endereco);
+		
+		UsuarioDao dao1 = new UsuarioDao();
+		dao1.alterar1(usuario);
+		session.setAttribute("usuarioLogado", usuario);
 		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
-		return "forward:/visu";
+		//this.alterarIdiomaUsuario(idioma, usuario);
+		return "forward:/home";
 	}
 	@RequestMapping("alterarFoto")
-	public String alterarFoto() {
-		return "";
+	public String alterarFoto(@RequestParam("file") MultipartFile imagem, @RequestParam("idUsuario") int id, HttpSession session) {
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usuario = dao.buscarPorId(id);
+		if (Util.fazerUploadImagem(imagem)) {
+			usuario.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
+			}
+		dao.alterar(usuario);
+		session.setAttribute("usuarioLogado", usuario);
+		return "forward:/perfil?id="+id;
 	}
 	
 	

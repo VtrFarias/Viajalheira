@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,14 +37,33 @@
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
+						
 						<div class="col-md-3" id="das">
-							<img
-								src="<%=request.getContextPath()%>/resources/img/${usuario.imagem}"
-								class="can" alt="...">
+							<c:choose>
+								<c:when test="${not empty usuario.imagem}">
+									<img src="<%=request.getContextPath()%>/resources/img/${usuario.imagem}" class="can" alt="...">
+								</c:when>
+								<c:otherwise>
+								<img src="<%=request.getContextPath()%>/resources/img/avatar.jpg" class="can" alt="...">
+									<form action="/viajalheira/alterarFoto" method="post" enctype="multipart/form-data" >
+									<div id="fotoalterar"><input type="hidden" value="${usuario.id}" name="idUsuario"></div>
+										
+										<h5>Adicionar Foto</h5>
+											<div class="custom-file">
+											<input type="file" class="custom-file-input" id="customFile" name="file">
+											<label class="custom-file-label" for="customFile">Imagem</label>
+											</div>
+											<input type="submit" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" value="Enviar">
+											
+										
+									</form>
+								</c:otherwise>
+							</c:choose>
 							<p class="textos" id="textos1">
 								<em>"${usuario.descricaoPerfil }"</em>
 							</p>
 						</div>
+						
 
 						<div class="col-md-6" id="center">
 							<h3 class="card-title">${usuario.nome}</h3>
@@ -67,7 +85,7 @@
 									</p>
 								</div>
 								<div class="col">
-									<p class="textos">X anos.</p>
+									<p class="textos">${usuario.dataNascimento}</p>
 								</div>
 							</div>
 							<div class="row">
