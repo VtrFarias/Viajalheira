@@ -51,7 +51,9 @@
                             </ul>
                         </div>
                     </div>
+                    <a href="hospedagem/visualizar?id=${vagaHospedagem.id}" class="mdl-button mdl-js-button mdl-button--primary"> Ver Mais</a>
                 </div>
+                
         
 				
             </c:forEach>

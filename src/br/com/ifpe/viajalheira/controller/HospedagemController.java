@@ -83,8 +83,10 @@ public class HospedagemController {
 	}
 	
 	@RequestMapping("hospedagem/visualizar")
-	public String visualizar() {
-		
+	public String visualizar(@RequestParam("id") int id, Model model) {
+		VagaHospedagemDao dao = new VagaHospedagemDao();
+		VagaHospedagem vaga = dao.buscarPorId(id);
+		model.addAttribute("vagaHospedagem", vaga);
 		
 		return "hospedagem/visualizar";
 	}
