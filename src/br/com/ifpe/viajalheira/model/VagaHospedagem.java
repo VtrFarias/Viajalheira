@@ -34,7 +34,7 @@ public class VagaHospedagem {
 	@Column
 	private String descricao;
 	@Column (name="situacao")
-	private String situacao;
+	private char situacao;
 	@Column(name="tempo_minimo_semanas")
 	private String tempoMinimoSemanas;
 	@Column(name="tempo_maximo_semanas")
@@ -44,76 +44,98 @@ public class VagaHospedagem {
 	
 	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
-	
+
 	
 	public int getId() {
 		return id;
 	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public TipoVaga getTipoVaga() {
 		return tipoVaga;
 	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
-	public String getSituacao() {
+
+	public char getSituacao() {
 		return situacao;
 	}
+
 	public String getTempoMinimoSemanas() {
 		return tempoMinimoSemanas;
 	}
+
 	public String getTempoMaximoSemanas() {
 		return tempoMaximoSemanas;
 	}
+
 	public String getHorasTrabalhoSemanal() {
 		return horasTrabalhoSemanal;
 	}
-	
+
 	public Timestamp getDataAlteracao() {
 		return dataAlteracao;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 	public void setTipoVaga(TipoVaga tipoVaga) {
 		this.tipoVaga = tipoVaga;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public void setSituacao(String situacao) {
+
+	public void setSituacao(char situacao) {
 		this.situacao = situacao;
 	}
+
 	public void setTempoMinimoSemanas(String tempoMinimoSemanas) {
 		this.tempoMinimoSemanas = tempoMinimoSemanas;
 	}
+
 	public void setTempoMaximoSemanas(String tempoMaximoSemanas) {
 		this.tempoMaximoSemanas = tempoMaximoSemanas;
 	}
+
 	public void setHorasTrabalhoSemanal(String horasTrabalhoSemanal) {
 		this.horasTrabalhoSemanal = horasTrabalhoSemanal;
 	}
-	
+
 	public void setDataAlteracao(Timestamp dataAlteracao) {
 		this.dataAlteracao = dataAlteracao;
 	}
+	
+	
+	
 	
 	
 }

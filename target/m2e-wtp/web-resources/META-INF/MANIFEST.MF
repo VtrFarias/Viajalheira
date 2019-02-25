@@ -1,9 +1,13 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Built-By: Rivaldo
 Build-Jdk: 1.8.0_191
 =======
 Built-By: mabi
+=======
+Built-By: val
+>>>>>>> master
 Build-Jdk: 1.8.0_171
 >>>>>>> master
 Created-By: Maven Integration for Eclipse

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -7,7 +6,7 @@
 <html lang="pt-br">
 <head>
 
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Viajalheira</title>
 
@@ -15,7 +14,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
-
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 	
 	<!-- Importando Bootstrap-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" id="bootstrap-css"/>
@@ -27,21 +26,7 @@
         <div class="mdl-layout__header-row">
           	<a class="color-text--brown-500" href="../home"><span class="mdl-layout-title">Home</span></a>
           	<div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Que tipo de oportunidade você procura?</label>
-            </div>
-          </div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <a href="../logout"><li class="mdl-menu__item">Sair</li></a>
-          </ul>
+          
         </div>
       </header>
 
@@ -78,6 +63,7 @@
 		                    </div>
 	                    </div>
 	                    
+	                    
 	                <!-- Segunda linha -->
 	                <div class="row">
 	                    <div class="col form-group float-label-control">
@@ -100,7 +86,8 @@
 
 
                     <!-- Quarta linha -->
-	                    <div class="form-group">
+                    <div class="row">
+                     <div class="col form-group">
 		                    	<label class="label-titulo" for="sexo">Sexo*</label>
 		                    	<select class="form-control" id="sexo" name="sexo">
 		                    		<option></option>
@@ -109,6 +96,13 @@
 		                    		<option value="outros">Outros</option>
 		                    	</select>
 		                  </div>
+		                 <div class="col form-group float-label-control">
+	                        <label class="label-input" for="dataNascimento">Data Nascimento</label>
+	                        <input type="date" id="dataNascimento" name="nascimento" class="form-control">
+	                    </div>
+                    
+                    </div>
+	                   
 
 				
 	              	
