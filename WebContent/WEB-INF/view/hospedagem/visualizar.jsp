@@ -43,12 +43,12 @@
 					<input type="hidden" value="${usuarioLogado.id}" name="usuario">
 						<div class="row">
 							<div class="col form-group float-label-control">
-		                        <label class="label-input" for="dataIda">Data de Ida</label>
+		                        <label class="label-input" for="dataIda">Data de Ida*</label>
 		                        <input type="date" id="dataIda" name="dataIda" class="form-control">
 		                    </div>
 		                 
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="dataVolta">Data de Volta</label>
+		                        <label class="label-input" for="dataVolta">Data de Volta*</label>
 		                        <input type="date" id="dataVolta" name="dataVolta" class="form-control">
 		                    </div>
 		                 </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="modal-footer">
                     <div>
-					<a class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" data-toggle="modal" data-target="#myModal"> Aplicar para a vaga</a>
+						<a class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" data-toggle="modal" data-target="#myModal">Feito!</a>
 					</div>
                 </div>
             </div>
