@@ -19,13 +19,14 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validinclusaonovahosped.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validinclusaonovahospe.js"></script>
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
@@ -42,9 +43,10 @@
 						<!-- Primeira linha -->
 						<div class="row">
 							<div class=" col form-group">
-								<label class="label-titulo" for="tipovaga">Tipo da vaga</label>
+								<label class="label-titulo" for="tipovaga">Tipo da vaga*</label>
 								
 								<select class="form-control" id="tipovaga" name="tipovaga">
+									<option></option>
 									<option>Selecione..</option>
 								<c:forEach var="tipoVaga" items="${listaTipoVaga}">
 									<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
@@ -54,7 +56,7 @@
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="titulo">
-									Titulo
+									Titulo*
 								</label> 
 								<input type="text" id="titulo" name="titulo" class="form-control">
 							</div>
@@ -64,9 +66,9 @@
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="descricao">
-									Descrição Da vaga
+									Descrição Da vaga*
 								</label> 
-								<input type="text" id="descricao" name="descricao" class="form-control" required>
+								<input type="text" id="descricao" name="descricao" class="form-control" >
 							</div>
 						</div>
 						
@@ -91,18 +93,44 @@
 						<!-- Quarta linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="tempoMinimoSemanas">Tempo Mínimo em
-									Semanas</label> <input type="text" id="tempoMinimoSemanas"
-									name="tempoMinimoSemanas" class="form-control" required>
+								<label class="label-input" for="tempoMinimoSemanas">Tempo mínimo em
+									Semanas*</label> 
+								<select class="form-control" id="tempoMinimoSemanas" name="tempoMinimoSemanas" >
+									<option></option>
+									<option value="2">2 Semanas</option>
+									<option value="3">3 Semanas</option>
+									<option value="4">4 Semanas</option>
+									<option value="5">5 Semanas</option>
+									<option value="6">6 Semanas</option>
+									<option value="7">7 Semanas</option>
+									<option value="8">8 Semanas</option>
+									<option value="9">9 Semanas</option>
+									<option value="10">10 Semanas</option>
+									<option value="11">11 Semanas</option>
+									<option value="12">12 Semanas</option>
+								</select>
 							</div>
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="tempoMaximoSemanas">Tempo Máximo em
-									Semanas</label> <input type="text" id="tempoMaximoSemanas"
-									name="tempoMaximoSemanas" class="form-control" required>
+								<label class="label-input" for="tempoMaximoSemanas">Tempo maximo em
+									Semanas*</label>
+								<select class="form-control" id="tempoMaximoSemanas" name="tempoMaximoSemanas" >
+									<option></option>
+									<option value="2">2 Semanas</option>
+									<option value="3">3 Semanas</option>
+									<option value="4">4 Semanas</option>
+									<option value="5">5 Semanas</option>
+									<option value="6">6 Semanas</option>
+									<option value="7">7 Semanas</option>
+									<option value="8">8 Semanas</option>
+									<option value="9">9 Semanas</option>
+									<option value="10">10 Semanas</option>
+									<option value="11">11 Semanas</option>
+									<option value="12">12 Semanas</option>
+								</select>
 							</div>
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="horasTrabalhoSemanal">Horas de Trabalho Semanal</label> <input type="text" id="horasTrabalhoSemanal"
-									name="horasTrabalhoSemanal" class="form-control" required>
+								<label class="label-input" for="horasTrabalhoSemanal">Horas de Trabalho Semanal*</label> <input type="text" id="horasTrabalhoSemanal"
+									name="horasTrabalhoSemanal" class="form-control" >
 							</div>
 
 						</div>
@@ -132,20 +160,20 @@
 						<div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="rua">Rua*</label> <input
-									type="text" id="rua" name="rua" class="form-control" required>
+									type="text" id="rua" name="rua" class="form-control" >
 							</div>
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="numeroho">Número*</label> <input
 									type="text" id="numero" name="numerocasa" class="form-control"
-									required>
+									>
 							</div>
 						</div>
 
 						<!-- Segunda linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="complemento">Complemento</label>
+								<label class="label-input" for="complemento">Complemento*</label>
 								<input type="text" id="complemento" name="complemento"
 									class="form-control">
 							</div>
@@ -153,7 +181,7 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="bairro">Bairro*</label> <input
 									type="text" id="bairro" name="bairro" class="form-control"
-									required>
+									>
 							</div>
 
 						</div>
@@ -162,14 +190,14 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="cidade">Cidade*</label> <input
 									type="text" id="cidade" name="cidade" class="form-control"
-									required>
+									>
 							</div>
 
 
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="estado">Estado*</label> <input
 									type="text" id="estado" name="estado" class="form-control"
-									required>
+									>
 							</div>
 
 						</div>
@@ -178,7 +206,7 @@
 						<!-- Quarta linha -->
 						<div class="form-group">
 							<label class="label-titulo" for="pais">País*</label> <select
-								class="form-control" id="pais" name="pais" required>
+								class="form-control" id="pais" name="pais" >
 								<option></option>
 								<option>Brasil</option>
 								<option>Chile</option>
