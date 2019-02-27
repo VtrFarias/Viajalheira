@@ -32,7 +32,7 @@ public class CandidatoVagaDao {
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
 		int usuario = candidatoVaga != null ? candidatoVaga.getUsuario().getId(): 0;
-		int dono = candidatoVaga != null ? candidatoVaga.getVaga().getUsuario().getId(): 0;
+		int dono = candidatoVaga != null ? candidatoVaga.getVagaHospedagem().getUsuario().getId(): 0;
 		char situacao = candidatoVaga != null ? candidatoVaga.getSituacao(): ' ';
 		
 		

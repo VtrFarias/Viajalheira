@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.ifpe.viajalheira.model.Beneficio;
 import br.com.ifpe.viajalheira.model.BeneficioDao;
+import br.com.ifpe.viajalheira.model.CandidatoVaga;
+import br.com.ifpe.viajalheira.model.CandidatoVagaDao;
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
 import br.com.ifpe.viajalheira.model.TipoVaga;
 import br.com.ifpe.viajalheira.model.TipoVagaDao;
 import br.com.ifpe.viajalheira.model.Usuario;
+import br.com.ifpe.viajalheira.model.UsuarioDao;
 import br.com.ifpe.viajalheira.model.VagaBeneficio;
 import br.com.ifpe.viajalheira.model.VagaBeneficioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;
@@ -89,5 +92,34 @@ public class HospedagemController {
 		model.addAttribute("vagaHospedagem", vaga);
 		
 		return "hospedagem/visualizar";
+	}
+	
+	@RequestMapping("/hospedagem/aplicar")
+	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga) {
+		
+		CandidatoVagaDao dao = new CandidatoVagaDao();
+		
+		UsuarioDao daoUser = new UsuarioDao();
+		Usuario user = daoUser.buscarPorId(usuario_id);
+		VagaHospedagemDao daoVaga = new VagaHospedagemDao();
+		VagaHospedagem vaga = daoVaga.buscarPorId(vaga_id);
+		
+		candidatoVaga.setUsuario(user);
+		candidatoVaga.setVagaHospedagem(vaga);
+		candidatoVaga.setSituacao('1');
+		
+		dao.salvar(candidatoVaga);
+		
+		return visualizar(candidatoVaga.getVagaHospedagem().getId(), model);
+		
+	}
+	
+	@RequestMapping("/hospedagem/notificacoes")
+	public String notificacoes() {
+		
+		
+		
+		return "hospedagem/notificacoes";
+		
 	}
 }
