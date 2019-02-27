@@ -27,6 +27,10 @@
 	href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validAlteracaoUsuario.js"></script>
 <script type="text/javascript">
 	function enable(div, div1) {
 		document.getElementById(div).style.display = "none";
@@ -88,25 +92,32 @@
 
 
 						<!-- Quarta linha -->
-						<div class="form-group">
-							<label class="label-titulo" for="sexo">Sexo*</label> <select
-								class="form-control" id="sexo" name="sexo" required>
-								<option>Selecione...</option>
-								<c:choose>
-									<c:when test="${usuario.sexo eq 'Feminino' }"> <option value="Feminino"  selected="selected">Feminino</option> </c:when>
-									<c:otherwise><option value="Feminino">Feminino</option></c:otherwise>
-								</c:choose>
-								<c:choose>
-									<c:when test="${usuario.sexo eq 'Masculino' }"> <option value="Masculino"  selected="selected">Masculino</option> </c:when>
-									<c:otherwise><option value="Masculino">Masculino</option></c:otherwise>
-								</c:choose>
-								
-								<option value="outros">Outros</option>
-							</select>
-						</div>
+						<div class="row">
+							<div class="col form-group">
+								<label class="label-titulo" for="sexo">Sexo*</label> <select
+									class="form-control" id="sexo" name="sexo" required>
+									<option></option>
+									<c:choose>
+										<c:when test="${usuario.sexo eq 'Feminino' }"> <option value="Feminino"  selected="selected">Feminino</option> </c:when>
+										<c:otherwise><option value="Feminino">Feminino</option></c:otherwise>
+									</c:choose>
+									<c:choose>
+										<c:when test="${usuario.sexo eq 'Masculino' }"> <option value="Masculino"  selected="selected">Masculino</option> </c:when>
+										<c:otherwise><option value="Masculino">Masculino</option></c:otherwise>
+									</c:choose>
+									
+									<option value="outros">Outros</option>
+								</select>
+							</div>
+							<div class="col form-group float-label-control">
+		                        <label class="label-input" for="dataNascimento">Data Nascimento</label>
+		                        <input type="date" id="dataNascimento" name="nascimento" class="form-control">
+		                    </div>
+	                    </div>
 
 
 						<label class="label-titulo">Idiomas</label>
+						<label for="idioma" class="error"></label>
 						<!-- Quinta linha -->
 						<div class="row">
 							<div class="mdl-grid">
@@ -203,7 +214,7 @@
 						<div class="form-group">
 							<label class="label-titulo" for="pais">País*</label> <select
 								class="form-control" id="pais" name="pais" required>
-								<option>Selecione...</option>
+								<option></option>
 								<c:choose>
 									<c:when test="${usuario.endereco.pais eq 'Brasil'}">
 										<option value="Brasil" selected="selected">Brasil</option>
@@ -251,5 +262,11 @@
       </main>
     </div>
 
+	<script>
+	var dataString = "${usuario.dataNascimento}";
+	dataString = dataString.substring(0,10);
+
+	$("#dataNascimento").attr("value",dataString);
+	</script>
 </body>
 </html>
