@@ -38,18 +38,21 @@
                     
                 </div>
                 <div class="modal-body">
-                    <form>
-
-					<input type="hidden" value="${usuarioLogado.id}" name="usuario">
+                    
+				<form action="aplicar" method="post">
+ 						
+		         <input type="hidden" value="${usuarioLogado.id}" name="usuario_id" class="form-control">
+		         <input type="hidden" value="${vagaHospedagem.id}" name="vaga_id" class="form-control">
+					
 						<div class="row">
 							<div class="col form-group float-label-control">
-		                        <label class="label-input" for="dataIda">Data de Ida*</label>
-		                        <input type="date" id="dataIda" name="dataIda" class="form-control">
+		                        <label class="label-input" >Data de Ida*</label>
+		                        <input type="text" name="dataIda" class="form-control">
 		                    </div>
 		                 
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="dataVolta">Data de Volta*</label>
-		                        <input type="date" id="dataVolta" name="dataVolta" class="form-control">
+		                        <label class="label-input" >Data de Volta*</label>
+		                        <input type="text"  name="dataVolta" class="form-control">
 		                    </div>
 		                 </div>
 	                    <div class="row">
@@ -59,13 +62,15 @@
 							</div>
 	                    </div>
 						
+						<div class="modal-footer">
+                    <div>
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" type="submit">Feito!</button>
+					</div>
+					
+                </div>
 					</form>
                 </div>
-                <div class="modal-footer">
-                    <div>
-						<a class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" data-toggle="modal" data-target="#myModal">Feito!</a>
-					</div>
-                </div>
+                
             </div>
         </div>
     </div>

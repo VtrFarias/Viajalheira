@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,14 +21,13 @@ public class CandidatoVaga {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="id_usuario_aplicante")
 	private Usuario usuario;
-	
 
 	@OneToOne
 	@JoinColumn(name="id_vaga")
-	private VagaHospedagem vaga;
+	private VagaHospedagem vagaHospedagem;
 
 	@Column (name="situacao")
 	private char situacao;
@@ -40,7 +40,7 @@ public class CandidatoVaga {
 
 	@Column
 	private String Descricao;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -49,8 +49,8 @@ public class CandidatoVaga {
 		return usuario;
 	}
 
-	public VagaHospedagem getVaga() {
-		return vaga;
+	public VagaHospedagem getVagaHospedagem() {
+		return vagaHospedagem;
 	}
 
 	public char getSituacao() {
@@ -65,6 +65,10 @@ public class CandidatoVaga {
 		return dataVolta;
 	}
 
+	public String getDescricao() {
+		return Descricao;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -73,8 +77,8 @@ public class CandidatoVaga {
 		this.usuario = usuario;
 	}
 
-	public void setVaga(VagaHospedagem vaga) {
-		this.vaga = vaga;
+	public void setVagaHospedagem(VagaHospedagem vagaHospedagem) {
+		this.vagaHospedagem = vagaHospedagem;
 	}
 
 	public void setSituacao(char situacao) {
@@ -89,13 +93,8 @@ public class CandidatoVaga {
 		this.dataVolta = dataVolta;
 	}
 
-	public String getDescricao() {
-		return Descricao;
-	}
-
 	public void setDescricao(String descricao) {
 		Descricao = descricao;
 	}
 	
-
 }
