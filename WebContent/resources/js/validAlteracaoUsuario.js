@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#cadastrousuario").validate({
+    $("#form").validate({
         rules: {
         	nome: {
                 required: true,
@@ -104,4 +104,4 @@ $(document).ready(function(){
             
         }
     });
-}); 
+});
