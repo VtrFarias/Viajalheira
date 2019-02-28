@@ -82,7 +82,7 @@
 		<div class="col">
 			<div class="card">
 				<div class="card-body">
-					
+					<h4>${vagaHospedagem.titulo}</h4>
 					<div id="demo" class="carousel slide" data-ride="carousel">
 					
 					  <!-- Indicators -->
@@ -118,8 +118,13 @@
 					<div>
 					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal"> Aplicar para a vaga</a>
 					</div>
-
 					
+					<div class="row">
+					<div class="col"><h5>${vagaHospedagem.tipoVaga.descricao }</h5></div>
+						<div class="col">
+							<p> ${vagaHospedagem.descricao }</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

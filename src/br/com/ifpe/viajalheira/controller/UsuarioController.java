@@ -71,7 +71,6 @@ public class UsuarioController {
 		Usuario usu = new Usuario();
 		UsuarioDao dao = new UsuarioDao();
 		usu = dao.buscarPorId(id);
-		System.out.println(usu.getCpfCnpj());
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +18,16 @@ public class Imagens {
 	private int id;
 	@Column
 	private String descricao;
+	@ManyToOne
+	@JoinColumn(name="id_hospedagem")
+	private VagaHospedagem vaga;
 	
+	public VagaHospedagem getVaga() {
+		return vaga;
+	}
+	public void setVaga(VagaHospedagem vaga) {
+		this.vaga = vaga;
+	}
 	public int getId() {
 		return id;
 	}

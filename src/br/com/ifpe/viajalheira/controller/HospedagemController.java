@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.ifpe.viajalheira.model.Beneficio;
 import br.com.ifpe.viajalheira.model.BeneficioDao;
@@ -16,6 +17,8 @@ import br.com.ifpe.viajalheira.model.CandidatoVaga;
 import br.com.ifpe.viajalheira.model.CandidatoVagaDao;
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
+import br.com.ifpe.viajalheira.model.Imagens;
+import br.com.ifpe.viajalheira.model.ImagensDao;
 import br.com.ifpe.viajalheira.model.TipoVaga;
 import br.com.ifpe.viajalheira.model.TipoVagaDao;
 import br.com.ifpe.viajalheira.model.Usuario;
@@ -24,6 +27,7 @@ import br.com.ifpe.viajalheira.model.VagaBeneficio;
 import br.com.ifpe.viajalheira.model.VagaBeneficioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;
 import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
+import br.com.ifpe.viajalheira.util.Util;
 
 @Controller
 public class HospedagemController {
@@ -50,15 +54,14 @@ public class HospedagemController {
 	@RequestMapping("/hospedagem/save")
 	public String cadastrarEndereco1(Model model, HttpServletRequest request, Endereco endereco, 
 			@RequestParam("tipovaga") int tipoVaga, @RequestParam(value = "beneficio", required = false)int [] beneficio, 
-			VagaHospedagem vaga) {
+			VagaHospedagem vaga, @RequestParam("file")List <MultipartFile>  fotos) {
 		
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		vaga.setEndereco(endereco);
-		return cadastrarVaga1(model, vaga, beneficio, tipoVaga, request);
+		return cadastrarVaga1(model, vaga, beneficio, tipoVaga, request, fotos);
 	}
-	public String cadastrarVaga1(Model model,VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request) {
-		//UsuarioDao usuariodao = new UsuarioDao();
+	public String cadastrarVaga1(Model model,VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request, List<MultipartFile> fotos) {
 
 		Usuario usu = (Usuario) request.getSession().getAttribute("usuarioLogado");
 		TipoVagaDao tipo = new TipoVagaDao();
@@ -68,7 +71,18 @@ public class HospedagemController {
 		vaga.setSituacao('1');
 		VagaHospedagemDao dao = new VagaHospedagemDao();
 		dao.salvar(vaga);
+		//salvar imagens
 		
+		ImagensDao dao1 = new ImagensDao();
+		for(MultipartFile foto: fotos) {
+			Imagens imagem = new Imagens();
+			if (Util.fazerUploadImagem(foto)) {
+				System.out.println(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
+				imagem.setDescricao(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
+				imagem.setVaga(vaga);
+				dao1.salvar(imagem);
+				}
+		}
 		return cadastrarVagaBeneficio1(model, vaga, beneficio);
 	}
 	public String cadastrarVagaBeneficio1(Model model, VagaHospedagem vaga,int [] beneficio) {
