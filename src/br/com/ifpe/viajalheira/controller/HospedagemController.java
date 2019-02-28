@@ -1,5 +1,8 @@
 package br.com.ifpe.viajalheira.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -95,7 +98,7 @@ public class HospedagemController {
 	}
 	
 	@RequestMapping("/hospedagem/aplicar")
-	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga) {
+	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga, @RequestParam("dataIdaa") String dataIda, @RequestParam("dataVolt") String dataVolta) throws ParseException {
 		
 		CandidatoVagaDao dao = new CandidatoVagaDao();
 		
@@ -103,6 +106,14 @@ public class HospedagemController {
 		Usuario user = daoUser.buscarPorId(usuario_id);
 		VagaHospedagemDao daoVaga = new VagaHospedagemDao();
 		VagaHospedagem vaga = daoVaga.buscarPorId(vaga_id);
+		
+		SimpleDateFormat dataFormatadaIda = new SimpleDateFormat("yyyy-MM-dd");
+		Date dataI = dataFormatadaIda.parse(dataIda);
+		candidatoVaga.setDataIda(dataI);
+		
+		SimpleDateFormat dataFormatadaVolta = new SimpleDateFormat("yyyy-MM-dd");
+		Date dataV = dataFormatadaVolta.parse(dataVolta);
+		candidatoVaga.setDataVolta(dataV);
 		
 		candidatoVaga.setUsuario(user);
 		candidatoVaga.setVagaHospedagem(vaga);

@@ -43,18 +43,19 @@
  						
 		         <input type="hidden" value="${usuarioLogado.id}" name="usuario_id" class="form-control">
 		         <input type="hidden" value="${vagaHospedagem.id}" name="vaga_id" class="form-control">
-					
-						<div class="row">
+		                 
+		                 <div class="row">
 							<div class="col form-group float-label-control">
-		                        <label class="label-input" >Data de Ida*</label>
-		                        <input type="text" name="dataIda" class="form-control">
+								<label class="label-input" for="dataIda">Data de Ida*</label>
+		                        <input type="date" id="dataIda" name="dataIdaa" class="form-control">
 		                    </div>
 		                 
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" >Data de Volta*</label>
-		                        <input type="text"  name="dataVolta" class="form-control">
+		                    	<label class="label-input" for="dataVolta">Data de Volta*</label>
+		                        <input type="date" id="dataVolta" name="dataVolt" class="form-control">
 		                    </div>
-		                 </div>
+		                </div>
+		                 
 	                    <div class="row">
 	                    	<div class="col form-group float-label-control">
 								<label class="label-input" for="inputDescricao">Descrição</label>
