@@ -80,6 +80,7 @@
 	
 	<div class="row" id="lin">
 		<div class="col">
+		<div>${mensagemErro}</div>
 			<div class="card">
 				<div class="card-body">
 					<h4>${vagaHospedagem.titulo}</h4>

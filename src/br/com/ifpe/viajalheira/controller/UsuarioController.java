@@ -99,10 +99,17 @@ public class UsuarioController {
 	@RequestMapping("/usuario/novoCadastro")
 	public String novoCadastro(Model model) {
 
-		IdiomaDao dao = new IdiomaDao();
-		List<Idioma> listaIdiomas = dao.listar(null);
-		model.addAttribute("listaIdiomas", listaIdiomas);
-		
+		try {
+
+			IdiomaDao dao = new IdiomaDao();
+			List<Idioma> listaIdiomas = dao.listar(null);
+			model.addAttribute("listaIdiomas", listaIdiomas);
+				
+		}catch(Exception e){
+			
+			model.addAttribute("mensagemErro", "Ocorreu um erro, tente novamente mais tarde");
+		}
+
 		return "usuario/novoCadastro";
 	}
 
@@ -110,6 +117,8 @@ public class UsuarioController {
 	public String cadastroEndereco(Model model, Endereco endereco,
 			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario , @RequestParam("nascimento") String nasc) throws ParseException {
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
+		
+		
 		Date data = dataFormatada.parse(nasc);
 		usuario.setDataNascimento(data);
 		EnderecoDao dao = new EnderecoDao();
