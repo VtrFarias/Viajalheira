@@ -104,6 +104,10 @@ public class HospedagemController {
 		VagaHospedagemDao dao = new VagaHospedagemDao();
 		VagaHospedagem vaga = dao.buscarPorId(id);
 		model.addAttribute("vagaHospedagem", vaga);
+		ImagensDao img = new ImagensDao();
+		List<Imagens> lista = img.buscarPorIdd(id);
+		model.addAttribute("fotos", lista);
+		model.addAttribute("tamanho", lista.size());
 		
 		return "hospedagem/visualizar";
 	}
