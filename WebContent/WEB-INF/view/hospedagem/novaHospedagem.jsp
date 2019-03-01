@@ -32,6 +32,7 @@
 	<c:import url="../comum/menu.jsp"></c:import>
 	<form id="formulariohos" action="save" method="post" onsubmit="cadastroComSucesso()">
 		<div class="row">
+
 			<div class="col">
 				<div class="card">
 					<div class="card-body">

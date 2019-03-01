@@ -60,17 +60,24 @@ public class HospedagemController {
 	public String cadastrarVaga1(Model model,VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request) {
 		//UsuarioDao usuariodao = new UsuarioDao();
 
-		Usuario usu = (Usuario) request.getSession().getAttribute("usuarioLogado");
-		TipoVagaDao tipo = new TipoVagaDao();
-		TipoVaga tipov = tipo.buscarPorId(tipoVaga);
-		vaga.setUsuario(usu);
-		vaga.setTipoVaga(tipov);
-		vaga.setSituacao('1');
-		VagaHospedagemDao dao = new VagaHospedagemDao();
-		dao.salvar(vaga);
-		
-		return cadastrarVagaBeneficio1(model, vaga, beneficio);
-	}
+		try {
+
+			Usuario usu = (Usuario) request.getSession().getAttribute("usuarioLogado");
+			TipoVagaDao tipo = new TipoVagaDao();
+			TipoVaga tipov = tipo.buscarPorId(tipoVaga);
+			vaga.setUsuario(usu);
+			vaga.setTipoVaga(tipov);
+			vaga.setSituacao('1');
+			VagaHospedagemDao dao = new VagaHospedagemDao();
+			dao.salvar(vaga);
+				
+			
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro, tente novamente mais tarde");
+		}
+			return cadastrarVagaBeneficio1(model, vaga, beneficio);
+		}
+
 	public String cadastrarVagaBeneficio1(Model model, VagaHospedagem vaga,int [] beneficio) {
 		BeneficioDao ben = new BeneficioDao();
 		VagaBeneficioDao dao = new VagaBeneficioDao();
@@ -97,20 +104,34 @@ public class HospedagemController {
 	@RequestMapping("/hospedagem/aplicar")
 	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga) {
 		
-		CandidatoVagaDao dao = new CandidatoVagaDao();
+		vaga_id = 55;
+		String retorno = null;
+		try {
 		
-		UsuarioDao daoUser = new UsuarioDao();
-		Usuario user = daoUser.buscarPorId(usuario_id);
-		VagaHospedagemDao daoVaga = new VagaHospedagemDao();
-		VagaHospedagem vaga = daoVaga.buscarPorId(vaga_id);
+
+			CandidatoVagaDao dao = new CandidatoVagaDao();
+			
+			UsuarioDao daoUser = new UsuarioDao();
+			Usuario user = daoUser.buscarPorId(usuario_id);
+			VagaHospedagemDao daoVaga = new VagaHospedagemDao();
+			VagaHospedagem vaga = daoVaga.buscarPorId(vaga_id);
+			
+			candidatoVaga.setUsuario(user);
+			candidatoVaga.setVagaHospedagem(vaga);
+			candidatoVaga.setSituacao('1');
+			
+			dao.salvar(candidatoVaga);
+			
+			retorno = visualizar(candidatoVaga.getVagaHospedagem().getId(), model);
+			
+		}catch(Exception e){
+			
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+
 		
-		candidatoVaga.setUsuario(user);
-		candidatoVaga.setVagaHospedagem(vaga);
-		candidatoVaga.setSituacao('1');
-		
-		dao.salvar(candidatoVaga);
-		
-		return visualizar(candidatoVaga.getVagaHospedagem().getId(), model);
+			retorno = "hospedagem/visualizar";
+		}
+		return retorno;
 		
 	}
 	
