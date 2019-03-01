@@ -130,6 +130,15 @@ public class HospedagemController {
 			VagaHospedagemDao daoVaga = new VagaHospedagemDao();
 			VagaHospedagem vaga = daoVaga.buscarPorId(vaga_id);
 			
+			SimpleDateFormat dataFormatadaIda = new SimpleDateFormat("yyyy-MM-dd");
+			Date dataI = dataFormatadaIda.parse(dataIda);
+			candidatoVaga.setDataIda(dataI);
+			
+			SimpleDateFormat dataFormatadaVolta = new SimpleDateFormat("yyyy-MM-dd");
+			Date dataV = dataFormatadaVolta.parse(dataVolta);
+			candidatoVaga.setDataVolta(dataV);
+			
+			
 			candidatoVaga.setUsuario(user);
 			candidatoVaga.setVagaHospedagem(vaga);
 			candidatoVaga.setSituacao('1');
