@@ -17,9 +17,12 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/visualizarHospedagem.css" id="" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validAplicarParaVaga.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 
@@ -39,7 +42,7 @@
                 </div>
                 <div class="modal-body">
                     
-				<form action="aplicar" method="post">
+				<form action="aplicar" method="post" id="aplicarVaga">
  						
 		         <input type="hidden" value="${usuarioLogado.id}" name="usuario_id" class="form-control">
 		         <input type="hidden" value="${vagaHospedagem.id}" name="vaga_id" class="form-control">
@@ -117,7 +120,7 @@
 			
 		
 					<div>
-					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal"> Aplicar para a vaga</a>
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal" id="aplicarVaga"> Aplicar para a vaga</a>
 					</div>
 
 					
