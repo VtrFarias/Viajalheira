@@ -1,5 +1,8 @@
 package br.com.ifpe.viajalheira.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.ifpe.viajalheira.model.Beneficio;
 import br.com.ifpe.viajalheira.model.BeneficioDao;
@@ -16,6 +20,8 @@ import br.com.ifpe.viajalheira.model.CandidatoVaga;
 import br.com.ifpe.viajalheira.model.CandidatoVagaDao;
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
+import br.com.ifpe.viajalheira.model.Imagens;
+import br.com.ifpe.viajalheira.model.ImagensDao;
 import br.com.ifpe.viajalheira.model.TipoVaga;
 import br.com.ifpe.viajalheira.model.TipoVagaDao;
 import br.com.ifpe.viajalheira.model.Usuario;
@@ -24,6 +30,7 @@ import br.com.ifpe.viajalheira.model.VagaBeneficio;
 import br.com.ifpe.viajalheira.model.VagaBeneficioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;
 import br.com.ifpe.viajalheira.model.VagaHospedagemDao;
+import br.com.ifpe.viajalheira.util.Util;
 
 @Controller
 public class HospedagemController {
@@ -50,34 +57,37 @@ public class HospedagemController {
 	@RequestMapping("/hospedagem/save")
 	public String cadastrarEndereco1(Model model, HttpServletRequest request, Endereco endereco, 
 			@RequestParam("tipovaga") int tipoVaga, @RequestParam(value = "beneficio", required = false)int [] beneficio, 
-			VagaHospedagem vaga) {
+			VagaHospedagem vaga, @RequestParam("file")List <MultipartFile>  fotos) {
 		
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		vaga.setEndereco(endereco);
-		return cadastrarVaga1(model, vaga, beneficio, tipoVaga, request);
+		return cadastrarVaga1(model, vaga, beneficio, tipoVaga, request, fotos);
 	}
-	public String cadastrarVaga1(Model model,VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request) {
-		//UsuarioDao usuariodao = new UsuarioDao();
+	public String cadastrarVaga1(Model model,VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request, List<MultipartFile> fotos) {
 
-		try {
-
-			Usuario usu = (Usuario) request.getSession().getAttribute("usuarioLogado");
-			TipoVagaDao tipo = new TipoVagaDao();
-			TipoVaga tipov = tipo.buscarPorId(tipoVaga);
-			vaga.setUsuario(usu);
-			vaga.setTipoVaga(tipov);
-			vaga.setSituacao('1');
-			VagaHospedagemDao dao = new VagaHospedagemDao();
-			dao.salvar(vaga);
-				
-			
-		}catch(Exception e){
-			model.addAttribute("mensagemErro", "Ocorreu um erro, tente novamente mais tarde");
+		Usuario usu = (Usuario) request.getSession().getAttribute("usuarioLogado");
+		TipoVagaDao tipo = new TipoVagaDao();
+		TipoVaga tipov = tipo.buscarPorId(tipoVaga);
+		vaga.setUsuario(usu);
+		vaga.setTipoVaga(tipov);
+		vaga.setSituacao('1');
+		VagaHospedagemDao dao = new VagaHospedagemDao();
+		dao.salvar(vaga);
+		//salvar imagens
+		
+		ImagensDao dao1 = new ImagensDao();
+		for(MultipartFile foto: fotos) {
+			Imagens imagem = new Imagens();
+			if (Util.fazerUploadImagem(foto)) {
+				System.out.println(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
+				imagem.setDescricao(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
+				imagem.setVaga(vaga);
+				dao1.salvar(imagem);
+				}
 		}
-			return cadastrarVagaBeneficio1(model, vaga, beneficio);
-		}
-
+		return cadastrarVagaBeneficio1(model, vaga, beneficio);
+	}
 	public String cadastrarVagaBeneficio1(Model model, VagaHospedagem vaga,int [] beneficio) {
 		BeneficioDao ben = new BeneficioDao();
 		VagaBeneficioDao dao = new VagaBeneficioDao();
@@ -97,12 +107,16 @@ public class HospedagemController {
 		VagaHospedagemDao dao = new VagaHospedagemDao();
 		VagaHospedagem vaga = dao.buscarPorId(id);
 		model.addAttribute("vagaHospedagem", vaga);
+		ImagensDao img = new ImagensDao();
+		List<Imagens> lista = img.buscarPorIdd(id);
+		model.addAttribute("fotos", lista);
+		model.addAttribute("tamanho", lista.size());
 		
 		return "hospedagem/visualizar";
 	}
 	
 	@RequestMapping("/hospedagem/aplicar")
-	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga) {
+	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga, @RequestParam("dataIdaa") String dataIda, @RequestParam("dataVolt") String dataVolta) throws ParseException {
 		
 		vaga_id = 55;
 		String retorno = null;
@@ -115,6 +129,15 @@ public class HospedagemController {
 			Usuario user = daoUser.buscarPorId(usuario_id);
 			VagaHospedagemDao daoVaga = new VagaHospedagemDao();
 			VagaHospedagem vaga = daoVaga.buscarPorId(vaga_id);
+			
+			SimpleDateFormat dataFormatadaIda = new SimpleDateFormat("yyyy-MM-dd");
+			Date dataI = dataFormatadaIda.parse(dataIda);
+			candidatoVaga.setDataIda(dataI);
+			
+			SimpleDateFormat dataFormatadaVolta = new SimpleDateFormat("yyyy-MM-dd");
+			Date dataV = dataFormatadaVolta.parse(dataVolta);
+			candidatoVaga.setDataVolta(dataV);
+			
 			
 			candidatoVaga.setUsuario(user);
 			candidatoVaga.setVagaHospedagem(vaga);

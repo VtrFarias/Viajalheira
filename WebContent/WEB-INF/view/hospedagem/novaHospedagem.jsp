@@ -30,7 +30,7 @@
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<form id="formulariohos" action="save" method="post" onsubmit="cadastroComSucesso()">
+	<form id="formulariohos" action="save" method="post" onsubmit="cadastroComSucesso()" enctype="multipart/form-data">
 		<div class="row">
 
 			<div class="col">
@@ -148,7 +148,7 @@
 						<div class="row">
 							<div class="col">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="customFile">
+									<input type="file" class="custom-file-input" id="customFile" name="file" multiple>
 									<label class="custom-file-label" for="customFile">Imagem</label>
 								</div>
 							</div>
