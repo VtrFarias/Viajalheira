@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/paginaPerfil.css" id="" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	function enable(div, div1) {
 		document.getElementById(div).style.display = "none";
@@ -85,7 +86,7 @@
 									</p>
 								</div>
 								<div class="col">
-									<p class="textos">${usuario.dataNascimento}</p>
+									<p class="textos" id="dataNascimento"></p>
 								</div>
 							</div>
 							<div class="row">
@@ -107,7 +108,6 @@
 							<p>
 								<strong>Estado: </strong>${usuario.endereco.estado }</p>
 							<p>
-
 								<strong>Cidade: </strong>${usuario.endereco.cidade }</p>
 						</div>
 
@@ -120,7 +120,16 @@
 		</div>
 		
 	</div>
-				<a href="usuario/edit?id=${usuarioLogado.id}">Alterar Dados de Cadastro</a>
-				
+	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/idade.js"></script>
+	<script>
+		var dataString = "${usuario.dataNascimento}";
+		dataString = dataString.substring(0,10);
+		dataString = dataString.split("-");
+		
+		var idade = idade(dataString[0],dataString[1],dataString[2]);
+
+		$("#dataNascimento").html(idade+" anos");
+	</script>	
 </body>
 </html>

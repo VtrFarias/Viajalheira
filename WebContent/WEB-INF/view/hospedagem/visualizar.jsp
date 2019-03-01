@@ -17,9 +17,12 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/visualizarHospedagem.css" id="" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validAplicarParaVaga.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 
@@ -38,20 +41,24 @@
                     
                 </div>
                 <div class="modal-body">
-                    <form>
-
-					<input type="hidden" value="${usuarioLogado.id}" name="usuario">
-						<div class="row">
+                    
+				<form action="aplicar" method="post" id="aplicarVaga">
+ 						
+		         <input type="hidden" value="${usuarioLogado.id}" name="usuario_id" class="form-control">
+		         <input type="hidden" value="${vagaHospedagem.id}" name="vaga_id" class="form-control">
+		                 
+		                 <div class="row">
 							<div class="col form-group float-label-control">
-		                        <label class="label-input" for="dataIda">Data de Ida*</label>
-		                        <input type="date" id="dataIda" name="dataIda" class="form-control">
+								<label class="label-input" for="dataIda">Data de Ida*</label>
+		                        <input type="date" id="dataIda" name="dataIdaa" class="form-control">
 		                    </div>
 		                 
 		                    <div class="col form-group float-label-control">
-		                        <label class="label-input" for="dataVolta">Data de Volta*</label>
-		                        <input type="date" id="dataVolta" name="dataVolta" class="form-control">
+		                    	<label class="label-input" for="dataVolta">Data de Volta*</label>
+		                        <input type="date" id="dataVolta" name="dataVolt" class="form-control">
 		                    </div>
-		                 </div>
+		                </div>
+		                 
 	                    <div class="row">
 	                    	<div class="col form-group float-label-control">
 								<label class="label-input" for="inputDescricao">Descrição</label>
@@ -59,13 +66,15 @@
 							</div>
 	                    </div>
 						
+						<div class="modal-footer">
+                    <div>
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" type="submit">Feito!</button>
+					</div>
+					
+                </div>
 					</form>
                 </div>
-                <div class="modal-footer">
-                    <div>
-						<a class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" data-toggle="modal" data-target="#myModal">Feito!</a>
-					</div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -75,46 +84,126 @@
 	
 	<div class="row" id="lin">
 		<div class="col">
+		<div>${mensagemErro}</div>
 			<div class="card">
 				<div class="card-body">
+					<h4>${vagaHospedagem.titulo}</h4>
 					
-					<div id="demo" class="carousel slide" data-ride="carousel">
 					
 					  <!-- Indicators -->
-					  <ul class="carousel-indicators">
-					    <li data-target="#demo" data-slide-to="0" class="active"></li>
-					    <li data-target="#demo" data-slide-to="1"></li>
-					    <li data-target="#demo" data-slide-to="2"></li>
-					  </ul>
+					  <c:choose>
+					  		<c:when test="${tamanho > 0 }">
+					  			<div id="demo" class="carousel slide" data-ride="carousel">
+					  			 <ul class="carousel-indicators">
+									  <li data-target="#demo" data-slide-to="0" class="active"></li>
+									  <c:forEach var="foto1" varStatus="var" items="${fotos}">
+								  		<c:if test="${var.index != 0 }">
+								  			<li data-target="#demo" data-slide-to="${var.index}"></li>
+								  		</c:if>
+									  </c:forEach>
+								  </ul>
+								  <!-- The slideshow -->
+								  <div class="carousel-inner">
+									  <c:forEach var="foto" varStatus="gran" items="${fotos}">
+									  	<c:choose>
+									  		<c:when test="${gran.index == 0 }">
+									  			<div class="carousel-item active">
+									     			<img src="<%=request.getContextPath()%>/resources/img/${foto.descricao}" alt="..." width="1100" height="500">
+									    		</div>
+									  		</c:when>
+									  		<c:otherwise>
+									  			<div class="carousel-item">
+									      			<img src="<%=request.getContextPath()%>/resources/img/${foto.descricao}" alt="..." width="1100" height="500">
+									    		</div>
+									  		</c:otherwise>
+									  	</c:choose>
+									  </c:forEach>
+					   			</div>
+					  			<!-- Left and right controls -->
+								  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+								    <span class="carousel-control-prev-icon"></span>
+								  </a>
+								  <a class="carousel-control-next" href="#demo" data-slide="next">
+								    <span class="carousel-control-next-icon"></span>
+								  </a>
+								  </div>
+					  		</c:when>
+					  		<c:otherwise>
+					  			<div class="alert alert-warning">
+								  <strong>Essa Hospedagem não possui fotos</strong>
+								</div>
+					  		</c:otherwise>
+					  </c:choose>
+					 
 					  
-					  <!-- The slideshow -->
-					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img src="https://abrilveja.files.wordpress.com/2016/11/sanfran.jpg" alt="Los Angeles" width="1100" height="500">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="https://blog.100mentors.com/wp-content/uploads/2017/06/o-CHICAGO-facebook-1.jpg" alt="Chicago" width="1100" height="500">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/03/la-skyline.jpg?itok=7dDE4YyW&fc=50,50" alt="New York" width="1100" height="500">
-					    </div>
-					  </div>
+					 
 					  
-					  <!-- Left and right controls -->
-					  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-					    <span class="carousel-control-prev-icon"></span>
-					  </a>
-					  <a class="carousel-control-next" href="#demo" data-slide="next">
-					    <span class="carousel-control-next-icon"></span>
-					  </a>
-					</div>
+					
 			
 		
 					<div>
-					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal"> Aplicar para a vaga</a>
+					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal" id="aplicarVaga"> Aplicar para a vaga</a>
 					</div>
-
-					
+					<div class="row" >
+						
+						<div class="col-md-4 offset-md-4" style="border-bottom: solid 1px lightgrey; text-align:center">
+							<h4>Detalhes da Hospedagem</h4>
+						</div>
+						
+					</div>
+				<div class="row" style="padding-left: 2%; padding-right: 2%; ">	
+						<div class="col-7">
+						
+						
+						<div class="row cadaLinha">
+							<div class="col"><h5>Descrição da vaga:</h5></div>
+							<div class="col"><h6>${vagaHospedagem.descricao}</h6></div>
+						</div>
+						<div class="row cadaLinha">
+							<div class="col"><h5>Tipo da Vaga:</h5></div>
+							<div class="col"><h6>${vagaHospedagem.tipoVaga.descricao}</h6></div>
+						</div>
+						<div class="row cadaLinha">
+							<div class="col"><h5>Permanência:</h5></div>
+							<div class="col"><h6> Entre ${vagaHospedagem.tempoMinimoSemanas} e ${vagaHospedagem.tempoMaximoSemanas} Semanas </h6></div>
+						</div>
+						<div class="row cadaLinha">
+							<div class="col"><h5>Horas de Trabalho:</h5></div>
+							<div class="col"><h6>${vagaHospedagem.horasTrabalhoSemanal} </h6></div>
+						</div>
+						<div class="row" style="">
+							<div class="col"><h5>Hospedeiro:</h5></div>
+							<div class="col"><h6>${vagaHospedagem.usuario.nome} <small><a href="/viajalheira/perfil?id=${vagaHospedagem.usuario.id}">(ver mais)</a></small></h6></div>
+						</div>
+						
+						
+						</div>
+						<div class="col-5" style="text-align: left"><h4>Endereço da Hospedagem</h4>
+						
+							<div class="row">
+						
+								<div class="col"><h5>País:</h5> </div>   <div class="col"><h6>${vagaHospedagem.endereco.pais}</h6></div>
+						
+							</div>
+							<div class="row">
+						
+								<div class="col"><h5>Estado:</h5></div><div class="col"><h6>${vagaHospedagem.endereco.estado}</h6></div>
+						
+							</div>
+							<div class="row">
+						
+								<div class="col"><h5>Cidade:</h5> </div><div class="col"><h6>${vagaHospedagem.endereco.cidade}</h6></div>
+						
+							</div>
+							<div class="row">
+						
+								<div class="col"><h5>Lugadouro:</h5></div> </div><div class=""><h6> ${vagaHospedagem.endereco.rua}, ${vagaHospedagem.endereco.numerocasa}</h6></div>
+						
+							</div>
+						
+						</div>
+						
+				 </div>
 				</div>
 			</div>
 		</div>

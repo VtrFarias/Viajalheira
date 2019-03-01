@@ -71,7 +71,6 @@ public class UsuarioController {
 		Usuario usu = new Usuario();
 		UsuarioDao dao = new UsuarioDao();
 		usu = dao.buscarPorId(id);
-		System.out.println(usu.getCpfCnpj());
 		IdiomaUsuario idi = new IdiomaUsuario();
 		idi.setUsuario(usu);
 		IdiomaUsuarioDao a = new IdiomaUsuarioDao();
@@ -100,10 +99,17 @@ public class UsuarioController {
 	@RequestMapping("/usuario/novoCadastro")
 	public String novoCadastro(Model model) {
 
-		IdiomaDao dao = new IdiomaDao();
-		List<Idioma> listaIdiomas = dao.listar(null);
-		model.addAttribute("listaIdiomas", listaIdiomas);
-		
+		try {
+
+			IdiomaDao dao = new IdiomaDao();
+			List<Idioma> listaIdiomas = dao.listar(null);
+			model.addAttribute("listaIdiomas", listaIdiomas);
+				
+		}catch(Exception e){
+			
+			model.addAttribute("mensagemErro", "Ocorreu um erro, tente novamente mais tarde");
+		}
+
 		return "usuario/novoCadastro";
 	}
 
@@ -111,6 +117,8 @@ public class UsuarioController {
 	public String cadastroEndereco(Model model, Endereco endereco,
 			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario , @RequestParam("nascimento") String nasc) throws ParseException {
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
+		
+		
 		Date data = dataFormatada.parse(nasc);
 		usuario.setDataNascimento(data);
 		EnderecoDao dao = new EnderecoDao();
@@ -157,8 +165,12 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/usuario/update")
-	public String update(HttpSession session,Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma) {
+	public String update(HttpSession session,Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma,  @RequestParam("nascimento") String nasc) throws ParseException {
 	
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
+		Date data = dataFormatada.parse(nasc);
+		usuario.setDataNascimento(data);
+		
 		EnderecoDao dao = new EnderecoDao();
 		endereco.setId(idEnd);
 		dao.alterar(endereco);

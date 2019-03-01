@@ -47,11 +47,11 @@
                                 ${vagaHospedagem.descricao}
                             </p>
                             <ul class="icon">
-                                <li><a href="#" class=""><i class="material-icons" role="presentation">add</i></a></li>
+                                <li><a href="hospedagem/visualizar?id=${vagaHospedagem.id}" class=""><i class="material-icons" role="presentation">add</i></a></li>
                             </ul>
                         </div>
                     </div>
-                    <a href="hospedagem/visualizar?id=${vagaHospedagem.id}" class="mdl-button mdl-js-button mdl-button--primary"> Ver Mais</a>
+                    
                 </div>
                 
         
