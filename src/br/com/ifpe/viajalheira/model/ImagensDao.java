@@ -44,13 +44,25 @@ public class ImagensDao {
 		factory.close();
 		return lista;
 	}
-
 	public Imagens buscarPorId(int id) {
 		Imagens obj = null;
 		EntityManagerFactory factory =
 		Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		obj = manager.find(Imagens.class, id);
+		manager.close();
+		factory.close();
+		return obj;
+		}
+
+	public List<Imagens> buscarPorIdd(int id) {
+		List <Imagens> obj = null;
+		EntityManagerFactory factory =
+		Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createQuery("FROM Imagens WHERE vaga.id LIKE :paramID ORDER BY id");
+		query.setParameter("paramID", id);
+		obj =  query.getResultList();
 		manager.close();
 		factory.close();
 		return obj;

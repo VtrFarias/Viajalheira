@@ -258,5 +258,7 @@ a {
     color: #3e3947 !important;
     text-decoration: none;
 }
-
+.cadaLinha{
+	border-bottom: solid 1px lightgrey;
+}
   
