@@ -1,8 +1,5 @@
 package br.com.ifpe.viajalheira.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.com.ifpe.viajalheira.model.Beneficio;
 import br.com.ifpe.viajalheira.model.BeneficioDao;
-import br.com.ifpe.viajalheira.model.CandidatoVaga;
-import br.com.ifpe.viajalheira.model.CandidatoVagaDao;
 import br.com.ifpe.viajalheira.model.Endereco;
 import br.com.ifpe.viajalheira.model.EnderecoDao;
 import br.com.ifpe.viajalheira.model.Imagens;
@@ -25,7 +20,6 @@ import br.com.ifpe.viajalheira.model.ImagensDao;
 import br.com.ifpe.viajalheira.model.TipoVaga;
 import br.com.ifpe.viajalheira.model.TipoVagaDao;
 import br.com.ifpe.viajalheira.model.Usuario;
-import br.com.ifpe.viajalheira.model.UsuarioDao;
 import br.com.ifpe.viajalheira.model.VagaBeneficio;
 import br.com.ifpe.viajalheira.model.VagaBeneficioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;

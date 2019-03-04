@@ -22,7 +22,7 @@ public class CandidatoVaga {
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="id_usuario_aplicante")
+	@JoinColumn(name="usuario")
 	private Usuario usuario;
 
 	@OneToOne

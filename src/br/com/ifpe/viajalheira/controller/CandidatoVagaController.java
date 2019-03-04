@@ -3,10 +3,14 @@ package br.com.ifpe.viajalheira.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -64,8 +68,15 @@ public class CandidatoVagaController {
 	}
 
 	@RequestMapping("/hospedagem/notificacoes")
-	public String notificacoes() {
-
+	public String notificacoes(Model model, HttpSession session) {
+		
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		CandidatoVagaDao dao = new CandidatoVagaDao();
+		List<CandidatoVaga> listaAplicadas = dao.listarAplicadas(usuario.getId());
+		List<CandidatoVaga>  listaRecebidas = dao.listaRecebidas(usuario.getId());
+		
+		model.addAttribute("recebidas", listaRecebidas);
+		model.addAttribute("aplicadas", listaAplicadas);
 		return "hospedagem/notificacoes";
 
 	}

@@ -29,96 +29,129 @@
 
 
 	<c:import url="../comum/menu.jsp"></c:import>
+	<div class="row">
+	<h5 class="title">Suas aplicações</h5>
+
+	<c:choose>
+ 		<c:when test="${not empty aplicadas}">
+ 		
+			 			
+			<c:forEach var="vaga" items="${aplicadas}">
+				<div class="notice notice-info">
+					<div class="notice-image">
+						<div class="row">
+						 
+						  <div class="col-md-4 coluna-principal-1">
+						  	<div>
+						  		<img alt="" src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/07/wonderwoman-1280-9amembargo-1488818748850_1280w-920x584.jpg">
+						  	</div>
+							<div>
+								<span>Visitar perfil do host</span>
+							</div>
+						 
+						  </div>
+							  
+						  <div class="col">
+						 	
+						  	<h4 class="title">${vaga.vagaHospedagem.titulo}</h4>
+						  
+							 <div class="row">
+							 	<div class="col">
+							 		<div>
+							 			<span>Data de ida: </span>
+							 		</div>
+							 		<div>
+							 			<span>Data de volta:</span>
+							 		</div>
+							 	</div>
+							 	<div class="col">
+							 		<span>Status: </span>
+							 	</div>
+							 </div>
+						</div>
+						
+						<div class="notice-footer">
+							<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
+						</div>
+					  </div>
+						
+					</div>
+			    </div>
+			    
+			</c:forEach>
+ 		</c:when>
+ 		<c:otherwise>
+ 		<div class="notice">
+ 		
+ 			<h5>Voce ainda não aplicou para vagas</h5>
+ 		</div>
+ 		</c:otherwise>
+ 	</c:choose>
 	
-	<h5>Suas aplicações</h5>
-
-	<div class="notice notice-info">
-		<div class="notice-image">
-			<div class="row">
-			 
-			  <div class="col-md-4 coluna-principal-1">
-			  	<div>
-			  		<img alt="" src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/07/wonderwoman-1280-9amembargo-1488818748850_1280w-920x584.jpg">
-			  	</div>
-				<div>
-					<span>Visitar perfil do host</span>
-				</div>
-			 
-			  </div>
-				  
-			  <div class="col">
-			 	
-			  	<h4 class="title">titulo da vaga</h4>
-			  
-				 <div class="row">
-				 	<div class="col">
-				 		<div>
-				 			<span>Data de ida: </span>
-				 		</div>
-				 		<div>
-				 			<span>Data de volta:</span>
-				 		</div>
-				 	</div>
-				 	<div class="col">
-				 		<span>Status: </span>
-				 	</div>
-				 </div>
-			</div>
-			
-			<div class="notice-footer">
-				<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
-			</div>
-		  </div>
-			
-		</div>
-    </div>
-
+	</div>
+	<div class="row">
 	<h5>Aplicações para suas vagas</h5>
 
-		<div class="notice notice-success">
-		<div class="notice-image">
-			<div class="row">
-			 
-			  <div class="col-md-4 coluna-principal-1">
-			  	<div>
-			  		<img alt="" src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/07/wonderwoman-1280-9amembargo-1488818748850_1280w-920x584.jpg">
-			  	</div>
-				<div>
-					<span>Visitar perfil do host</span>
-				</div>
-			 
-			  </div>
-				  
-			  <div class="col">
-			 	
-			  	<h4 class="title">titulo da vaga</h4>
-			  
-				 <div class="row">
-				 	<div class="col">
-				 		<div>
-				 			<span>Data de vinda: </span>
-				 		</div>
-				 		<div>
-				 			<span>Data de saídas:</span>
-				 		</div>
-				 	</div>
-				 	<div class="col">
-				 		<span>Status: </span>
-				 	</div>
-				 </div>
-			</div>
-			
-			<div class="notice-footer">
-				<button class="mdl-button mdl-color-text--blue-500">Aceitar</button>
-			</div>
-			<div class="notice-footer">
-				<button class="mdl-button mdl-color-text--blue-500">Recusar</button>
-			</div>
-		  </div>
-			
-		</div>
-    </div>
+		
+	<c:choose>
+ 		<c:when test="${not empty recebidas}">
+ 		
+			 			
+			<c:forEach var="vaga" items="${recebidas}">
+				<div class="notice notice-sucess">
+					<div class="notice-image">
+						<div class="row">
+						 
+						  <div class="col-md-4 coluna-principal-1">
+						  	<div>
+						  		<img alt="" src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/07/wonderwoman-1280-9amembargo-1488818748850_1280w-920x584.jpg">
+						  	</div>
+							<div>
+								<span>Visitar perfil do host</span>
+							</div>
+						 
+						  </div>
+							  
+						  <div class="col">
+						 	
+						  	<h4 class="title">${vaga.vagaHospedagem.titulo}</h4>
+						  
+							 <div class="row">
+							 	<div class="col">
+							 		<div>
+							 			<span>Data de ida: </span>
+							 		</div>
+							 		<div>
+							 			<span>Data de volta:</span>
+							 		</div>
+							 	</div>
+							 	<div class="col">
+							 		<span>Status: </span>
+							 	</div>
+							 </div>
+						</div>
+						
+						<div class="notice-footer">
+							<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
+						</div>
+					  </div>
+						
+					</div>
+			    </div>
+			    
+			</c:forEach>
+ 		</c:when>
+ 		<c:otherwise>
+ 		<div class="notice">
+ 		
+ 			<h5>Ninguém aplicou para a sua vaga ou Você não possui vagas</h5>
+ 		</div>
+ 		</c:otherwise>
+ 	</c:choose>
 	
+	
+	</div>
+		
    <!-- Complemento do menu -->
         </div>
       </main>
