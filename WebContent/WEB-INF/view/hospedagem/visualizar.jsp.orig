@@ -17,8 +17,12 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
+<<<<<<< HEAD
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/visualizarHospedagem.css" id="" />
+=======
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/validacao.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/visualizarHospedagem.css" id="" />
+>>>>>>> 9852df85cd686574ce16909deca05851d53b8ed2
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
@@ -46,8 +50,8 @@
  						
 		         <input type="hidden" value="${usuarioLogado.id}" name="usuario_id" class="form-control">
 		         <input type="hidden" value="${vagaHospedagem.id}" name="vaga_id" class="form-control">
-					
-						<div class="row">
+		                 
+		                 <div class="row">
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="dataIda">Data de Ida*</label>
 		                        <input type="date" id="dataIda" name="dataIdaa" class="form-control">
@@ -57,7 +61,8 @@
 		                    	<label class="label-input" for="dataVolta">Data de Volta*</label>
 		                        <input type="date" id="dataVolta" name="dataVolt" class="form-control">
 		                    </div>
-		                 </div>
+		                </div>
+		                 
 	                    <div class="row">
 	                    	<div class="col form-group float-label-control">
 								<label class="label-input" for="inputDescricao">Descrição</label>
@@ -143,7 +148,7 @@
 					<div>
 					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal" id="aplicarVaga"> Aplicar para a vaga</a>
 					</div>
-					<div class="row" >
+					<div class="row">
 						
 						<div class="col-md-4 offset-md-4" style="border-bottom: solid 1px lightgrey; text-align:center">
 							<h4>Detalhes da Hospedagem</h4>
