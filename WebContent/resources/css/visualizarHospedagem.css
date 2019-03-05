@@ -261,4 +261,20 @@ a {
 .cadaLinha{
 	border-bottom: solid 1px lightgrey;
 }
+.titulos{
+	border-bottom: solid 1px lightgrey; 
+	text-align:center;
+}
+.titulos1{
+	text-align:center;
+}
+h5{
+	font-size: 16px;
+}
+h6{
+	font-size: 15px;
+}
+h4{
+	font-size: 18px;
+}
   

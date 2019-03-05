@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/googleFonts.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/material.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/menu.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/visualizarHospedagem.css" id="" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/visualizarHospedagem.css" id="" />
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
@@ -78,11 +78,11 @@
 
 	<c:import url="../comum/menu.jsp"></c:import>
 	
-	<div class="row" id="lin">
+	<div class="row" <c:if test="${tamanho == 0 }">style="width:200%;"</c:if>>
 		<div class="col">
 			<div class="card">
 				<div class="card-body">
-					<h4>${vagaHospedagem.titulo}</h4>
+					<h3 class="titulos1">${vagaHospedagem.titulo}</h3>
 					
 					
 					  <!-- Indicators -->
@@ -101,7 +101,7 @@
 								  <div class="carousel-inner">
 									  <c:forEach var="foto" varStatus="gran" items="${fotos}">
 									  	<c:choose>
-									  		<c:when test="${gran.index == 0 }">
+									  		<c:when test="${gran.index == 0}">
 									  			<div class="carousel-item active">
 									     			<img src="<%=request.getContextPath()%>/resources/img/${foto.descricao}" alt="..." width="1100" height="500">
 									    		</div>
@@ -139,60 +139,70 @@
 					<div>
 					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal"> Aplicar para a vaga</a>
 					</div>
-					<div class="row" >
+					<div class="row">
 						
 						<div class="col-md-4 offset-md-4" style="border-bottom: solid 1px lightgrey; text-align:center">
 							<h4>Detalhes da Hospedagem</h4>
 						</div>
 						
 					</div>
+					<div class="row"><br></div>
 				<div class="row" style="padding-left: 2%; padding-right: 2%; ">	
-						<div class="col-7">
+						<div class="col">
 						
 						
-						<div class="row cadaLinha">
-							<div class="col"><h5>Descrição da vaga:</h5></div>
-							<div class="col"><h6>${vagaHospedagem.descricao}</h6></div>
-						</div>
-						<div class="row cadaLinha">
-							<div class="col"><h5>Tipo da Vaga:</h5></div>
-							<div class="col"><h6>${vagaHospedagem.tipoVaga.descricao}</h6></div>
-						</div>
-						<div class="row cadaLinha">
-							<div class="col"><h5>Permanência:</h5></div>
-							<div class="col"><h6> Entre ${vagaHospedagem.tempoMinimoSemanas} e ${vagaHospedagem.tempoMaximoSemanas} Semanas </h6></div>
-						</div>
-						<div class="row cadaLinha">
-							<div class="col"><h5>Horas de Trabalho:</h5></div>
-							<div class="col"><h6>${vagaHospedagem.horasTrabalhoSemanal} </h6></div>
-						</div>
-						<div class="row" style="">
-							<div class="col"><h5>Hospedeiro:</h5></div>
-							<div class="col"><h6>${vagaHospedagem.usuario.nome} <small><a href="/viajalheira/perfil?id=${vagaHospedagem.usuario.id}">(ver mais)</a></small></h6></div>
-						</div>
-						
-						
-						</div>
-						<div class="col-5" style="text-align: left"><h4>Endereço da Hospedagem</h4>
-						
+							<div class="row cadaLinha">
+								<div class="col-3"><h5>Descrição da vaga:</h5></div>
+								<div class="col"><h6>${vagaHospedagem.descricao}</h6></div>
+								
+							</div>
+							<div class="row cadaLinha">
+								<div class="col-3"><h5>Tipo da Vaga:</h5></div>
+								<div class="col"><h6>${vagaHospedagem.tipoVaga.descricao}</h6></div>
+							</div>
+							<div class="row cadaLinha">
+								<div class="col-3"><h5>Permanência:</h5></div>
+								<div class="col"><h6> Entre ${vagaHospedagem.tempoMinimoSemanas} e ${vagaHospedagem.tempoMaximoSemanas} Semanas </h6></div>
+							</div>
+							<div class="row cadaLinha">
+								<div class="col-3"><h5>Horas de Trabalho:</h5></div>
+								<div class="col"><h6>${vagaHospedagem.horasTrabalhoSemanal} </h6></div>
+							</div>
+							<div class="row cadaLinha" style="">
+								<div class="col-3"><h5>Hospedeiro:</h5></div>
+								<div class="col"><h6>${vagaHospedagem.usuario.nome} <small><a href="/viajalheira/perfil?id=${vagaHospedagem.usuario.id}">(Ver Perfil)</a></small></h6></div>
+							</div>
+							
+							<!-- Endereço -->
 							<div class="row">
+									<div class="col-md-4 offset-md-4 titulos" style="">
+									<h4>Endereço da Hospedagem</h4>
+								</div>
+							</div>
+							<div class="row"><br></div>
+							<div class="row cadaLinha">
 						
-								<div class="col"><h5>País:</h5> </div>   <div class="col"><h6>${vagaHospedagem.endereco.pais}</h6></div>
+								<div class="col-3"><h5>País:</h5> </div>  
+								<div class="col "><h6>${vagaHospedagem.endereco.pais}</h6></div>
 						
 							</div>
-							<div class="row">
+							<div class="row cadaLinha">
 						
-								<div class="col"><h5>Estado:</h5></div><div class="col"><h6>${vagaHospedagem.endereco.estado}</h6></div>
-						
-							</div>
-							<div class="row">
-						
-								<div class="col"><h5>Cidade:</h5> </div><div class="col"><h6>${vagaHospedagem.endereco.cidade}</h6></div>
+								<div class="col-3"><h5>Estado:</h5></div>
+								<div class="col"><h6>${vagaHospedagem.endereco.estado}</h6></div>
 						
 							</div>
-							<div class="row">
+							<div class="row cadaLinha">
 						
-								<div class="col"><h5>Lugadouro:</h5></div> </div><div class=""><h6> ${vagaHospedagem.endereco.rua}, ${vagaHospedagem.endereco.numerocasa}</h6></div>
+								<div class="col-3"><h5>Cidade:</h5> </div>
+								<div class="col"><h6>${vagaHospedagem.endereco.cidade}</h6></div>
+								
+						
+							</div>
+							<div class="row cadaLinha">
+						
+								<div class="col-3"><h5>Lugadouro:</h5></div>
+								<div class="col"><h6> ${vagaHospedagem.endereco.rua}, ${vagaHospedagem.endereco.numerocasa}</h6></div>
 						
 							</div>
 						

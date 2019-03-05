@@ -38,7 +38,15 @@
                     <div class="box3">
                     
                     <h3 class="title-type">${vagaHospedagem.tipoVaga.descricao}</h3>
-                        <img src="https://img1.madeiramadeira.com.br/product/images/93158678-adesivo-paisagem-natureza-lago-papel-parede-montanhas-gg423prdjlgbeahvwvdsv-179-1-800x729.jpg">
+                    <c:choose>
+                    	<c:when test="${empty vagaHospedagem.imagem}">
+                    		<img src="<%=request.getContextPath()%>/resources/img/hospedagemDefault.png">
+                    	</c:when>
+                    	<c:otherwise>
+                    		<img src="<%=request.getContextPath()%>/resources/img/${vagaHospedagem.imagem.descricao}">
+                    	</c:otherwise>
+                    </c:choose>
+                        
                         
                         <div class="box-content">
                             <h3 class="title">${vagaHospedagem.titulo}</h3>

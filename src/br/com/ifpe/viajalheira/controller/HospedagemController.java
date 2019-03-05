@@ -77,11 +77,14 @@ public class HospedagemController {
 		for(MultipartFile foto: fotos) {
 			Imagens imagem = new Imagens();
 			if (Util.fazerUploadImagem(foto)) {
-				System.out.println(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
 				imagem.setDescricao(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
 				imagem.setVaga(vaga);
 				dao1.salvar(imagem);
+				if(fotos.indexOf(foto)==0) {
+					vaga.setImagem(imagem);
+					dao.alterar(vaga);
 				}
+			}
 		}
 		return cadastrarVagaBeneficio1(model, vaga, beneficio);
 	}

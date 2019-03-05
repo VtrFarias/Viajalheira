@@ -22,7 +22,9 @@ public class VagaHospedagem {
 	@ManyToOne
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
-	
+	@ManyToOne
+	@JoinColumn(name="imagem_capa_id")
+	private Imagens imagem;
 	@OneToOne
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
@@ -132,6 +134,14 @@ public class VagaHospedagem {
 
 	public void setDataAlteracao(Timestamp dataAlteracao) {
 		this.dataAlteracao = dataAlteracao;
+	}
+
+	public Imagens getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Imagens imagem) {
+		this.imagem = imagem;
 	}
 	
 	
