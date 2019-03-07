@@ -99,6 +99,7 @@
 
 						<!-- Quarta linha -->
 						<div class="row">
+							<p class="col-lg-12" id="msgerror"></p>
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="tempoMinimoSemanas">Tempo mínimo em
 									Semanas*</label> 
