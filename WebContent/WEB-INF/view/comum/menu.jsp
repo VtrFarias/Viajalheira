@@ -1,4 +1,4 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
@@ -18,7 +18,7 @@
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
            
-            <a href="/viajalheira/logout"><li class="mdl-menu__item">Sair</li></a>
+            <li class="mdl-menu__item"><a href="/viajalheira/logout">Sair</a></li>
           </ul>
         </div>
       </header>
@@ -26,7 +26,15 @@
         <header class=" ">
          
 	         <div class="header-avatar">
-	          <img src="<%=request.getContextPath()%>/resources/img/${usuarioLogado.imagem}" class="avatarPerfil">
+	       <c:choose>
+				<c:when test="${not empty usuarioLogado.imagem}">
+					<img src="<%=request.getContextPath()%>/resources/img/${usuarioLogado.imagem}" class="avatarPerfil">
+				</c:when>
+				<c:otherwise>
+					<img src="<%=request.getContextPath()%>/resources/img/avatar.jpg" class="avatarPerfil" alt="..." id="FotoPerfil">
+				</c:otherwise>
+			</c:choose>
+	          
 	        </div>
 	       
 	     
