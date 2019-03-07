@@ -47,7 +47,7 @@
                                 ${vagaHospedagem.descricao}
                             </p>
                             <ul class="icon">
-                                <li><a href="hospedagem/visualizar?id=${vagaHospedagem.id}" class=""><i class="material-icons" role="presentation">add</i></a></li>
+                                <li><a href="/viajalheira/hospedagem/visualizar?id=${vagaHospedagem.id}" class=""><i class="material-icons" role="presentation">add</i></a></li>
                             </ul>
                         </div>
                     </div>
