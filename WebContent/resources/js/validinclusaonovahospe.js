@@ -29,7 +29,8 @@ $(document).ready(function(){
     		horasTrabalhoSemanal: {
     			required: true,
     			minlength: 1,
-    			maxlength: 2
+    			maxlength: 2,
+    			digits: true
     		},
     		rua: {
     			required: true,
@@ -92,7 +93,8 @@ $(document).ready(function(){
     		horasTrabalhoSemanal: {
     			required: "Campo obrigatorio",
     			minlength:"Mínimo de 1 Digitos",
-    			maxlength:"Máximo de 2 Digitos"
+    			maxlength:"Máximo de 2 Digitos",
+    			digits: "Apenas Número positivo"
     		},
     		rua: {
     			required: "Campo obrigatorio",
@@ -127,9 +129,37 @@ $(document).ready(function(){
     		pais: {
     			required: "Campo obrigatorio"
     		}
-            
-            
+
         }
     });
 }); 
 
+function validarTempoSemanas() {
+	var tempoMinimoSemanas = $("#tempoMinimoSemanas option:selected").val();
+	var tempoMaximoSemanas = $("#tempoMaximoSemanas option:selected").val();
+	
+	tempoMinimoSemanas = parseInt(tempoMinimoSemanas);
+	tempoMaximoSemanas = parseInt(tempoMaximoSemanas);
+	
+	if(tempoMaximoSemanas < tempoMinimoSemanas) {
+		$("#msgerror").html("Tempo máximo deve ser maior ou igual a tempo mínimo");
+		$("#msgerror").css("color","red");
+		return false;
+	} else {
+		$("#msgerror").html("");
+		return true;
+	}
+}
+
+$(document).ready(function(){
+	$("#formulariohos").submit(function() {
+		if(!validarTempoSemanas()) {
+			return false;
+		} else {
+			return true;
+		}
+	});
+	$("#tempoMinimoSemanas, #tempoMaximoSemanas").change(function(){
+		validarTempoSemanas();
+	});
+});
