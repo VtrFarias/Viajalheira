@@ -30,7 +30,6 @@ public class CandidatoVagaController {
 			CandidatoVaga candidatoVaga, @RequestParam("dataIdaa") String dataIda, @RequestParam("dataVolt") String dataVolta)
 			throws ParseException {
 
-		vaga_id = 55;
 		String retorno = null;
 		try {
 
@@ -61,7 +60,7 @@ public class CandidatoVagaController {
 
 			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
 
-			retorno = "hospedagem/visualizar";
+			retorno = "forward:/hospedagem/visualizar?id="+vaga_id;
 		}
 		return retorno;
 
