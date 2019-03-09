@@ -65,6 +65,7 @@
 							</p>
 						</div>
 						
+						
 
 						<div class="col-md-6" id="center">
 							<h3 class="card-title">${usuario.nome}</h3>

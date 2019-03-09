@@ -28,6 +28,7 @@
 
 <!-- Importando o menu de navegação -->
 <c:import url="comum/menu.jsp"></c:import>
+	<div>${mensagemErro}</div>
  
 		<div class="container">
              <div class="row">

@@ -41,6 +41,7 @@ public class HospedagemController {
 	
 	@RequestMapping("/hospedagem/novoCadastro")
 	public String novoCadastro(Model model) {
+		try {
 		TipoVagaDao dao = new TipoVagaDao();
 		List<TipoVaga> listaTipoVaga = dao.listar(null);
 		
@@ -50,18 +51,27 @@ public class HospedagemController {
 		model.addAttribute("listaTipoVaga", listaTipoVaga);
 		model.addAttribute("listaBeneficio", listaBeneficio);
 		
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
+		
 		return "hospedagem/novaHospedagem";
 	}
 	
 
 	@RequestMapping("/hospedagem/save")
-	public String cadastrarEndereco1(Model model, HttpServletRequest request, Endereco endereco, 
+	public String cadastrarEndereco1(Model model, HttpServletRequest request, Endereco endereco, 			
 			@RequestParam("tipovaga") int tipoVaga, @RequestParam(value = "beneficio", required = false)int [] beneficio, 
 			VagaHospedagem vaga, @RequestParam("file")List <MultipartFile>  fotos) {
+		try {
 		
 		EnderecoDao dao = new EnderecoDao();
 		dao.salvar(endereco);
 		vaga.setEndereco(endereco);
+		
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
 		return cadastrarVaga1(model, vaga, beneficio, tipoVaga, request, fotos);
 	}
 	public String cadastrarVaga1(Model model,VagaHospedagem vaga, int [] beneficio, int tipoVaga, HttpServletRequest request, List<MultipartFile> fotos) {
@@ -104,6 +114,7 @@ public class HospedagemController {
 	
 	@RequestMapping("hospedagem/visualizar")
 	public String visualizar(@RequestParam("id") int id, Model model) {
+		try {
 		VagaHospedagemDao dao = new VagaHospedagemDao();
 		VagaHospedagem vaga = dao.buscarPorId(id);
 		model.addAttribute("vagaHospedagem", vaga);
@@ -112,13 +123,16 @@ public class HospedagemController {
 		model.addAttribute("fotos", lista);
 		model.addAttribute("tamanho", lista.size());
 		
+		
+}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}	
 		return "hospedagem/visualizar";
 	}
 	
 	@RequestMapping("/hospedagem/aplicar")
 	public String aplicar(Model model,@RequestParam("usuario_id") int usuario_id, @RequestParam("vaga_id") int vaga_id, CandidatoVaga candidatoVaga, @RequestParam("dataIdaa") String dataIda, @RequestParam("dataVolt") String dataVolta) throws ParseException {
 		
-		vaga_id = 55;
 		String retorno = null;
 		try {
 		

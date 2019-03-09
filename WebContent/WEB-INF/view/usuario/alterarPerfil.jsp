@@ -52,6 +52,7 @@
 		</div> -->
 
 	</div>
+	
 	<form role="form" id="form" action="usuario/update" method="post">
 		<div class="row">
 			<div class="col">
