@@ -223,6 +223,7 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validacao.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validMaxIdadeCadastro.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>	
 	
@@ -231,6 +232,5 @@
 			cadastroComSucesso();
 		</script>
 	</c:if>
-
 </body>
 </html>

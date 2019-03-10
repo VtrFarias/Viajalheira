@@ -21,9 +21,13 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	function enable(div, div1) {
-		document.getElementById(div).style.display = "none";
-		document.getElementById(div1).style.display = "block";
+	function enable() {
+		document.getElementById("FotoPerfil").style.display = "none";
+		document.getElementById("FormFoto").style.display = "block";
+	}
+	function disable() {
+		document.getElementById("FormFoto").style.display = "none";
+		document.getElementById("FotoPerfil").style.display = "block";
 	}
 </script>
 <style>
@@ -40,12 +44,28 @@
 					<div class="row">
 						
 						<div class="col-md-3" id="das">
+						<div id="FotoPerfil">
 							<c:choose>
 								<c:when test="${not empty usuario.imagem}">
 									<img src="<%=request.getContextPath()%>/resources/img/${usuario.imagem}" class="can" alt="...">
+									<c:choose>
+										<c:when test="${usuarioLogado.id eq usuario.id}">
+											<button onclick="enable()" class="mdl-button mdl-button--colored">Alterar Foto</button>
+										</c:when>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
-								<img src="<%=request.getContextPath()%>/resources/img/avatar.jpg" class="can" alt="...">
+									<img src="<%=request.getContextPath()%>/resources/img/avatar.jpg" class="can" alt="..." id="FotoPerfil">
+									<c:choose>
+										<c:when test="${usuarioLogado.id eq usuario.id}">
+											<button onclick="enable()" class="mdl-button mdl-button--colored">Alterar Foto</button>
+										</c:when>
+									</c:choose>
+									
+								</c:otherwise>
+							</c:choose>
+							</div>
+							<div style="display: none;" id="FormFoto" >
 									<form action="/viajalheira/alterarFoto" method="post" enctype="multipart/form-data" >
 									<div id="fotoalterar"><input type="hidden" value="${usuario.id}" name="idUsuario"></div>
 										
@@ -55,11 +75,10 @@
 											<label class="custom-file-label" for="customFile">Imagem</label>
 											</div>
 											<input type="submit" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect" value="Enviar">
-											
-										
 									</form>
-								</c:otherwise>
-							</c:choose>
+									<button onclick="disable()" class="mdl-button mdl-button--colored">Cancelar</button>
+							
+							</div>
 							<p class="textos" id="textos1">
 								<em>"${usuario.descricaoPerfil }"</em>
 							</p>

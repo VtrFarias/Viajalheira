@@ -228,16 +228,16 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 
 a#link-home:link {
-  color: #CDC5BF;
+  
 }
 
 
 .link-home:hover {
-  border-botton: solid 2px;
+  
 }
 
 .link-home:active {
-  color: blue;
+  
 }
 .cardAjuste {
 	margin:0;

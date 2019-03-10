@@ -20,6 +20,8 @@ import br.com.ifpe.viajalheira.model.Idioma;
 import br.com.ifpe.viajalheira.model.IdiomaDao;
 import br.com.ifpe.viajalheira.model.IdiomaUsuario;
 import br.com.ifpe.viajalheira.model.IdiomaUsuarioDao;
+import br.com.ifpe.viajalheira.model.Imagens;
+import br.com.ifpe.viajalheira.model.ImagensDao;
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;

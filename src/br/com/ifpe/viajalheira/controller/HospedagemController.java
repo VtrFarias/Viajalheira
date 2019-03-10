@@ -60,7 +60,7 @@ public class HospedagemController {
 	
 
 	@RequestMapping("/hospedagem/save")
-	public String cadastrarEndereco1(Model model, HttpServletRequest request, Endereco endereco, 			
+	public String cadastrarEndereco1(Model model, HttpServletRequest request, Endereco endereco, 
 			@RequestParam("tipovaga") int tipoVaga, @RequestParam(value = "beneficio", required = false)int [] beneficio, 
 			VagaHospedagem vaga, @RequestParam("file")List <MultipartFile>  fotos) {
 		try {
@@ -94,7 +94,11 @@ public class HospedagemController {
 				imagem.setDescricao(Util.obterMomentoAtual()+" - "+foto.getOriginalFilename());
 				imagem.setVaga(vaga);
 				dao1.salvar(imagem);
+				if(fotos.indexOf(foto)==0) {
+					vaga.setImagem(imagem);
+					dao.alterar(vaga);
 				}
+			}
 		}
 		return cadastrarVagaBeneficio1(model, vaga, beneficio);
 	}
