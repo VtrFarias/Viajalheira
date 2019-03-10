@@ -1,11 +1,9 @@
 $(document).ready(function() {
-var agora = new Date();
-	var anoLimite = new Date(agora.getTime());
-	anoLimite.setFullYear(agora.getFullYear() - 16);
+	var agora = new Date();
 	
-	var anoMax = anoLimite.getFullYear();
-	var mesMax = anoLimite.getMonth()+1;
-	var diaMax = anoLimite.getDate();
+	var anoMax = agora.getFullYear();
+	var mesMax = agora.getMonth()+1;
+	var diaMax = agora.getDate();
 	
 	if(mesMax < 10) {
 		mesMax = "0"+mesMax;

@@ -31,6 +31,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validAlteracaoUsuario.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validMaxIdadeCadastro.js"></script>
 <script type="text/javascript">
 	function enable(div, div1) {
 		document.getElementById(div).style.display = "none";

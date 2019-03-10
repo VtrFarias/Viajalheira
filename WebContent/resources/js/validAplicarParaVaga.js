@@ -10,10 +10,14 @@ $(document).ready(function(){
         },
         messages: {
         	dataIdaa: {
-                required: "Campo obrigatório"
+                required: "Campo obrigatório",
+                min: "Data inválida",
+                max: "Data inválida"
             },
             dataVolt:{
-				required:"Campo obrigatorio"
+				required:"Campo obrigatorio",
+				min: "Data inválida",
+				max: "Data inválida"
 			}
         }
     });
@@ -48,7 +52,7 @@ $(document).ready(function(){
 				/////////////////////////DEFININDO 1 SEMANA COMO VALOR MINIMO DE VOLTA, DE ACORDO COM O VALOR INFORMADO DA IDA.
 				
 				var DataMinVolta = new Date(dataIdaConfirmadaDate.getTime());
-				DataMinVolta.setDate(dataIdaConfirmadaDate.getDate() + 7);
+				DataMinVolta.setDate(dataIdaConfirmadaDate.getDate() + 14);
 				
 				var anoMinVoltaConfirmado = DataMinVolta.getFullYear();
 				var mesMinVoltaConfirmado = DataMinVolta.getMonth()+1;
