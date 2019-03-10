@@ -141,7 +141,12 @@
 			
 		
 					<div>
-					<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal" id="aplicarVaga"> Aplicar para a vaga</a>
+					<c:choose>
+						<c:when test="${vagaHospedagem.usuario.id ne usuarioLogado.id}">
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal" id="aplicarVaga"> Aplicar para a vaga</a>
+						</c:when>
+					</c:choose>
+					
 					</div>
 					<div class="row" >
 						
