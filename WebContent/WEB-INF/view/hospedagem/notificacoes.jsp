@@ -134,6 +134,9 @@
 						<div class="notice-footer">
 							<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
 						</div>
+						<div class="notice-footer">
+							<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
+						</div>
 					  </div>
 						
 					</div>
