@@ -37,11 +37,11 @@ public class VagaHospedagemDao {
 		if (!titulo.equals("") && tipoVaga.equals("")) {
 			query = manager.createQuery("FROM VagaHospedagem WHERE titulo LIKE :paramTitulo AND situacao NOT LIKE :paramSituacao ORDER BY descricao");
 			query.setParameter("paramTitulo", "%" + titulo + "%");
-			query.setParameter("paramSituacao",String.valueOf('0'));
+			query.setParameter("paramSituacao",'0');
 			} else if (titulo.equals("") && !tipoVaga.equals("")) {
 			query = manager.createQuery("FROM VagaHospedagem WHERE tipoVaga.descricao LIKE :paramDescricao AND situacao NOT LIKE :paramSituacao ORDER BY id");
 			query.setParameter("paramDescricao", "%" + tipoVaga + "%");
-			query.setParameter("paramSituacao",String.valueOf('0'));
+			query.setParameter("paramSituacao",'0');
 			} else if (!titulo.equals("") && !tipoVaga.equals("")) {
 			query = manager.createQuery(
 			"FROM VagaHospedagem WHERE titulo LIKE :paramTitulo AND tipoVaga.descricao LIKE :paramDescricao AND situacao NOT LIKE :paramSituacao ORDER BY id");

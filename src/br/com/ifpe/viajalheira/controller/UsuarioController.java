@@ -22,6 +22,8 @@ import br.com.ifpe.viajalheira.model.IdiomaUsuario;
 import br.com.ifpe.viajalheira.model.IdiomaUsuarioDao;
 import br.com.ifpe.viajalheira.model.Imagens;
 import br.com.ifpe.viajalheira.model.ImagensDao;
+import br.com.ifpe.viajalheira.model.TipoVaga;
+import br.com.ifpe.viajalheira.model.TipoVagaDao;
 import br.com.ifpe.viajalheira.model.Usuario;
 import br.com.ifpe.viajalheira.model.UsuarioDao;
 import br.com.ifpe.viajalheira.model.VagaHospedagem;
@@ -38,6 +40,10 @@ public class UsuarioController {
 
 	@RequestMapping("home")
 	public String home(Model model) {
+		TipoVagaDao daoTipoVaga = new TipoVagaDao();
+		List<TipoVaga> listaTipoVaga = daoTipoVaga.listar(null);
+		model.addAttribute("listaTipoVaga", listaTipoVaga);
+		
 		VagaHospedagemDao dao = new VagaHospedagemDao();
 		List<VagaHospedagem> listaHospedagem = dao.listar();
 		model.addAttribute("listaHospedagem",listaHospedagem);
