@@ -131,7 +131,10 @@
 						</div>
 
 					</div>
-					<c:choose><c:when test="${usuarioLogado.id eq usuario.id}"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="alterar?id=${usuario.id}"> Alterar dados</a></c:when></c:choose>
+					<c:choose>
+						<c:when test="${usuarioLogado.id eq usuario.id}"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="alterar?id=${usuario.id}"> Alterar dados</a>
+						</c:when>
+					</c:choose>
 				</div>
 				
 			</div>

@@ -256,6 +256,10 @@ a#link-home:link {
 	margin: 0px;
 	pading: 0px;
 }
+.imgCard{
+	width: 330px;
+	height: 206px;
+}
 #descricao{
 	text-align: center;
 	overflow: hidden;

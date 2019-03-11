@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
-	<persistence-unit name="viajalheira">
+	<persistence-unit name="viajalheira" transaction-type="RESOURCE_LOCAL">
 		<!-- Implementação do JPA, no nosso caso Hibernate -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
@@ -14,8 +14,12 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/viajalheira?
 useTimezone=true&amp;serverTimezone=UTC" />
-
+<<<<<<< HEAD
 			<property name="javax.persistence.jdbc.user" value="root" />
+=======
+
+			<property name="javax.persistence.jdbc.user" value="mgermano" />
+>>>>>>> a8688813172a3875d07a46c989beae9e466ed0e2
 
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="hibernate.connection.useUnicode" value="true" />

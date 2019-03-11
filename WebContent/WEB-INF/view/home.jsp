@@ -40,7 +40,7 @@
                     <h3 class="title-type">${vagaHospedagem.tipoVaga.descricao}</h3>
                     <c:choose>
                     	<c:when test="${empty vagaHospedagem.imagem}">
-                    		<img src="<%=request.getContextPath()%>/resources/img/hospedagemDefault.png">
+                    		<img src="<%=request.getContextPath()%>/resources/img/hospedagemDefault.png" class="imgCard">
                     	</c:when>
                     	<c:otherwise>
                     		<img src="<%=request.getContextPath()%>/resources/img/${vagaHospedagem.imagem.descricao}">
