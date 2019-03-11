@@ -49,9 +49,9 @@
                         
                         
                         <div class="box-content">
-                            <h3 class="title">${vagaHospedagem.titulo}</h3>
+                          <h3 class="title" id="titulo">${vagaHospedagem.titulo}</h3>
                             <span class="post">${vagaHospedagem.endereco.cidade} - ${vagaHospedagem.endereco.estado}, ${vagaHospedagem.endereco.pais} </span>
-                            <p class="description">
+                            <p class="description" id="descricao">
                                 ${vagaHospedagem.descricao}
                             </p>
                             <ul class="icon">

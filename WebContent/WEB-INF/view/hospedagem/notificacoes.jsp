@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,10 +44,10 @@
 						 
 						  <div class="col-md-4 coluna-principal-1">
 						  	<div>
-						  		<img alt="" src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/07/wonderwoman-1280-9amembargo-1488818748850_1280w-920x584.jpg">
+						  		<img alt="" src="${vaga.vagaHospedagem.imagem}">
 						  	</div>
 							<div>
-								<span>Visitar perfil do host</span>
+								<span><a href="/viajalheira/perfil?id=${vaga.vagaHospedagem.usuario.id}">Visitar perfil</a></span>
 							</div>
 						 
 						  </div>
@@ -58,14 +59,14 @@
 							 <div class="row">
 							 	<div class="col">
 							 		<div>
-							 			<span>Data de ida: </span>
+							 			<span>Data de ida: <fmt:formatDate value="${vaga.dataIda}" pattern="dd/MM/yyyy" /></span>
 							 		</div>
 							 		<div>
-							 			<span>Data de volta:</span>
+							 			<span>Data de volta: <fmt:formatDate value="${vaga.dataVolta}" pattern="dd/MM/yyyy" /></span>
 							 		</div>
 							 	</div>
 							 	<div class="col">
-							 		<span>Status: </span>
+							 		<span>Status: ${vaga.situacao }</span>
 							 	</div>
 							 </div>
 						</div>
@@ -104,10 +105,10 @@
 						 
 						  <div class="col-md-4 coluna-principal-1">
 						  	<div>
-						  		<img alt="" src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/07/wonderwoman-1280-9amembargo-1488818748850_1280w-920x584.jpg">
+						  		<img alt="" src="">
 						  	</div>
 							<div>
-								<span>Visitar perfil do host</span>
+								<span><a href="/viajalheira/perfil?id=${vaga.vagaHospedagem.usuario.id}"></a>Visitar perfil</span>
 							</div>
 						 
 						  </div>

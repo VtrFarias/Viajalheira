@@ -256,3 +256,15 @@ a#link-home:link {
 	margin: 0px;
 	pading: 0px;
 }
+#descricao{
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#titulo{
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

@@ -26,7 +26,7 @@ public class Util {
 		try {
 		// Criando o diretório para armazenar o arquivo
 			
-		String workspaceProjeto = "/home/mabi/Documents/git/Viajalheira";
+		String workspaceProjeto = "/home/val/Viajalheira";
 		File dir = new File(workspaceProjeto + "/WebContent/resources/img");
 		if (!dir.exists()) {
 		dir.mkdirs();
