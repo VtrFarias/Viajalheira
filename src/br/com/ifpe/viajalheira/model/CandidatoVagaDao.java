@@ -81,9 +81,9 @@ public class CandidatoVagaDao {
 		EntityManager manager = factory.createEntityManager();
 		Query query = null;
 
-		query = manager.createQuery("FROM CandidatoVaga WHERE vagaHospedagem.usuario.id LIKE :paramDono AND situacao LIKE :paramSituacao ORDER BY id");
+		query = manager.createQuery("FROM CandidatoVaga WHERE vagaHospedagem.usuario.id LIKE :paramDono AND situacao NOT LIKE :paramSituacao ORDER BY id");
 		query.setParameter("paramDono", id);
-		query.setParameter("paramSituacao", '1');
+		query.setParameter("paramSituacao", '0');
 
 		List<CandidatoVaga> lista = query.getResultList();
 		manager.close();

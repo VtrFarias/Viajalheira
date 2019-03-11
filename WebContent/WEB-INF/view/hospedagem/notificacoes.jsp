@@ -132,10 +132,10 @@
 						</div>
 						
 						<div class="notice-footer">
-							<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
+							<button class="mdl-button mdl-color-text--blue-500"><a href="/viajalheira/hospedagem/aceitar?id=${vaga.id}">Aceitar</a></button>
 						</div>
 						<div class="notice-footer">
-							<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
+							<button class="mdl-button mdl-color-text--blue-500"><a href="/viajalheira/hospedagem/recusar?id=${vaga.id}">Recusar</a></button>
 						</div>
 					  </div>
 						

@@ -88,6 +88,36 @@ public class CandidatoVagaController {
 		candidato.setSituacao('2');
 		dao.alterar(candidato);
 		
-		return "foward:notificacoes";
+		return "forward:notificacoes";
+	}
+	@RequestMapping("/hospedagem/recusar")
+	public String recusar( @RequestParam("id") int candidatoId) {
+		CandidatoVagaDao dao = new CandidatoVagaDao();
+		
+		CandidatoVaga candidato = dao.buscarPorId(candidatoId);
+		candidato.setSituacao('3');
+		dao.alterar(candidato);
+		
+		return "forward:notificacoes";
+	}
+	@RequestMapping("/hospedagem/reverter")
+	public String reverter( @RequestParam("id") int candidatoId) {
+		CandidatoVagaDao dao = new CandidatoVagaDao();
+		
+		CandidatoVaga candidato = dao.buscarPorId(candidatoId);
+		candidato.setSituacao('0');
+		dao.alterar(candidato);
+		
+		return "forward:notificacoes";
+	}
+	@RequestMapping("/hospedagem/finalizar")
+	public String finalizar	( @RequestParam("id") int candidatoId) {
+		CandidatoVagaDao dao = new CandidatoVagaDao();
+		
+		CandidatoVaga candidato = dao.buscarPorId(candidatoId);
+		candidato.setSituacao('4');
+		dao.alterar(candidato);
+		
+		return "forward:notificacoes";
 	}
 }
