@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -163,7 +164,7 @@ public class UsuarioController {
 		}
 	}
 	@RequestMapping("/usuario/update")
-	public String update(HttpSession session,Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma,  @RequestParam("nascimento") String nasc) throws ParseException {
+	public String update(HttpSession session, HttpServletRequest request, Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma,  @RequestParam("nascimento") String nasc) throws ParseException {
 	
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
 		Date data = dataFormatada.parse(nasc);
@@ -173,6 +174,26 @@ public class UsuarioController {
 		endereco.setId(idEnd);
 		dao.alterar(endereco);
 		usuario.setEndereco(endereco);
+		
+
+		Usuario usu = (Usuario) request.getSession().getAttribute("usuarioLogado");
+		IdiomaUsuarioDao daoIdioUsu = new IdiomaUsuarioDao();
+		IdiomaUsuario idioUsu = new IdiomaUsuario();
+		idioUsu.setUsuario(usu);
+		List<IdiomaUsuario> listIdiomasUsuaforrio = daoIdioUsu.listar(idioUsu);
+		for(IdiomaUsuario idiomaUsuario : listIdiomasUsuaforrio) {
+			daoIdioUsu.remover(idiomaUsuario.getId());
+		}
+		IdiomaDao idiomaDao = new IdiomaDao();
+		for (int id : idioma) {
+			Idioma idio = idiomaDao.buscarPorId(id);
+			IdiomaUsuario idiomaUsuario = new IdiomaUsuario();
+			IdiomaUsuarioDao daoIdiomaUsuario = new IdiomaUsuarioDao();
+
+			idiomaUsuario.setIdioma(idio);
+			idiomaUsuario.setUsuario(usuario);
+			daoIdiomaUsuario.salvar(idiomaUsuario);
+		}
 		
 		UsuarioDao dao1 = new UsuarioDao();
 		dao1.alterar1(usuario);
