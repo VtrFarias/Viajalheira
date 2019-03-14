@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/menu.css" />
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/card.css" />
-    
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/material.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
     
@@ -40,12 +39,8 @@
 </head>
 <body>
 
-<!-- O menu de navegação -->
-
-	<c:import url="comum/menu.jsp"></c:import>
-        <!-- END - O menu de navegação -->
-       
-
+<!-- Importando o menu de navegação -->
+<c:import url="comum/menu.jsp"></c:import>
  
 		<div class="container">
              <div class="row">

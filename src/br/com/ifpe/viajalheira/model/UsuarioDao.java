@@ -94,11 +94,11 @@ public class UsuarioDao {
 		factory.close();
 		return obj;
 		}
-	public void alterar1(Usuario usuario) {
+	public void alterar1(Usuario usuarioed) {
 		EntityManagerFactory factory =	Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.merge(usuario);
+		manager.merge(usuarioed);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
