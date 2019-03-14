@@ -40,6 +40,9 @@
 			 			
 			<c:forEach var="vaga" items="${aplicadas}">
 				<div class="notice notice-info">
+					<div class="notice-header">
+					<a class="mdl-button mdl-color-text--red-500  btn-small" href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><small>Excluir</small></a>
+				</div>
 					<div class="notice-image">
 						<div class="row">
 						 
@@ -128,7 +131,7 @@
 			<c:forEach var="vaga" items="${recebidas}">
 				<div class="notice notice-sucess">
 				<div class="notice-header">
-					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">Excluir Solicitação</a>
+					<a class="mdl-button mdl-color-text--red-500  btn-small" href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><small>Excluir</small></a>
 				</div>
 					<div class="notice-image">
 						<div class="row">
