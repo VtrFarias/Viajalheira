@@ -1,24 +1,37 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
           <a class="color-text--brown-500" href="/viajalheira/home"><span class="mdl-layout-title">Home</span></a>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Que tipo de oportunidade você procura?</label>
+          
+		  <i class="material-icons" id="searchButton">search</i>
+		  
+          <form action="/viajalheira/hospedagem/filter" id="formFilter">
+            <div class="mdl-textfield__expandable">
+              <input class="mdl-textfield__input" type="text" id="searchHospedagem" name="titulo" placeholder="Buscar por hospedagem" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Buscar por hospedagem'">
+              <label class="mdl-textfield__label" for="titulo"></label>
+            </div> 
+            <div class="mdl-textfield__expandable">
+            	<select class="form-control" id="tipovaga" name="tipovaga">
+					<option value=0>Buscar por tipo da Vaga</option>
+					<c:forEach var="tipoVaga" items="${listaTipoVaga}">
+						<option value="${tipoVaga.id}">${tipoVaga.descricao}</option>
+					</c:forEach>
+				</select>
             </div>
-          </div>
+            <div class="mdl-textfield__expandable">
+              <input class="buttonFilter" type="submit" value="Pesquisar">
+            </div>
+          </form>
+          
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
            
-            <a href="/viajalheira/logout"><li class="mdl-menu__item">Sair</li></a>
+            <li class="mdl-menu__item"><a href="/viajalheira/logout">Sair</a></li>
           </ul>
         </div>
       </header>
@@ -65,7 +78,3 @@
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
-         
-<!-- fechamentos devem ficar na página principal  -->
-       
-       

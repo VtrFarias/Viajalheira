@@ -9,10 +9,15 @@
             box-shadow: 0 5px 8px -6px rgba(0,0,0,.5);
 }
 .notice-header{
+<<<<<<< HEAD
+	float: right;
+}
+=======
 
 	float: right;
 }
 
+>>>>>>> b55faf02bdec4f71f9306ebbc88f412441f30af0
 .notice-image img{
 	width:200px;
 	height:125px;

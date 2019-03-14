@@ -31,6 +31,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validAlteracaoUsuario.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/validMaxIdadeCadastro.js"></script>
 <script type="text/javascript">
 	function enable(div, div1) {
 		document.getElementById(div).style.display = "none";
@@ -52,6 +53,7 @@
 		</div> -->
 
 	</div>
+	
 	<form role="form" id="form" action="usuario/update" method="post">
 		<div class="row">
 			<div class="col">
@@ -86,7 +88,13 @@
 									type="email" id="email" value="${usuario.email}"
 									name="email" class="form-control" required>
 							</div>
+							
 						</div>
+						<div class="col form-group float-label-control">
+								<label class="label-input" for="senha">Senha*</label> <input
+									type="password" id="senha" value="${usuarioLogado.senha}"
+									name="senha" class="form-control" required>
+							</div>
 						<!-- Terceira linha -->
 
 

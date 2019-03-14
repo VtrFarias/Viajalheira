@@ -83,7 +83,6 @@
 	
 	<div class="row" <c:if test="${tamanho == 0 }">style="width:200%;"</c:if>>
 		<div class="col">
-		<div>${mensagemErro}</div>
 			<div class="card">
 				<div class="card-body">
 					<h3 class="titulos1">${vagaHospedagem.titulo}</h3>

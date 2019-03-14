@@ -268,3 +268,57 @@ a#link-home:link {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+
+.mdl-textfield__expandable {
+ 			display: inline-block;
+ 			margin: 0px 15px 0px 0px;
+ 			font-size: 1.6em
+ 		}  
+ 		.buttonFilter {
+		    padding: 7px 20px 7px 20px;
+		    background-color: white;
+		    border: 1px solid rgb(255,171,64);
+		    border-radius: 0px 15px 15px 0px;
+		    color: rgb(255,171,64);
+		    -webkit-transition: background-color 1s; /* Safari */
+		    transition: background-color 1s;
+		    -webkit-transition: color 1s; /* Safari */
+		    transition: color 1s;
+		}
+		.buttonFilter:hover {
+		    background-color: rgb(255,171,64);
+		    color: white;
+		    -webkit-transition: background-color 1s; /* Safari */
+		    transition: background-color 1s;
+		    -webkit-transition: color 1s; /* Safari */
+		    transition: color 1s;
+		}
+		.form-control {
+			padding:6px;
+			margin: 0px -15px 0px 0px;
+		    background-color: #fff;
+		    border: none;
+		    font-family: "Helvetica","Arial",sans-serif;
+		    font-size: 16px;
+    		border-bottom: 1px solid rgba(0,0,0,.12);
+    		color: inherit;
+		}
+		#searchHospedagem {
+			padding: 6.5px;
+			background-color: #fff;
+			border-radius: 15px 0px 0px 15px;
+		}
+		#searchButton {
+			padding: 5px;
+			cursor: pointer;
+			margin-left: 5px;
+		}
+		#searchButton:hover {
+			background-color: #ddd;
+			border-radius: 20px;
+			padding: 5px;
+		}
+		#formFilter{
+			display: none;
+		}

@@ -41,11 +41,16 @@
 			<c:forEach var="vaga" items="${aplicadas}">
 				<div class="notice notice-info">
 					<div class="notice-header">
+<<<<<<< HEAD
+					<a class="mdl-button mdl-color-text--red-500  btn-small" href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><small>Excluir</small></a>
+				</div>
+=======
 						<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">
 							Excluir
 						 <span class="glyphicon glyphicon-trash"></span>
 						 </a>
 					</div>
+>>>>>>> 50cc8109f17aaed7adfaf9fe6f6fb0a9c9a477d0
 					<div class="notice-image">
 						<div class="row">
 						 
@@ -132,9 +137,16 @@
  		
 			 			
 			<c:forEach var="vaga" items="${recebidas}">
-				<div class="notice notice-sucess">
+				<div class="notice notice-success">
 				<div class="notice-header">
-					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">Excluir Solicitação</a>
+<<<<<<< HEAD
+					<a class="mdl-button mdl-color-text--red-500  btn-small" href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><small>Excluir</small></a>
+=======
+					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">
+						Excluir
+					 <span class="glyphicon glyphicon-trash"></span>
+					 </a>
+>>>>>>> 50cc8109f17aaed7adfaf9fe6f6fb0a9c9a477d0
 				</div>
 					<div class="notice-image">
 						<div class="row">
