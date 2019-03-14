@@ -69,4 +69,16 @@ public class IdiomaUsuarioDao {
 		factory.close();
 		}
 	
+	public void remover(int id) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+		IdiomaUsuario idiomaUsuario = manager.find(IdiomaUsuario.class, id);
+		
+		manager.getTransaction().begin();
+		manager.remove(idiomaUsuario);
+		manager.getTransaction().commit();
+		
+		manager.close();
+		factory.close();
+	}
 }

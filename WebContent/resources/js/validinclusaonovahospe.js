@@ -30,6 +30,7 @@ $(document).ready(function(){
     			required: true,
     			minlength: 1,
     			maxlength: 2,
+    			min: 1,
     			digits: true
     		},
     		rua: {
@@ -94,6 +95,7 @@ $(document).ready(function(){
     			required: "Campo obrigatorio",
     			minlength:"Mínimo de 1 Digitos",
     			maxlength:"Máximo de 2 Digitos",
+    			min: "Mínimo de 1 Hora",
     			digits: "Apenas Número positivo"
     		},
     		rua: {

@@ -99,6 +99,29 @@ public class HospedagemController {
 
 	}
 	
+	@RequestMapping("/hospedagem/filter")
+	public String filtrarHospedagem(VagaHospedagem hospedagem,@RequestParam("tipovaga") int tipoVaga, Model model) {
+
+		if(tipoVaga > 0) {
+			TipoVagaDao tipo = new TipoVagaDao();
+			TipoVaga tipov = tipo.buscarPorId(tipoVaga);
+			hospedagem.setTipoVaga(tipov);
+		}else if(tipoVaga == 0) {
+			TipoVaga tipov = new TipoVaga();
+			tipov.setDescricao("");
+			hospedagem.setTipoVaga(tipov);
+		}
+		
+		TipoVagaDao daoTipoVaga = new TipoVagaDao();
+		List<TipoVaga> listaTipoVaga = daoTipoVaga.listar(null);
+		model.addAttribute("listaTipoVaga", listaTipoVaga);
+		
+		VagaHospedagemDao dao = new VagaHospedagemDao();
+		List<VagaHospedagem> listaHospedagem = dao.listar(hospedagem);
+		model.addAttribute("listaHospedagem", listaHospedagem);
+		return "home";
+	}
+	
 	@RequestMapping("hospedagem/visualizar")
 	public String visualizar(@RequestParam("id") int id, Model model) {
 		VagaHospedagemDao dao = new VagaHospedagemDao();
