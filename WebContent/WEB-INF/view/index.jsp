@@ -46,6 +46,7 @@
   
 </form>
 	<div class="msg-erro">
+		<div>${mensagemErrologin}</div>
 		<span class="text-center text-danger">${msg}</span>
 	</div>
 		</div>

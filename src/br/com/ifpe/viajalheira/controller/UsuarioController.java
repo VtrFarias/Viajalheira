@@ -53,7 +53,8 @@ public class UsuarioController {
 
 	@RequestMapping("login")
 	public String login(Usuario usuario, BindingResult result, HttpSession session, Model model) {
-
+		try {
+		
 		String retorno = "";
 		UsuarioDao dao = new UsuarioDao();
 		usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
@@ -67,7 +68,12 @@ public class UsuarioController {
 			model.addAttribute("msg", "Email ou Senha incorretos. <br/>Tente novamente.");
 			retorno = "index";
 		}
-		return retorno;
+		
+		}catch(Exception e){
+			model.addAttribute("mensagemErrologin", "Sistema Indisponivel no momento, tente novamente mais tarde.");
+}
+		
+			return "forward:/home";
 	}
 
 	@RequestMapping("logout")
@@ -77,6 +83,7 @@ public class UsuarioController {
 	}
 	@RequestMapping("perfil")
 	public String visu(Model model,  HttpSession session, @RequestParam("id") int id) {
+		try {
 		Usuario usu = new Usuario();
 		UsuarioDao dao = new UsuarioDao();
 		usu = dao.buscarPorId(id);
@@ -86,10 +93,15 @@ public class UsuarioController {
 		List<IdiomaUsuario> lis = a.listar(idi); 
 		model.addAttribute("lis", lis);
 		model.addAttribute("usuario", usu);
+		
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
 		return "usuario/visualizarPerfil";
 	}
 	@RequestMapping("alterar")
 	public String alter(Model model, Model model1,  HttpSession session, @RequestParam("id") int id) {
+		try {
 		Usuario usu = new Usuario();
 		UsuarioDao dao = new UsuarioDao();
 		usu = dao.buscarPorId1(id);
@@ -102,6 +114,10 @@ public class UsuarioController {
 		IdiomaDao dao1 = new IdiomaDao();
 		List<Idioma> listaIdiomas = dao1.listar(null);
 		model1.addAttribute("listaIdiomas", listaIdiomas);
+		
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
 		return "usuario/alterarPerfil";
 	}
 
@@ -115,9 +131,8 @@ public class UsuarioController {
 			model.addAttribute("listaIdiomas", listaIdiomas);
 				
 		}catch(Exception e){
-			
-			model.addAttribute("mensagemErro", "Ocorreu um erro, tente novamente mais tarde");
-		}
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
 
 		return "usuario/novoCadastro";
 	}
@@ -126,7 +141,7 @@ public class UsuarioController {
 	public String cadastroEndereco(Model model, Endereco endereco,
 			@RequestParam(value = "idioma", required = false) int[] idioma, Usuario usuario , @RequestParam("nascimento") String nasc) throws ParseException {
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
-		
+	try {
 		
 		Date data = dataFormatada.parse(nasc);
 		usuario.setDataNascimento(data);
@@ -134,6 +149,9 @@ public class UsuarioController {
 		dao.salvar(endereco);
 		usuario.setEndereco(endereco);
 		
+	}catch(Exception e){
+		model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
 		return cadastroUsuario(model, usuario, idioma);
 		
 	}
@@ -163,9 +181,25 @@ public class UsuarioController {
 			dao.salvar(idiomaUsuario);
 		}
 	}
+
+	@RequestMapping("/usuario/edit")
+	public String edit(@RequestParam("id") Integer id, Model model){
+		try {
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usuarioed = dao.buscarPorId1(id);
+		model.addAttribute("usuarioed", usuarioed);
+		
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
+		return "usuario/alterarPerfil";
+	}
+
 	@RequestMapping("/usuario/update")
 	public String update(HttpSession session, HttpServletRequest request, Model model,@RequestParam("idendereco") int idEnd, Endereco endereco, Usuario usuario,@RequestParam(value = "idioma", required = false) int[] idioma,  @RequestParam("nascimento") String nasc) throws ParseException {
 	
+		try {
+		
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("yyyy-MM-dd");
 		Date data = dataFormatada.parse(nasc);
 		usuario.setDataNascimento(data);
@@ -200,10 +234,16 @@ public class UsuarioController {
 		session.setAttribute("usuarioLogado", usuario);
 		model.addAttribute("mensagem", "Cadastro Alterado com Sucesso !");
 		//this.alterarIdiomaUsuario(idioma, usuario);
+	
+		}catch(Exception e){
+			model.addAttribute("mensagemErro", "Ocorreu um erro tente novamente mais tarde");
+}
+		
 		return "forward:/home";
 	}
 	@RequestMapping("alterarFoto")
 	public String alterarFoto(@RequestParam("file") MultipartFile imagem, @RequestParam("idUsuario") int id, HttpSession session) {
+	
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuario = dao.buscarPorId(id);
 		if (Util.fazerUploadImagem(imagem)) {
@@ -211,8 +251,10 @@ public class UsuarioController {
 			}
 		dao.alterar(usuario);
 		session.setAttribute("usuarioLogado", usuario);
+		
 		return "forward:/perfil?id="+id;
 	}
+	
 	
 
 }
