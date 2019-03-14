@@ -8,6 +8,10 @@
        -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.5);
             box-shadow: 0 5px 8px -6px rgba(0,0,0,.5);
 }
+.notice-header{
+
+	float: right;
+}
 
 .notice-image img{
 	width:200px;
