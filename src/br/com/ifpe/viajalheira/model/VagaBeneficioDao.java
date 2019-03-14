@@ -33,7 +33,7 @@ public class VagaBeneficioDao {
 		Query query = null;
 	    int vaga = vagaBeneficio != null ? vagaBeneficio.getVaga().getId(): 0;
 		if (vaga > 0) {
-			query = manager.createQuery("FROM VagaBeneficio WHERE vaga LIKE :paramVaga ORDER BY id");
+			query = manager.createQuery("FROM VagaBeneficio WHERE vaga.id LIKE :paramVaga ORDER BY id");
 			query.setParameter("paramVaga", vaga);
 		} else {
 			query = manager.createQuery("FROM VagaBeneficio ORDER BY id");

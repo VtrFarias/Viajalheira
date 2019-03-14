@@ -76,22 +76,27 @@
 							 </div>
 						</div>
 								<div class="notice-footer">
+								<fmt:parseNumber var="intValue" value="${vaga.situacao}"/>
 								 	<c:choose>
-								 		<c:when test="${vaga.situacao != 1}">
+								 		<c:when test="${intValue == 1}">
 								 			<span>Status: Aguardando Confirmação</span>
-								 			<button class="mdl-button mdl-color-text--blue-500">Reverter</button>
+								 			<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Reverter</button></a>
 								 		</c:when>
-								 		<c:when test="${vaga.situacao != 2}">
-								 			<button class="mdl-button mdl-color-text--blue-500">Finalizar</button>
+								 		<c:when test="${intValue == 2}">
+								 			<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Finalizar</button></a>
 								 		</c:when>
-								 		<c:when test="${vaga.situacao != 3}">
-								 			<span>Status: Em andamento</span>
+								 		<c:when test="${intValue == 3}">
+								 			<span>Recusado, provavelmente não disponivel na data solicitada!</span>
 								 		</c:when>
-								 		<c:when test="${vaga.situacao != 4}">
+								 		<c:when test="${intValue == 4}">
 								 			<span>Esta vaga Foi finalizada</span>
 								 		</c:when>
 								 	</c:choose>
-							 	${vaga.situacao }
+								 	
+								 	
+
+								 	
+							 	
 							 	</div>
 						
 						
@@ -122,6 +127,9 @@
 			 			
 			<c:forEach var="vaga" items="${recebidas}">
 				<div class="notice notice-sucess">
+				<div class="notice-header">
+					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">Excluir Solicitação</a>
+				</div>
 					<div class="notice-image">
 						<div class="row">
 						 
@@ -156,32 +164,30 @@
 							 	</div>
 							 </div>
 						</div>
+						
 						<div class="notice-footer">
+						
+								<fmt:parseNumber var="intValue" value="${vaga.situacao}"/>
 								 	<c:choose>
-								 		<c:when test="${vaga.situacao != 1}">
+								 		<c:when test="${intValue == 1}">
 								 			<span>Aceitar ou recusar</span>
 								 			<a href="/viajalheira/hospedagem/aceitar?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Aceitar</button></a>
 								 			<a href="/viajalheira/hospedagem/recusar?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Recusar</button></a>
 								 		</c:when>
-								 		<c:when test="${vaga.situacao != 2}">
-								 			<span>Status: ${vaga.situacao }</span>
+								 		<c:when test="${intValue == 2}">
+								 			<span>Em andamento: </span>
+								 			<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Finalizar</button></a>
 								 		</c:when>
-								 		<c:when test="${vaga.situacao != 3}">
-								 			<span>Status: Em andamento</span>
+								 		<c:when test="${intValue == 3}">
+								 			<span>Recusado</span>
 								 		</c:when>
-								 		<c:when test="${vaga.situacao != 4}">
+								 		<c:when test="${intValue == 4}">
 								 			<span>Esta vaga Foi finalizada</span>
 								 		</c:when>
 								 	</c:choose>
-							 	${vaga.situacao }
+							 	
 							 	</div>
 						
-						<div class="notice-footer">
-							
-						</div>
-						<div class="notice-footer">
-							
-						</div>
 					  </div>
 						
 					</div>

@@ -43,7 +43,7 @@
                     		<img src="<%=request.getContextPath()%>/resources/img/hospedagemDefault.png" class="imgCard">
                     	</c:when>
                     	<c:otherwise>
-                    		<img src="<%=request.getContextPath()%>/resources/img/${vagaHospedagem.imagem.descricao}">
+                    		<img src="<%=request.getContextPath()%>/resources/img/${vagaHospedagem.imagem.descricao}" class="imgCard">
                     	</c:otherwise>
                     </c:choose>
                         

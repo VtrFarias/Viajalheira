@@ -106,6 +106,14 @@ public class HospedagemController {
 		model.addAttribute("vagaHospedagem", vaga);
 		ImagensDao img = new ImagensDao();
 		List<Imagens> lista = img.buscarPorIdd(id);
+		VagaBeneficioDao ben = new VagaBeneficioDao();
+		VagaBeneficio vag = new VagaBeneficio();
+		vag.setVaga(vaga);
+		List<VagaBeneficio> listaben = ben.listar(vag);
+		model.addAttribute("listaBeneficios", listaben);
+		for(VagaBeneficio vagab :listaben) {
+			System.out.println(vagab.getBeneficio().getDescricao());
+		}
 		model.addAttribute("fotos", lista);
 		model.addAttribute("tamanho", lista.size());
 		

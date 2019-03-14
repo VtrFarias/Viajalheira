@@ -214,6 +214,18 @@
 								<div class="col"><h6> ${vagaHospedagem.endereco.rua}, ${vagaHospedagem.endereco.numerocasa}</h6></div>
 						
 							</div>
+							<div class="row">
+									<div class="col-md-4 offset-md-4 titulos" style="">
+									<h4>Beneficios da Hospedagem</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="beneficios">
+									<c:forEach var="vagaBen" items="${listaBeneficios}">
+										 <li>${vagaBen.beneficio.descricao}</li>
+									</c:forEach>	
+								</div>
+							</div>
 						
 						</div>
 						
