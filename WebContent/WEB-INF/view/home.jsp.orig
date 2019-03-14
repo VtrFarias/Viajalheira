@@ -47,11 +47,11 @@
         <!-- END - O menu de navegação -->
        
 
-=======
+
 <!-- Importando o menu de navegação -->
 <c:import url="comum/menu.jsp"></c:import>
 	<div>${mensagemErro}</div>
->>>>>>> 39874df38773a943fb13293b9cf96ad76bb7b7d0
+
  
 		<div class="container">
              <div class="row">
