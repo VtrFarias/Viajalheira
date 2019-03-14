@@ -42,7 +42,6 @@
 	    <h2>Cadastro de Usuário</h2>
 
 	</div>
-	
 	  <form id="cadastrousuario" role="form" id="formulario" action="save" method="post">
       <div class="row">
         <div class="col">
@@ -56,9 +55,7 @@
 	     			  <div class="row">
 		                    <div class="col form-group float-label-control">
 		                        <label class="label-input" for="nome">Nome*</label>
-
 		                        <input type="text" id="nome" name="nome" class="form-control" maxlength="254" >
-
 		                    </div>
 		                    
 		                    <div class="col form-group float-label-control">

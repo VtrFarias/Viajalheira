@@ -53,7 +53,6 @@
 		</div> -->
 
 	</div>
-	
 	<form role="form" id="form" action="usuario/update" method="post">
 		<div class="row">
 			<div class="col">
@@ -88,13 +87,7 @@
 									type="email" id="email" value="${usuario.email}"
 									name="email" class="form-control" required>
 							</div>
-							
 						</div>
-						<div class="col form-group float-label-control">
-								<label class="label-input" for="senha">Senha*</label> <input
-									type="password" id="senha" value="${usuarioLogado.senha}"
-									name="senha" class="form-control" required>
-							</div>
 						<!-- Terceira linha -->
 
 
