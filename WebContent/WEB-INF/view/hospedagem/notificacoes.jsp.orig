@@ -42,14 +42,15 @@
 				<div class="notice notice-info">
 					<div class="notice-header">
 <<<<<<< HEAD
-						<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">Excluir</a>
+					<a class="mdl-button mdl-color-text--red-500  btn-small" href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><small>Excluir</small></a>
+				</div>
 =======
 						<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">
 							Excluir
 						 <span class="glyphicon glyphicon-trash"></span>
 						 </a>
->>>>>>> b55faf02bdec4f71f9306ebbc88f412441f30af0
 					</div>
+>>>>>>> 50cc8109f17aaed7adfaf9fe6f6fb0a9c9a477d0
 					<div class="notice-image">
 						<div class="row">
 						 
@@ -139,13 +140,13 @@
 				<div class="notice notice-success">
 				<div class="notice-header">
 <<<<<<< HEAD
-					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">Excluir</a>
+					<a class="mdl-button mdl-color-text--red-500  btn-small" href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><small>Excluir</small></a>
 =======
 					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">
 						Excluir
 					 <span class="glyphicon glyphicon-trash"></span>
 					 </a>
->>>>>>> b55faf02bdec4f71f9306ebbc88f412441f30af0
+>>>>>>> 50cc8109f17aaed7adfaf9fe6f6fb0a9c9a477d0
 				</div>
 					<div class="notice-image">
 						<div class="row">
