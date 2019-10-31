@@ -59,7 +59,7 @@
                   </ol>
             <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <img class="d-block img-fluid" src="http://longitudes.com.br/wp-content/uploads/2013/11/backpacker.jpg" alt="First slide">
+      <img class="d-block img-fluid" src="https://i0.wp.com/7cantosdomundo.com.br/novo/wp-content/uploads/2018/08/Livros-de-viagem-1-e1535465325922.jpg?fit=1070%2C713&ssl=1" alt="First slide">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
 	        <h2>Viajalheira</h2>
@@ -68,7 +68,7 @@
   </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="https://abrilviagemeturismo.files.wordpress.com/2017/05/jdevnani-guatape-high.jpg" alt="First slide">
+      <img class="d-block img-fluid" src="https://abrilexame.files.wordpress.com/2017/09/thinkstockphotos-100266190.jpg" alt="First slide">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
           
@@ -78,7 +78,7 @@
     </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="https://i1.wp.com/www.vortexmag.net/wp-content/uploads/2018/04/8203081981_cf69fcfd51_o-e1524230060171.jpg?fit=1200%2C841&ssl=1" alt="First slide">
+      <img class="d-block img-fluid" src="https://www.cvc.com.br/dicas-de-viagem/wp-content/uploads/2018/07/topo-maldivas-dubai.jpg" alt="First slide">
       <div class="carousel-caption d-none d-md-block">
         <div class="banner-text">
            <h2>Viajalheira</h2>

@@ -81,11 +81,14 @@
 
 	<c:import url="../comum/menu.jsp"></c:import>
 	
-	<div class="row" <c:if test="${tamanho == 0 }">style="width:200%;"</c:if>>
 		<div class="col">
 			<div class="card">
 				<div class="card-body">
 					<h3 class="titulos1">${vagaHospedagem.titulo}</h3>
+					<c:choose>
+						<c:when test="${vagaHospedagem.usuario.id eq usuarioLogado.id}"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="alterar?id=${vagaHospedagem.id}"> Alterar dados</a>
+						</c:when>
+					</c:choose>
 					
 					
 					  <!-- Indicators -->
@@ -232,7 +235,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
    <!-- Complemento do menu -->
         </div>
