@@ -262,5 +262,15 @@ public class UsuarioController {
 
 		return "forward:/home";
 	}
+	@RequestMapping("usuario/certificados")
+	public String certificados() {
 
+		return "usuario/certificados";
+	}
+
+	@RequestMapping("usuario/pacotes")
+	public String pacotes() {
+
+		return "usuario/pacotes";
+	}
 }

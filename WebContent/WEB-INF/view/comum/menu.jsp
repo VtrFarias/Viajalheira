@@ -62,10 +62,11 @@
           <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/perfil?id=${usuarioLogado.id}"><i class="mdl-color-text--brown-800 material-icons" role="presentation">account_circle</i>Minha Conta</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/hospedagem/novoCadastro"><i class="mdl-color-text--brown-500 material-icons" role="presentation">home</i>Nova Hospedagem</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/hospedagem/notificacoes"><i class="mdl-color-text--brown-500 material-icons" role="presentation">announcement</i>Notificações</a>
+          <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/usuario/certificados"><i class="mdl-color-text--brown-500 material-icons" role="presentation">description</i>Certificados</a>
+          <a class="mdl-navigation__link mdl-color-text--brown-500" href="/viajalheira/usuario/pacotes"><i class="mdl-color-text--brown-500 material-icons" role="presentation">card_giftcard</i>Pacotes de uso</a>
+          
 
           <!-- 
-          <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">report</i>Spam</a>
-          <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">forum</i>Forums</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">flag</i>Updates</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">local_offer</i>Promos</a>
           <a class="mdl-navigation__link mdl-color-text--brown-500" href=""><i class="mdl-color-text--brown-500 material-icons" role="presentation">shopping_cart</i>Purchases</a>

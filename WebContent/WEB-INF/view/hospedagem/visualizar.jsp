@@ -38,7 +38,6 @@
                         <i class="material-icons">clear</i>
                     </button>
                     
-                    
                 </div>
                 <div class="modal-body">
                     

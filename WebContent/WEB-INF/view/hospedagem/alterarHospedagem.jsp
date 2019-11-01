@@ -30,7 +30,7 @@
 </head>
 <body>
 	<c:import url="../comum/menu.jsp"></c:import>
-	<form id="formulariohos" action="save" method="post" onsubmit="cadastroComSucesso()" enctype="multipart/form-data">
+	<form id="formulariohos" action="update" method="post" onsubmit="cadastroComSucesso()" enctype="multipart/form-data">
 		<div class="row">
 
 			<div class="col">
@@ -57,7 +57,7 @@
 								<label class="label-input" for="descricao">
 									Descrição Da vaga*
 								</label> 
-								<input type="text" id="descricao" name="descricao" class="form-control" >
+								<input type="text" id="descricao" value="${vagaHospedagem.descricao}"name="descricao" class="form-control" >
 							</div>
 						</div>
 						
@@ -167,14 +167,13 @@
 						<!-- Primeira linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="rua">Rua*</label> <input
-									type="text" id="rua" name="rua" class="form-control" >
+								<label class="label-input" for="rua">Rua*</label> 
+								<input type="text" id="rua" value="${vagaHospedagem.endereco.rua}" name="rua" class="form-control" >
 							</div>
 
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="numeroho">Número*</label> <input
-									type="text" id="numero" name="numerocasa" class="form-control"
-									>
+								<label class="label-input" for="numeroho">Número*</label> 
+								<input type="text" id="numero" value="${vagaHospedagem.endereco.numero}" name="numerocasa" class="form-control">
 							</div>
 						</div>
 
@@ -183,29 +182,26 @@
 							<div class="col form-group float-label-control">
 								<label class="label-input" for="complemento">Complemento*</label>
 								<input type="text" id="complemento" name="complemento"
-									class="form-control">
+									value="${vagaHospedagem.endereco.complemento}" class="form-control">
 							</div>
 
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="bairro">Bairro*</label> <input
-									type="text" id="bairro" name="bairro" class="form-control"
-									>
+								<label class="label-input" for="bairro">Bairro*</label> 
+								<input type="text" id="bairro" value="${vagaHospedagem.endereco.bairro}" name="bairro" class="form-control">
 							</div>
 
 						</div>
 						<!-- Terceira linha -->
 						<div class="row">
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="cidade">Cidade*</label> <input
-									type="text" id="cidade" name="cidade" class="form-control"
-									>
+								<label class="label-input" for="cidade">Cidade*</label> 
+								<input type="text" id="cidade" value="${vagaHospedagem.endereco.cidade}" name="cidade" class="form-control">
 							</div>
 
 
 							<div class="col form-group float-label-control">
-								<label class="label-input" for="estado">Estado*</label> <input
-									type="text" id="estado" name="estado" class="form-control"
-									>
+								<label class="label-input" for="estado">Estado*</label> 
+								<input type="text" id="estado" value="${vagaHospedagem.endereco.estado}" name="estado" class="form-control">
 							</div>
 
 						</div>
@@ -213,8 +209,8 @@
 
 						<!-- Quarta linha -->
 						<div class="form-group">
-							<label class="label-titulo" for="pais">País*</label> <select
-								class="form-control" id="pais" name="pais" >
+							<label class="label-titulo" for="pais">País*</label> 
+							<select class="form-control" id="pais" name="pais" >
 								<option></option>
 								<option>Brasil</option>
 								<option>Chile</option>
