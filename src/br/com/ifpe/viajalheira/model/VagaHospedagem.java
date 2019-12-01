@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name="vaga_hospedagem")
 public class VagaHospedagem {
@@ -20,15 +23,19 @@ public class VagaHospedagem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	@JoinColumn(name="imagem_capa_id")
 	private Imagens imagem;
 	@OneToOne
+	@Cascade(CascadeType.ALL)
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 	@ManyToOne
+	@Cascade(CascadeType.ALL)
 	@JoinColumn(name="id_tipo_vaga")
 	private TipoVaga tipoVaga;
 	@Column
@@ -46,6 +53,7 @@ public class VagaHospedagem {
 	
 	@Column(name="data_alteracao")
 	private Timestamp dataAlteracao;
+	
 
 	
 	public int getId() {

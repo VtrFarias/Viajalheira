@@ -46,7 +46,35 @@
              <div class="row">
                 <!-- Card -->
 			   <c:forEach var="vagaHospedagem" items="${listaHospedagem}">
-			
+			     <div class="cardAjuste col">
+			   <div class="demo-card-square mdl-card mdl-shadow--2dp" style="width: 320px;
+  height: 320px;">
+  					 <c:choose>
+                    	<c:when test="${empty vagaHospedagem.imagem}">
+                    		<div class="mdl-card__title mdl-card--expand" style="background:url('<%=request.getContextPath()%>/resources/img/hospedagemDefault.png');-webkit-background-size: cover;">
+                    	</c:when>
+                    	<c:otherwise>
+                    		<div class="mdl-card__title mdl-card--expand" style="background:url('<%=request.getContextPath()%>/resources/img/${vagaHospedagem.imagem.descricao}');-webkit-background-size: cover;">
+                    	</c:otherwise>
+                    </c:choose>
+				  
+				  </div>
+				  <div class="mdl-card__supporting-text">
+				    <h5 style="margin:1px;">${vagaHospedagem.titulo}</h5>
+				    <span>${vagaHospedagem.endereco.cidade} - ${vagaHospedagem.endereco.estado}, ${vagaHospedagem.endereco.pais}</span>
+				    <br>
+				    <em>Categoria: ${vagaHospedagem.tipoVaga.descricao}</em>
+				  </div>
+				  <div class="mdl-card__actions mdl-card--border">
+				    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/viajalheira/hospedagem/visualizar?id=${vagaHospedagem.id}" >
+				    	Ver Mais
+				    </a>
+				  </div>
+				</div>
+			   </div>
+			   
+			   
+				<!-- 
                 <div class="cardAjuste col">
                     <div class="box3">
                     
@@ -74,7 +102,7 @@
                     </div>
                     
                 </div>
-                
+                -->
         
 				
             </c:forEach>
