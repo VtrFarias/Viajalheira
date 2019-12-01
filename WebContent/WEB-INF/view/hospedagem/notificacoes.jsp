@@ -41,10 +41,7 @@
 			<c:forEach var="vaga" items="${aplicadas}">
 				<div class="notice notice-info">
 					<div class="notice-header">
-						<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">
-							Excluir
-						 <span class="glyphicon glyphicon-trash"></span>
-						 </a>
+							
 					</div>
 					<div class="notice-image">
 						<div class="row">
@@ -134,7 +131,6 @@
 			<c:forEach var="vaga" items="${recebidas}">
 				<div class="notice notice-sucess">
 				<div class="notice-header">
-					<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}">Excluir Solicitação</a>
 				</div>
 					<div class="notice-image">
 						<div class="row">

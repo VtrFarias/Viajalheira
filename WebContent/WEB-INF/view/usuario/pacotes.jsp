@@ -90,8 +90,7 @@
 							<div class="col-md-6">
 								<div>
 									<p>
-										<b>Viagem + criação de vagas ilimitadas por 3 meses + suporte da equipe
-											viajalheira</b>
+										<b>Viagem + criação de vagas ilimitadas + suporte da equipe Viajalheira por 3 meses</b>
 									</p>
 								</div>
 
@@ -121,8 +120,8 @@
 							<div class="col-md-6">
 								<div>
 									<p>
-										<b>Viagem + criação de vagas ilimitadas por 3 meses + emissão de certificado + <br> suporte da equipe
-											viajalheira</b>
+										<b>Viagem + criação de vagas ilimitadas + emissão de certificado + <br> suporte da equipe
+											Viajalheira por 3 meses </b>
 									</p>
 								</div>
 
