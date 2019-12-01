@@ -22,3 +22,11 @@ function cadastroComSucesso(){
 			  'success'
 			)
 }
+
+function enviarCertificado(){
+	Swal.fire(
+			  'Pronto!',
+			  'Certificado enviado por email.',
+			  'success'
+			)
+}

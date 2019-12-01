@@ -15,8 +15,6 @@
 <title>Viajalheira</title>
 <meta name="mobile-web-app-capable" content="yes">
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css"
 	id="bootstrap-css" />
@@ -28,14 +26,18 @@
 	href="<%=request.getContextPath()%>/resources/css/menu.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/notificacao.css" />
-
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/sweetalert.css">
+    
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/material.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
+	
 
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/alerts.js"></script>	
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/sweetalert.js"></script>
 </head>
 <body>
 
@@ -49,7 +51,7 @@
 
 		<div class="notice notice-sucess">
 			<div class="notice-header">
-				<a href="#">Emitir Certificado</a>
+				<a href="#" onclick="enviarCertificado()">Emitir Certificado</a>
 			</div>
 			<div class="notice-image">
 				<div class="row">
