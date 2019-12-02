@@ -85,7 +85,9 @@
 				<div class="card-body">
 					<h3 class="titulos1">${vagaHospedagem.titulo}</h3>
 					<c:choose>
-						<c:when test="${vagaHospedagem.usuario.id eq usuarioLogado.id}"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="alterar?id=${vagaHospedagem.id}"> Alterar dados</a>
+						<c:when test="${vagaHospedagem.usuario.id eq usuarioLogado.id}">
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="alterar?id=${vagaHospedagem.id}"> Alterar dados</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="delete?id=${vagaHospedagem.id}"> Deletar Vaga</a>
 						</c:when>
 					</c:choose>
 					

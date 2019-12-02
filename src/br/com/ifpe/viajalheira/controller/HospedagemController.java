@@ -242,5 +242,25 @@ public class HospedagemController {
 
 		return "forward:/home";
 	}
+	
+	@RequestMapping("/hospedagem/delete")
+	public String delete(HttpSession session, HttpServletRequest request, Model model,
+						@RequestParam("id") int id) {
+		VagaHospedagemDao vagaDao = new VagaHospedagemDao();
+		VagaHospedagem vaga = vagaDao.buscarPorId(id);
+		vaga.setSituacao('0');
+		vagaDao.alterar(vaga);
+
+		return "forward:/home";
+	}
+	
+	@RequestMapping("/hospedagem/chat")
+	public String chat(HttpSession session, HttpServletRequest request, Model model) {
+		System.out.println("fsdf");
+
+		return "usuario/chat";
+	}
+
+
 
 }

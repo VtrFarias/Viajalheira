@@ -28,6 +28,44 @@
 <body>
 
 
+ <div class="modal fade show" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Motivo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">clear</i>
+                    </button>
+                    
+                </div>
+                <div class="modal-body">
+                    
+				<form action="#" method="post" id="motivo">
+					
+	                    <div class="row">
+	                    	<div class="col form-group float-label-control">
+								<label class="label-input" for="inputDescricao">Descrição</label>
+								<textarea class="form-control" required="true" id="inputDescricao" name="descricao" placeholder="Conte-nos o motivo..." rows="3"></textarea>
+							</div>
+	                    </div>
+						
+						<div class="modal-footer">
+                    <div>
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-300" type="submit">Feito!</button>
+					</div>
+					
+                </div>
+					</form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 	<c:import url="../comum/menu.jsp"></c:import>
 	
@@ -56,7 +94,7 @@
 						  		</c:if>
 						  	</div>
 							<div>
-								<span><a href="/viajalheira/perfil?id=${vaga.vagaHospedagem.usuario.id}">Visitar perfil</a></span>
+								<span><a href="/viajalheira/hospedagem/visualizar?id=${vaga.vagaHospedagem.usuario.id}">Visitar perfil</a></span>
 							</div>
 						 
 						  </div>
@@ -75,6 +113,16 @@
 							 			Data de volta: <fmt:formatDate value="${vaga.dataVolta}" pattern="dd/MM/yyyy" />
 							 		</div>
 							 	</div>
+							 	<div class="col">
+							 		<div>
+							 			Hospedeiro:
+							 		</div>
+							 		<div>
+							 			<a href="/viajalheira/perfil?id=${vaga.vagaHospedagem.usuario.id}">${vaga.vagaHospedagem.usuario.nome}</a>
+							 		</div>
+							 	</div>
+							 	
+							 	
 							 	
 							 </div>
 						</div>
@@ -83,14 +131,14 @@
 								 	<c:choose>
 								 		<c:when test="${intValue == 1}">
 								 			<span>Status: Aguardando Confirmação</span>
-								 			<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Reverter</button></a>
+												<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500" >Reverter</button></a>
 								 		</c:when>
 								 		<c:when test="${intValue == 2}">
 								 			<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Finalizar</button></a>
 								 		</c:when>
 								 		<c:when test="${intValue == 3}">
-								 			<span>Recusado, provavelmente não disponivel na data solicitada!</span>
-								 		</c:when>
+								 			<span>Recusado: </span>
+								 			<span>Motivos alegados pelo <br>hospedeiro enviados por email.</span>								 		</c:when>
 								 		<c:when test="${intValue == 4}">
 								 			<span>Esta vaga Foi finalizada</span>
 								 		</c:when>
@@ -146,7 +194,7 @@
 						  		
 						  	</div>
 							<div>
-								<span><a href="/viajalheira/perfil?id=${vaga.vagaHospedagem.usuario.id}"></a>Visitar perfil</span>
+								<span><a href="/viajalheira/hospedagem/visualizar?id=${vaga.vagaHospedagem.id}">Visitar perfil</a></span>
 							</div>
 						 
 						  </div>
@@ -164,6 +212,14 @@
 							 			<span>Data de volta: <fmt:formatDate value="${vaga.dataVolta}" pattern="dd/MM/yyyy" /></span>
 							 		</div>
 							 	</div>
+							 	<div class="col">
+							 		<div>
+							 			<span>Viajante Interessado:</span>
+							 		</div>
+							 		<div>
+							 			<span><a href="/viajalheira/perfil?id=${vaga.usuario.id}">${vaga.usuario.nome}</a></span>
+							 		</div>
+							 	</div>
 							 </div>
 						</div>
 						
@@ -174,14 +230,15 @@
 								 		<c:when test="${intValue == 1}">
 								 			<span>Aceitar ou recusar</span>
 								 			<a href="/viajalheira/hospedagem/aceitar?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Aceitar</button></a>
-								 			<a href="/viajalheira/hospedagem/recusar?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Recusar</button></a>
+								 			<!-- <a href="/viajalheira/hospedagem/recusar?id=${vaga.id}">--><button class="mdl-button mdl-color-text--blue-500" data-toggle="modal" onclick="chamaModal(${vaga.id})">Recusar</button><!-- </a> -->
 								 		</c:when>
 								 		<c:when test="${intValue == 2}">
 								 			<span>Em andamento: </span>
 								 			<a href="/viajalheira/hospedagem/reverter?id=${vaga.id}"><button class="mdl-button mdl-color-text--blue-500">Finalizar</button></a>
 								 		</c:when>
 								 		<c:when test="${intValue == 3}">
-								 			<span>Recusado</span>
+								 		
+								 			<span>Recusado.</span>
 								 		</c:when>
 								 		<c:when test="${intValue == 4}">
 								 			<span>Esta vaga Foi finalizada</span>
@@ -191,10 +248,11 @@
 							 	</div>
 						
 					  </div>
-						
+						<!-- fim da row  -->
 					</div>
+					<!-- fim notice-image -->
 			    </div>
-			    
+			    <!-- fim do card completo -->
 			</c:forEach>
  		</c:when>
  		<c:otherwise>
@@ -214,6 +272,13 @@
     </div>
    <!-- Fim de complemento do menu -->
 
-	
+
+	<script>
+		function chamaModal(id){
+			console.log(id);
+			$('#motivo').attr('action', '/viajalheira/hospedagem/recusar?id='+id);
+			$('#myModal').modal('show');
+		}
+	</script>
 </body>
 </html>
