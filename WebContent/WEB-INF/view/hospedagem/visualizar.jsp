@@ -147,6 +147,7 @@
 					<c:choose>
 						<c:when test="${vagaHospedagem.usuario.id ne usuarioLogado.id}">
 							<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-toggle="modal" data-target="#myModal" id="aplicarVaga"> Aplicar para a vaga</a>
+							<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="chat"> Chat com o Hospedeiro</a>
 						</c:when>
 					</c:choose>
 					
